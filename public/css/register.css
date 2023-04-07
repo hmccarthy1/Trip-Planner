@@ -1,0 +1,18 @@
+h2  {
+    font-size: 11pt;
+}
+
+#usernameDiv, #passwordDiv {
+    display: flex;
+    gap: 5px;
+}
+
+.loginSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 30vh;
+}
