@@ -2,17 +2,21 @@ h2  {
     font-size: 11pt;
 }
 
-#usernameDiv, #passwordDiv {
-    display: flex;
-    gap: 5px;
+label, input{
+    display: inline-block;
+    vertical-align: middle;
 }
+
+label {
+    width: 6em; /* adjust the width as needed */
+  }
 
 .loginSection {
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
     width: 100vw;
     margin-top: 30vh;
 }

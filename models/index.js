@@ -1,3 +1,4 @@
+
 var testUser;
 var testSpring;
 var testSpringReview
@@ -33,3 +34,12 @@ const runTests = async function() {
 
 
 runTests();
+=======
+const User = require('./User');
+
+// Blog.belongsTo(User, {
+//   foreignKey: 'user_id'
+// });
+
+module.exports = { User };
+
