@@ -2,12 +2,13 @@ const Spring = require('./Spring');
 const User = require('./User');
 const springReview = require('./springReview')
 const reviewMedia = require('./reviewMedia')
-
+const favoritedSpring = require('./favoritedSpring')
 
 var testUser;
 var testSpring;
 var testSpringReview;
 var testReviewMedia;
+var testFavoritedSpring;
 
 const runTests = async function() {
   testUser = await User.create({
@@ -19,7 +20,7 @@ const runTests = async function() {
     phoneNumber: '321-210-9676'
   })
   testSpring =  await Spring.create({
-    springName: "Blue Springs (olu)",
+    springName: "Blue Springs (volaaaaasaia)",
     latitude: 145.33354,
     longitude: 145.33354,
     springState: "FL",
@@ -35,12 +36,16 @@ const runTests = async function() {
       Caption: "a picture of volusia blue springs"
 
     });
-
+    testFavoritedSpring = await favoritedSpring.create({
+      User: 1,
+      Spring: 1
+    })
 
     console.log( testUser );
     console.log( testSpring );
     console.log( testSpringReview );
-    console.log( testReviewMedia );
+    console.log( testReviewMedia )
+    console.log(testFavoritedSpring)
   
 
 }
