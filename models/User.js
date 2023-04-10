@@ -48,6 +48,9 @@ User.init(
         len: [8],
       },
     },
+    phoneNumber: {
+      type: DataTypes.STRING,
+    },
     profilePictureURL: {
       type: DataTypes.STRING
     }

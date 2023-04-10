@@ -3,12 +3,14 @@ const User = require('./User');
 const springReview = require('./springReview')
 const reviewMedia = require('./reviewMedia')
 const favoritedSpring = require('./favoritedSpring')
+const springMedia = require('./springMedia')
 
 var testUser;
 var testSpring;
 var testSpringReview;
 var testReviewMedia;
 var testFavoritedSpring;
+var testSpringMedia;
 
 const runTests = async function() {
   testUser = await User.create({
@@ -39,13 +41,20 @@ const runTests = async function() {
     testFavoritedSpring = await favoritedSpring.create({
       User: 1,
       Spring: 1
+    });
+    testSpringMedia = await springMedia.create({
+      Spring: 1,
+      mediaURL: "https://www.google.com/imgres?imgurl=https%3A%2F%2Fassets.simpleviewinc.com%2Fsimpleview%2Fimage%2Ffetch%2Fc_limit%2Cq_75%2Cw_1200%2Fhttps%3A%2F%2Fassets.simpleviewinc.com%2Fsimpleview%2Fimage%2Fupload%2Fcrm%2Fvisitflorida%2F29632_9sb7ec5o7bte7hcom03u91fj25h65o2d_f6208e98-5056-a36a-0b591868cbcd88e9.jpg&tbnid=gFkRlerFvA3GBM&vet=12ahUKEwj216vq_pz-AhXBmoQIHbN0B3MQMygJegUIARD2AQ..i&imgrefurl=https%3A%2F%2Fwww.visitflorida.com%2Flisting%2Fblue-spring-state-park%2F26275%2F&docid=M5_Xv-387VbliM&w=600&h=400&q=blue%20springs&ved=2ahUKEwj216vq_pz-AhXBmoQIHbN0B3MQMygJegUIARD2AQ",
+      Caption: "test caption",
+      mainImage: 0
     })
 
     console.log( testUser );
     console.log( testSpring );
     console.log( testSpringReview );
     console.log( testReviewMedia )
-    console.log(testFavoritedSpring)
+    console.log( testFavoritedSpring );
+    console.log( testSpringMedia )
   
 
 }
@@ -53,9 +62,7 @@ const runTests = async function() {
 runTests();
 
 
-// Blog.belongsTo(User, {
-//   foreignKey: 'user_id'
-// });
+
 
 module.exports = { User };
 
