@@ -1,24 +1,24 @@
 const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class reviewMedia extends Model {
+class springMedia extends Model {
 
 }
 
-reviewMedia.init(
+springMedia.init (
     {
-        reviewMediaID: {
+        springMediaID: {
             type: DataTypes.INTEGER,
+            autoIncrement: true,
             allowNull: false,
-            primaryKey: true,
-            autoIncrement: true
+            primaryKey: true
         },
-        Review: {
+        Spring: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'springReview',
-                key: 'springReviewID'
+                model: 'spring',
+                key: 'springID'
             }
         },
         mediaURL: {
@@ -26,16 +26,21 @@ reviewMedia.init(
             allowNull: false
         },
         Caption: {
-            type: DataTypes.STRING(1500),
+            type: DataTypes.STRING,
             allowNull: true
+        },
+        mainImage: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: 0
         }
     },
     {
         sequelize,
-        timestamps: false,
+    timestamps: false,
     freezeTableName: true,
     underscored: false,
-    modelName: 'reviewMedia'
+    modelName: 'springMedia',
     }
 )
 
@@ -46,4 +51,4 @@ reviewMedia.init(
 
 
 
-module.exports = reviewMedia
+module.exports = springMedia
