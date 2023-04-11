@@ -32,7 +32,7 @@ springMedia.init (
         mainImage: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-            defaultValue: 0
+            defaultValue: false
         }
     },
     {
