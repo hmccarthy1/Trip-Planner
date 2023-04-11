@@ -1,5 +1,5 @@
-const Spring = require('./Spring');
 const User = require('./User');
+
 const springReview = require('./springReview')
 const reviewMedia = require('./reviewMedia')
 const favoritedSpring = require('./favoritedSpring')
@@ -61,8 +61,4 @@ const runTests = async function() {
 
 runTests();
 
-
-
-
 module.exports = { User };
-

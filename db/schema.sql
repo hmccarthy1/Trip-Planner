@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS floridaSpringsDB;
 CREATE DATABASE floridaSpringsDB;
 USE floridaSpringsDB;
+
 Create Table User (
     userID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     createdOn DATETIME,

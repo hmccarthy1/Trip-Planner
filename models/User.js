@@ -11,8 +11,6 @@ class User extends Model {
   }
 }
 
-
-
 User.init(
   {
     userID: {
@@ -20,6 +18,14 @@ User.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    createdOn: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+    },
+    modifiedOn: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
     },
     firstName: {
       type: DataTypes.STRING,
@@ -51,8 +57,9 @@ User.init(
     phoneNumber: {
       type: DataTypes.STRING,
     },
+
     profilePictureURL: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     }
   },
   {

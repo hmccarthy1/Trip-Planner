@@ -23,10 +23,10 @@ router.get('/login', async (req, res) => {
       return;
     }
 
-    res.render('login', {})
+    res.render('login', {logged_in: req.session.logged_in})
 
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({message: 'Enters here 3'});
   }
 
 })
@@ -52,7 +52,7 @@ router.post('/register', async (req, res) => {
 
     // });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json({message: 'Enters here 4'});
   }
 }
 )
@@ -72,7 +72,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       logged_in: true
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json({message: 'Enters here 5'});
   }
 });
 

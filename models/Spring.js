@@ -1,9 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Spring extends Model {
-
-}
+class Spring extends Model {}
 
 
 Spring.init(
@@ -38,25 +36,15 @@ Spring.init(
             allowNull: false
 
         }
-
-
     },
     {
-        sequelize,
+    sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: false,
     modelName: 'spring',
     }
 
-
 )
-
-
-
-
-
-
-
 
 module.exports = Spring
