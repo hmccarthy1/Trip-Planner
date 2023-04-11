@@ -22,7 +22,7 @@ const runTests = async function() {
     phoneNumber: '321-210-9676'
   })
   testSpring =  await Spring.create({
-    springName: "Blue Springs (lol)",
+    springName: "Blue Springs (lol2)",
     latitude: 145.33354,
     longitude: 145.33354,
     springState: "FL",
