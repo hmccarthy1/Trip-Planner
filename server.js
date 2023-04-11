@@ -58,4 +58,4 @@ sequelize.sync({ force: false }).then(() => {
 
 
 
-runTests();
+// runTests();

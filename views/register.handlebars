@@ -7,10 +7,21 @@
     <form class="form signup-form">
         {{!-- Name --}}
         <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="name">
         </div>
         
+        {{!-- DOB --}}
+        <div class="form-group">
+            <label for="dob">Date of birth:</label>
+            <input type="text" id="dob" name="dob">
+        </div>
+
         {{!-- Email --}}
         <div class="form-group">
             <label for="email">Email:</label>
@@ -21,6 +32,19 @@
         <div class="form-group">
             <label for="password">Password:</label>
             <input type="text" id="password" name="password">
+        </div>
+
+        {{!-- Phone# --}}
+        <div class="form-group">
+            <label for="phone">Phone#:</label>
+            <input type="text" id="phone" name="phone">
+        </div>
+
+        {{!-- Picture --}}
+        <div class="form-group">
+            <label for="myFile">Profile Picture:</label>
+            <input type="file" id="myFile" name="filename">
+            <input class= "btn-primary" type="submit">
         </div>
 
         {{!-- Add User button --}}

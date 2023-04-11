@@ -5,34 +5,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trip Planner</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="css/main.css">
-
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body> 
+<body>
 
-<header>
-  <h1>Trip Planner</h1>
+  <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+      <h1 class="m5">Trip Planner</h1>
 
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li>Contact Us</li>
-    
-       {{#if logged_in}}
-        <a href="/profile">profile</a>
-        <button class="no-button" id="logout">logout</button>
+      <nav>
+        <ul>
+        <li><a href="/">Home</a></li>
+        <li>Contact Us</li>
+        {{#if logged_in}}
+        <a href="/dashboard">profile</a>
+        <button class="btn btn-primary" type="submit" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+        </ul>
+      </nav>
+      {{!-- <ul>
+
+        
+        <li><a href="/">Home</a></li>
+        <li>Contact Us</li>
+
+        {{#if logged_in}}
+        <a href="/dashboard">profile</a>
+        <button class="btn btn-primary" type="submit" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
 
-  </ul>
-</header>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      </ul> --}}
+    {{!-- </nav> --}}
+  </header>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<main>
+  <!-- Render the sub layout -->
+  {{{body}}}
+</main>
 
-{{{body}}}
-
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+  
 </body>
 
 

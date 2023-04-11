@@ -37,7 +37,7 @@ springReview.init(
             allowNull: false
         },
         reviewText: {
-            type: DataTypes.TEXT(1000),
+            type: DataTypes.TEXT,
             allowNull: false
         }
         
