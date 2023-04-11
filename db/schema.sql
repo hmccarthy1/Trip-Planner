@@ -50,7 +50,27 @@ CREATE TABLE springMedia (
     Spring INT NOT NULL REFERENCES Spring(springID),
     mediaURL varchar(1500) NOT NULL,
     Caption varchar(300),
-    mainImage BOOLEAN NOT NULL DEFAULT 0
+    mainImage BOOLEAN NOT NULL DEFAULT FALSE
 );
 
+CREATE TABLE amenityChoice (
+    amenityChoiceID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    amenityType varchar(100) NOT NULL
+);
 
+CREATE TABLE Amenity (
+    amenityID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Spring INT NOT NULL REFERENCES Spring(springID),
+    amenityType INT NOT NULL REFERENCES amenityChoices(amenityChoicesID),
+    amenityDescription varchar(1000) NOT NULL,
+    Cost DECIMAL( 10, 2 ) NOT NULL,
+    amenityRating DECIMAL ( 2, 1 ) NOT NULL 
+);
+
+CREATE TABLE amenityMedia (
+    amenityMediaID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Amenity INT NOT NULL REFERENCES Amenity(amenityID),
+    mediaURL varchar(1500) NOT NULL,
+    Caption varchar(300),
+    mainImage BOOLEAN NOT NULL DEFAULT FALSE 
+);
