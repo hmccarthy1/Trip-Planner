@@ -1,5 +1,5 @@
 const User = require('./User');
-
+const Spring = require('./Spring');
 const springReview = require('./springReview')
 const reviewMedia = require('./reviewMedia')
 const favoritedSpring = require('./favoritedSpring')
@@ -22,7 +22,7 @@ const runTests = async function() {
     phoneNumber: '321-210-9676'
   })
   testSpring =  await Spring.create({
-    springName: "Blue Springs (volaaaaasaia)",
+    springName: "Blue Springs (lol)",
     latitude: 145.33354,
     longitude: 145.33354,
     springState: "FL",
