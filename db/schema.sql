@@ -1,5 +1,6 @@
 DROP DATABASE IF EXISTS floridaSpringsDB;
 CREATE DATABASE floridaSpringsDB;
+
 USE floridaSpringsDB;
 
 Create Table User (
@@ -17,7 +18,7 @@ Create Table User (
 
 Create Table Spring (
     springID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    springName varchar(100) UNIQUE NOT NULL,
+    springName varchar(100) NOT NULL,
     springState varchar(30) NOT NULL,
     County varchar(30) NOT NULL,
     Latitude decimal(20, 10) NOT NULL,
