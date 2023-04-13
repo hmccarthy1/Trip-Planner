@@ -13,24 +13,26 @@
 <body>
 
   <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-      <h1 class="navbar mp10">Trip Planner</h1>
+    <h1>
+      <h1 class="m5">Trip Planner</h1>
 
       <nav>
         <ul>
-        <li><a href="/">Home</a></li>
-        <li>Contact Us</li>
-        {{#if logged_in}}
-        <a href="/dashboard">profile</a>
-        <button class="btn btn-primary" type="submit" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+          <li><a href="/">Home</a></li>
+          <li>Contact Us</li>
+          {{#if logged_in}}
+          <a href="/dashboard">profile</a>
+          <button class="btn btn-primary" type="submit" id="logout">logout</button>
+          {{else}}
+          <a href="/login">login</a>
+          {{/if}}
         </ul>
       </nav>
+
+
       {{!-- <ul>
 
-        
+
         <li><a href="/">Home</a></li>
         <li>Contact Us</li>
 
@@ -42,19 +44,19 @@
         {{/if}}
 
       </ul> --}}
-    {{!-- </nav> --}}
+      {{!-- </nav> --}}
   </header>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<main>
-  <!-- Render the sub layout -->
-  {{{body}}}
-</main>
+  <main>
+    <!-- Render the sub layout -->
+    {{{body}}}
+  </main>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  
+
 </body>
 
 

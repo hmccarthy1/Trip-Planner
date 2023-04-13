@@ -1,3 +1,12 @@
+function openModal(message) {
+  document.getElementById("modalMessage").innerHTML = message;
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
@@ -15,7 +24,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        console.log("checking 2 "+email, password);
+        //openModal('You are logged in!');
         // If successful, redirect the browser to the profile page
         document.location.replace('/dashboard');
       } else {
