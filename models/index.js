@@ -29,8 +29,9 @@ const runTests = async function() {
     phoneNumber: '321-210-9676'
   })
   testSpring =  await Spring.create({
-    springName: "Blue Springs (volaaaaaaaaaaaasaia)",
-    latitude: 145.33354,
+
+    springName: "Blue Springs (xsdssszxssxzxzzxssawsdhxzsxhaassjaaqsagssxggzgasasdzasczddsqh",
+    latitude: 444,
     longitude: 145.33354,
     springState: "FL",
     County: "Volusia"});
