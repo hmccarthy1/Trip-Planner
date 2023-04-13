@@ -1,0 +1,9 @@
+#welcomeText {
+    font-size: 100px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+      flex-direction: column;
+    }
+  }

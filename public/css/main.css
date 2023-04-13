@@ -1,23 +1,6 @@
-/* Hide the hamburger menu by default */
-#hamburger-menu {
-    display: none;
-  }
-  
-  /* Media query for devices with screen width smaller than 768px (tablet size) */
-  @media (max-width: 767px) {
-    /* Show the hamburger menu */
-    #hamburger-menu {
-      display: block;
-    }
-    
-    /* Hide the regular navigation menu */
-    .navbar-collapse {
-      display: none;
-    }
-  }
+
 
 li {
     list-style-type: none;
     display: inline;
-    margin-left: 4em;
-   }
+
