@@ -72,15 +72,15 @@ const runTests = async function() {
       Caption: "test caption"
     })
     
-    console.log( testUser );
-    console.log( testSpring );
-    console.log( testSpringReview );
-    console.log( testReviewMedia )
-    console.log( testFavoritedSpring );
-    console.log( testSpringMedia );
-    console.log( testAmenityChoice );
-    console.log( testAmenity );
-    console.log( testAmenityMedia );
+    // console.log( testUser );
+    // console.log( testSpring );
+    // console.log( testSpringReview );
+    // console.log( testReviewMedia )
+    // console.log( testFavoritedSpring );
+    // console.log( testSpringMedia );
+    // console.log( testAmenityChoice );
+    // console.log( testAmenity );
+    // console.log( testAmenityMedia );
   
 
 }
