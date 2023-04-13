@@ -10,6 +10,7 @@ const springReview = require('./models/springReview')
 const sequelize = require('./config/connection');
 const { userInfo } = require('os');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const bodyParser = require("body-parser");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -36,7 +37,8 @@ app.use(session(sess));
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars' );
-
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
