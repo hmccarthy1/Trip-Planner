@@ -9,9 +9,7 @@ li {
 main {
     display: flex;
     width: 100vw;
-    position: fixed;
-    top: 10vh;
-    left: 10vw;
+    
 }
 
 #mainHeader {
@@ -141,12 +139,18 @@ header {
     
   }
 
-  .bodyCss{
-    z-index: 1;
+  .bodyCss{ 
+    position: static;
+    margin-top: 10vh;
+    margin-left: 10vw;
     /* 
     rgba set opacity
     
     
     */
+  }
+
+  .cards {
+    width: 90vw;
   }
 
