@@ -4,7 +4,6 @@ const Amenity = require('../models/Amenity');
 const amenityMedia = require('../models/amenityMedia');
 const amenityChoice = require('../models/amenityChoice');
 const Spring = require('../models/Spring');
-const amenityMedia = require('../models/amenityMedia');
 
 
 router.get('/:amenityID', async (req, res) => {

@@ -12,7 +12,7 @@
 
 <body>
 
-  <header class="display-flex justify-space-between align-center p-2">
+  <header id="mainHeader" class="display-flex justify-space-between align-center p-2">
     <h1>
       <h1 class="m5">Trip Planner</h1>
 
@@ -47,23 +47,19 @@
       {{!-- </nav> --}}
   </header>
 
-
-
-  
-  <main>
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 90vh; position: sticky">
+    <div id="mainSidebar" class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 90vh; position: fixed">
   
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item border border-primary rounded " >
-        <a href="#" class="nav-link text-white" aria-current="page">
+        <a id="homeLink" href="/" class="nav-link text-white" aria-current="page">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
           Home
         </a>
       </li>
       <li class="nav-item border border-primary mt-2 rounded">
-        <a href="#" class="nav-link text-white">
+        <a  href="#" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
           Search
         </a>
@@ -92,16 +88,22 @@
         <li><a class="dropdown-item" href="#">Sign out</a></li>
       </ul>
     </div>
+
+
+  
+  <main>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   </div>
     {{{body}}}
   </main>
-
+<script src="/static/js/main.js"></script>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/static/js/logout.js"></script>
   {{/if}}
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </body>
 
 

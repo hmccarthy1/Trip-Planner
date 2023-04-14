@@ -14,7 +14,7 @@
 
     <section class="imageSection col-lg-6 ">
         <img src={{mainImage.mediaURL}} id="mainImage" alt="">
-        <h6 class="h6">{{mainImage.Caption}}</h6>
+        <h6 class="h6" id="mainCaption">{{mainImage.Caption}}</h6>
     </section>
 
 </section>
@@ -23,7 +23,7 @@
 
     {{#each displayMedia}}
     <section class="card">
-    <img src={{this.mediaURL}} alt="">
+    <img src={{this.mediaURL}} alt="{{this.Caption}}">
     <h4 class="h6">{{this.Caption}}</h4>
 </section>
     {{/each}}
@@ -33,3 +33,6 @@
 
 
 </section>
+
+
+<script src="/static/js/Amenity.js"></script>

@@ -168,7 +168,7 @@ const runTests = async function () {
   var ginnieMain = await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg", 
-    Caption: "A stunning picture of one of ginnie's famous cave systems", 
+    Caption: `A stunning picture of one of ginnie's famous cave systems`, 
     mainImage: true
 
   });
@@ -332,7 +332,7 @@ const runTests = async function () {
 
   var ginnieDivingMain = await amenityMedia.create({
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681474222/ginnie11_twmyca.jpg",
-    Caption: "Two cave divers coming through one of the entrances to one of Ginnie Spring's cave systems. Worth the training!",
+    Caption: `Two cave divers coming through one of the entrances to one of Ginnie Spring's cave systems. Worth the training!`,
     mainImage: true,
     Amenity: ginnieDiving.amenityID
   });
@@ -348,17 +348,25 @@ const runTests = async function () {
 
   var ginnieSnorkelingMain = await amenityMedia.create({
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681475013/SnorkelDevilsEye_mt9ae0.jpg",
-    Caption: "A freediver snorkeling near Devil's Eye, one of the favorite entrances to Ginnie's cave system",
+    Caption: `A freediver snorkeling near Devil's Eye, one of the favorite entrances to Ginnie's cave system`,
     mainImage: 1,
     Amenity: ginnieSnorkeling.amenityID
   });
 
   var secondGinnieSnorkeling = await amenityMedia.create({
-    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681494943/showcase_big_33_azcujr.jpg",
-    Caption: "A freediver snorkeling near Devil's Ear, a jagged crevass that's great for swimming",
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681498173/BuSY8cjCcAEeLg3_1_cpklr6.jpg",
+    Caption: `Snorkeling in the head springs, this rock formation offers the opportunity so swim through and around it's base in a small tunnel`,
     mainImage: 0,
     Amenity: ginnieSnorkeling.amenityID
   });
+
+
+  await amenityMedia.create({
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681494943/showcase_big_33_azcujr.jpg",
+    Caption: `A freediver snorkeling near Devil's Ear, a jagged crevass that's great for swimming`,
+    mainImage: 0,
+    Amenity: ginnieSnorkeling.amenityID
+  })
 
   var ginnieTubing = await Amenity.create({
     Spring: ginnieSprings.springID,
