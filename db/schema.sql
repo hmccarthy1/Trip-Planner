@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS floridaSpringsDB;
+DROP DATABASE IF EXISTS floridaSpringsDB;ON DELETE CASCADE
 CREATE DATABASE floridaSpringsDB;
 
 USE floridaSpringsDB;
@@ -18,7 +18,7 @@ Create Table User (
 
 Create Table Spring (
     springID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    springName varchar(100) NOT NULL,
+    springName varchar(100) NOT NULL UNIQUE,
     springState varchar(30) NOT NULL,
     County varchar(30) NOT NULL,
     Latitude decimal(20, 10) NOT NULL,
@@ -27,8 +27,8 @@ Create Table Spring (
 
 CREATE TABLE springReview (
     springReviewID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Spring int NOT NULL REFERENCES Spring(springID),
-    reviewingUser INT NOT NULL REFERENCES Users(userID),
+    Spring int NOT NULL REFERENCES Spring(springID) ON DELETE CASCADE,
+    reviewingUser INT NOT NULL REFERENCES Users(userID) ON DELETE CASCADE,
     userSpringRating decimal(2,1) NOT NULL,
     reviewText TEXT NOT NULL
 );
@@ -42,13 +42,13 @@ CREATE TABLE reviewMedia(
 
 CREATE TABLE favoritedSpring (
     favoritedSpringID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-    User INT NOT NULL REFERENCES User(userID),
-    Spring INT NOT NULL REFERENCES Spring(springID)
+    User INT NOT NULL REFERENCES User(userID) ON DELETE CASCADE,
+    Spring INT NOT NULL REFERENCES Spring(springID) ON DELETE CASCADE
 );
 
 CREATE TABLE springMedia (
     springMediaID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Spring INT NOT NULL REFERENCES Spring(springID),
+    Spring INT NOT NULL REFERENCES Spring(springID) ON DELETE CASCADE,
     mediaURL varchar(1500) NOT NULL,
     Caption varchar(300),
     mainImage BOOLEAN NOT NULL DEFAULT FALSE
@@ -61,8 +61,8 @@ CREATE TABLE amenityChoice (
 
 CREATE TABLE Amenity (
     amenityID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Spring INT NOT NULL REFERENCES Spring(springID),
-    amenityType INT NOT NULL REFERENCES amenityChoices(amenityChoicesID),
+    Spring INT NOT NULL REFERENCES Spring(springID) ON DELETE CASCADE,
+    amenityType INT NOT NULL REFERENCES amenityChoices(amenityChoicesID) ON DELETE CASCADE,
     amenityDescription varchar(1000) NOT NULL,
     Cost DECIMAL( 10, 2 ) NOT NULL,
     amenityRating DECIMAL ( 2, 1 ) NOT NULL 
@@ -70,7 +70,7 @@ CREATE TABLE Amenity (
 
 CREATE TABLE amenityMedia (
     amenityMediaID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    Amenity INT NOT NULL REFERENCES Amenity(amenityID),
+    Amenity INT NOT NULL REFERENCES Amenity(amenityID) ON DELETE CASCADE,
     mediaURL varchar(1500) NOT NULL,
     Caption varchar(300),
     mainImage BOOLEAN NOT NULL DEFAULT FALSE 

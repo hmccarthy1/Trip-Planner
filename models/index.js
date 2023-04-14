@@ -20,21 +20,106 @@ var testAmenityMedia;
 
 
 const runTests = async function() {
+  await User.destroy({truncate: true});
+  await Spring.destroy({truncate: true});
+
   testUser = await User.create({
-    firstName: "Hunter",
+    firstName: "Hunters",
     lastName: "McCarthy",
     DOB: 1996/03/30,
     emailAddress: "hunterMcCarthy56@hotmail.com",
     userPassword: "testpwadfadsfasf" ,
     phoneNumber: '321-210-9676'
-  })
+  });
+
+
   testSpring =  await Spring.create({
 
-    springName: "Blue Springs (xsdssszxssxzxzzxssawsdhxzsxhaassjaaqsagssxggzgasasdzasczddsqh",
-    latitude: 444,
-    longitude: 145.33354,
+    springName: "Blue Springs (Volusia)",
+    latitude: 28.9514,
+    longitude: 81.3337,
     springState: "FL",
     County: "Volusia"});
+
+  //  await  Spring.create({
+
+  //     springName:
+  //     latitude:
+  //     longitude:
+  //     springState:
+  //     County:
+
+  //  })
+
+  await  Spring.create({
+
+        springName: "Alexander Springs",
+        latitude: 29.0803,
+        longitude: 81.5781,
+        springState: "FL",
+        County: "Lake"
+  
+     });
+
+  await  Spring.create({
+
+      springName: "Devil's Den Prehistoric Spring" ,
+      latitude:   29.4070 ,
+      longitude:    82.4761,
+      springState:    "FL",
+      County:     "Levy",
+
+   });
+
+   await  Spring.create({
+
+    springName: "Ichetucknee Springs" ,
+    latitude:   29.9838 ,
+    longitude:    82.7618,
+    springState:    "FL",
+    County:     "Suwanee",
+
+ });
+
+ await  Spring.create({
+
+  springName: "Royal Springs" ,
+  latitude:   30.0838,
+  longitude:    83.0749,
+  springState:    "FL",
+  County:     "Suwanee",
+
+});
+
+await  Spring.create({
+
+  springName: "Devil's Spring System" ,
+  latitude:   29.8343 ,
+  longitude:    82.7024,
+  springState:    "FL",
+  County:     "Gilchrist",
+
+});
+
+await  Spring.create({
+
+  springName: "Juniper Springs" ,
+  latitude:   29.1839 ,
+  longitude:    81.7120,
+  springState:    "FL",
+  County:     "Marion",
+
+});
+
+ 
+
+  
+
+
+
+
+
+
   testSpringReview = await springReview.create({
     Spring: '1',
     reviewingUser: '1',
@@ -72,15 +157,15 @@ const runTests = async function() {
       Caption: "test caption"
     })
     
-    console.log( testUser );
-    console.log( testSpring );
-    console.log( testSpringReview );
-    console.log( testReviewMedia )
-    console.log( testFavoritedSpring );
-    console.log( testSpringMedia );
-    console.log( testAmenityChoice );
-    console.log( testAmenity );
-    console.log( testAmenityMedia );
+    // console.log( testUser );
+    // console.log( testSpring );
+    // console.log( testSpringReview );
+    // console.log( testReviewMedia )
+    // console.log( testFavoritedSpring );
+    // console.log( testSpringMedia );
+    // console.log( testAmenityChoice );
+    // console.log( testAmenity );
+    // console.log( testAmenityMedia );
   
 
 }
