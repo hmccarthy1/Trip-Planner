@@ -97,7 +97,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-router.get('/spring', withAuth, async(req, res) => {
+router.get('/spring',/*withAuth ,*/ async(req, res) => {
   // find a single spring by its `id`
   try{
     // const springId = await Spring.findByPk(req.params.id,{

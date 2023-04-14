@@ -1,0 +1,7 @@
+.overview {
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    z-index: 1;
+}

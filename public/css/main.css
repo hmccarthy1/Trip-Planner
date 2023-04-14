@@ -70,7 +70,7 @@ ul li a {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: 0;
+    z-index: -1;
 }
 
 /* Add some content at the bottom of the video/page */
@@ -140,6 +140,7 @@ header {
   }
 
   .bodyCss{ 
+    /* z-index: 1; */
     position: static;
     margin-top: 10vh;
     margin-left: 10vw;
