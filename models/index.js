@@ -22,6 +22,9 @@ var testAmenityMedia;
 const runTests = async function () {
   await User.destroy({ truncate: true });
   await Spring.destroy({ truncate: true });
+  await springMedia.destroy({ truncate: true });
+  await Amenity.destroy({ truncate: true });
+  await amenityMedia.destroy({ truncate: true });
 
   userHunter = await User.create({
     firstName: "Hunters",
@@ -346,14 +349,14 @@ const runTests = async function () {
   var ginnieSnorkelingMain = await amenityMedia.create({
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681475013/SnorkelDevilsEye_mt9ae0.jpg",
     Caption: "A freediver snorkeling near Devil's Eye, one of the favorite entrances to Ginnie's cave system",
-    mainImage: true,
+    mainImage: 1,
     Amenity: ginnieSnorkeling.amenityID
   });
 
   var secondGinnieSnorkeling = await amenityMedia.create({
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681494943/showcase_big_33_azcujr.jpg",
     Caption: "A freediver snorkeling near Devil's Ear, a jagged crevass that's great for swimming",
-    mainImage: false,
+    mainImage: 0,
     Amenity: ginnieSnorkeling.amenityID
   });
 

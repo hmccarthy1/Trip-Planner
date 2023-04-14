@@ -75,5 +75,5 @@ CREATE TABLE amenityMedia (
     Amenity INT NOT NULL REFERENCES Amenity(amenityID) ON DELETE CASCADE,
     mediaURL varchar(1500) NOT NULL,
     Caption varchar(300),
-    mainImage BOOLEAN NOT NULL DEFAULT FALSE 
+    mainImage BOOLEAN NOT NULL DEFAULT 0 
 );
