@@ -1,28 +1,6 @@
-body {
-    width: 100vw;
-}
 
-header {
-    background-color: rgb(11, 51, 231);
-    height: 5vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
 
-}
-
-header h1 {
-    color: white
-}
-
-header ul {
-    width: 15vw;
-    justify-self: right !important;
-    display: flex;
-    justify-content: space-between;
-}
-
-header ul li{
+li {
+    list-style-type: none;
     display: inline;
-    color: white;
-}
+

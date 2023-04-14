@@ -36,7 +36,7 @@ CREATE TABLE springReview (
 CREATE TABLE reviewMedia(
     reviewMediaID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Review INT NOT NULL REFERENCES springReview(springReviewID),
-    mediaURL varchar(1500) NOT NULL,
+    mediaURL  nvarchar(max) NOT NULL,
     Caption varchar(300)
 );
 

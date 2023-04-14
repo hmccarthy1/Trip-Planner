@@ -1,3 +1,16 @@
+function openModal(message) {
+  let modal = document.getElementById("myModal");
+  modal.innerHTML = message;
+  modal.style.display = "block";
+
+  // document.getElementById("myModal").innerHTML = message;
+  // document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
 
 function convertDate (dateString) {
   // Split the input date string into month, day, and year components
@@ -27,13 +40,11 @@ const signupFormHandler = async (event) => {
     const phone = document.querySelector('#phone').value.trim();
     const myFile = document.querySelector('#myFile').value.trim();
 
-    console.log(`${firstName} ${lastName} ${emailAddress} ${dob1} ${userPassword}`);
   
     if (firstName && lastName && dob1 && emailAddress && userPassword) {
 
       const DOB = convertDate(dob1);
 
-      console.log(` Enters here again ${firstName} ${lastName} ${DOB} ${emailAddress} ${userPassword}`);
       const response = await fetch('/api/users', {
         method: 'POST',
         body: JSON.stringify({ firstName, lastName, DOB, emailAddress, userPassword }),
@@ -41,7 +52,11 @@ const signupFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        openModal('Welcome aboard! You have successfully signed up.');
+        
+        setTimeout(function() {
+          document.location.replace('/dashboard');
+        }, 5000);
       } else {
         alert(response.statusText);
       }

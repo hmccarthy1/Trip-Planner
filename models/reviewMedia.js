@@ -22,7 +22,7 @@ reviewMedia.init(
             }
         },
         mediaURL: {
-            type: DataTypes.TEXT,
+            type: DataTypes.BLOB('long'),
             allowNull: false
         },
         Caption: {
