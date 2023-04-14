@@ -26,3 +26,127 @@ main {
     top: 10vh;
 }
 
+
+body {
+    width: 100vw;
+}
+
+header {
+    background-color: rgb(11, 51, 231);
+    height: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+header h1 {
+    color: white
+}
+
+header ul {
+    /* width: 15vw; */
+    /* justify-self: right !important; */
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+header ul li {
+    display: inline;
+    color: white;
+}
+
+ul li a {
+    margin-right: 3px;
+}
+
+.pageTitle {
+    font-family: 'Shadows Into Light', cursive;
+    text-align: left;
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 0;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+#myBtn:hover {
+    background: #ddd;
+    color: black;
+}
+
+header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left:0;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    height: 50px;
+    
+    
+}
+
+.no-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100%;
+  }
+
+  /*Added space between the elements*/
+.navigation {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /*Took off the decoration to the elements in the navigation bar, assigned color, design, and font type */
+  .navigation a {
+    text-decoration: none;
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    
+  }
+
+  .bodyCss{
+    z-index: 1;
+    /* 
+    rgba set opacity
+    
+    
+    */
+  }
+
