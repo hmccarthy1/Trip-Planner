@@ -19,6 +19,7 @@ Amenity.init({
         references: {
             model: 'spring',
             key: 'springID'
+            
         }
     },
     amenityType: {
@@ -34,11 +35,15 @@ Amenity.init({
         allowNull: false
     },
     Cost: {
-        type: DataTypes.DECIMAL(10, 2),
+        type: DataTypes.STRING,
         allowNull: false,
     }, 
     amenityRating: {
         type: DataTypes.DECIMAL(2,1),
+        allowNull: false
+    },
+    amenityTitle: {
+        type: DataTypes.STRING,
         allowNull: false
     }
 },

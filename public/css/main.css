@@ -4,3 +4,9 @@ li {
     list-style-type: none;
     display: inline;
 
+}
+
+main {
+    display: flex;
+    width: 100vw;
+}

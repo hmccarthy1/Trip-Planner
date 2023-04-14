@@ -285,8 +285,120 @@ const runTests = async function () {
     mainImage: true
   });
 
-
+  var kayaking = await amenityChoice.create({
+    amenityType: "Kayaking"
+  });
   
+  var Snorkeling = await amenityChoice.create({
+    amenityType: "Snorkeling"
+  })
+
+  var birdWatching = await amenityChoice.create({
+    amenityType: "Bird Watching"
+  })
+
+  var Hiking = await amenityChoice.create({
+    amenityType: "Hiking"
+  })
+
+  var Grilling  = await amenityChoice.create({
+    amenityType: "Grilling"
+  })
+
+  var Diving  = await amenityChoice.create({
+    amenityType: "Diving"
+  });
+
+  var Tubing  = await amenityChoice.create({
+    amenityType: "Tubing"
+  });
+
+  var Camping = await amenityChoice.create({
+    amenityType: "Camping"
+  });
+
+
+  var ginnieDiving = await Amenity.create({
+  Spring: ginnieSprings.springID,
+  amenityType: Diving.amenityChoiceID,
+  amenityDescription: "From basic open water dives, to some of the most sought after cave diving in the country, Ginnie springs has options for every skill level. No solo diving is allowed, but on the weekends there are almost always groups of divers around who may be persuaded to let you tag along. Bring your own gear, or check out the fully stocked dive shop at the main store for rentals. Be aware though, like all diving equipment - it isn't cheap!",
+  Cost: "How much this endeavor will cost depends on what you want to do, and if you're bringing your own gear. Cave diver admission is 24 USD, normal divers get in for 32 USD, and an annual diving pass will cost you 399.99 USD. Rentals will vary but will not be cheap",
+  amenityRating: 9.3,
+  amenityTitle: "Ginnie Springs Diving"
+  })
+
+  var ginnieDivingMain = await amenityMedia.create({
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681474222/ginnie11_twmyca.jpg",
+    Caption: "Two cave divers coming through one of the entrances to one of Ginnie Spring's cave systems. Worth the training!",
+    mainImage: true,
+    Amenity: ginnieDiving.amenityID
+  });
+
+  var ginnieSnorkeling = await Amenity.create({
+    Spring: ginnieSprings.springID,
+    amenityType: Snorkeling.amenityChoiceID,
+    amenityDescription: "Even if you aren't a certified diver, you can enjoy snorkeling all along the crystal clear waters of the springs at Ginnie! The devil's spring system is an absolute must-see, along with all the wildlife that inhabits it - if you can get there before the weekend party-goers arrive and scare them off",
+    Cost: "The adult 'off-season' rate is 15.00 USD, and the 'in-season' rate for adults is 20.00 USD. Kids 5-12 years old get in for 5.00 USD, and kids 4 and under get in free!",
+    amenityRating: 9.5,
+    amenityTitle: "Ginnie Springs Snorkeling"
+    })
+
+  var ginnieSnorkelingMain = await amenityMedia.create({
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681475013/SnorkelDevilsEye_mt9ae0.jpg",
+    Caption: "A freediver snorkeling near Devil's Eye, one of the favorite entrances to Ginnie's cave system",
+    mainImage: true,
+    Amenity: ginnieSnorkeling.amenityID
+  });
+
+  var ginnieTubing = await Amenity.create({
+    Spring: ginnieSprings.springID,
+    amenityType: Tubing.amenityChoiceID,
+    amenityDescription: "You can tube the Santa Fe river, launching straight from Ginnie's springs. If you enter at Beaver's Landing river access, you can spend a relaxing hour's tube going down the Santa Fe to Twin Spring, where it's a short 15 minute walk back to the parking lot. Keep an eye out for all the wildlife known to occupy the shores of the Santa Fe!",
+    Cost: "Single tube rentals - 7.00 USD / Day. Double tube rentals - 14.00 USD / Day. (air is free)",
+    amenityRating: 8.4,
+    amenityTitle: "Ginnie Springs Tubing"
+    })
+
+  var ginnieTubingMain = await amenityMedia.create({
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681476529/20211002_122221-1-768x576_ua6rdi.jpg",
+    Caption: "A popular tubing spot, Ginnie Springs offers a cool and refreshing way to beat the summer heat!",
+    mainImage: true,
+    Amenity: ginnieTubing.amenityID
+  });
+
+  var ginnieKayaking = await Amenity.create({
+    Spring: ginnieSprings.springID,
+    amenityType: kayaking.amenityChoiceID,
+    amenityDescription: "Kayaking down the Santa Fe river is a rare treat for those who want to see the more untouched side of the nature surrounding Ginnie Springs. The padde  can be all the way up to about 6 hours depending on your speed and endurance, so come prepared. Make sure you paddle upriver first, so you can come back with the current to your start point, as there is no shuttle service available.",
+    Cost: "Kayak/Canoe/Paddleboard rentals: 3 hour - 15 USD, 6 hour - 30 USD",
+    amenityRating: 8.6,
+    amenityTitle: "Ginnie Springs Kayaking"
+    });
+
+  var ginnieKayakingMain = await amenityMedia.create({
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681477467/L0Rud7UPsKIHj_YzFr5Ra0DmIsybP5KgHBC2dxYaCPY_ux41td.jpg",
+    Caption: "Start out your Santa Fe kayaking journey from one of the famous springs at Ginnie!",
+    mainImage: true,
+    Amenity: ginnieKayaking.amenityID
+  });
+
+  var ginnieCamping = await Amenity.create({
+    Spring: ginnieSprings.springID,
+    amenityType: Camping.amenityChoiceID,
+    amenityDescription: "Camping at Ginnie is definitely a wonderful experience. Being able to wake up and step out of your tent to see some of the most beautiful springs the country has to offer laid out at your feet is an incredible way to start any morning! Most sites are tent only - and primitive sites are on a first come, first serve basis - but you can make a reservation if you want. There are several RV sites with water and electric, and a cabin available to rent, but these can often be booked for months out, so plan accordingly.",
+    Cost: "(Per person, per night): Adults (off-season) - 25 USD \n Adults (in-season) - 30 USD \n Children 5-12 -- 8 USD \n Children 4 and under - FREE \n (one time flat rate) ELECTRIC & WATER SITE FEE - 11 USD",
+    amenityRating: 8.7,
+    amenityTitle: "Ginnie Springs Camping"
+    });
+
+    var ginnieCampingMain = await amenityMedia.create({
+      mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681485769/Ginnie-Springs-Camping-5-min_levlcd.jpg",
+      Caption: "Camp just inches away from some of the most beautiful springs in the world ",
+      mainImage: true,
+      Amenity: ginnieCamping.amenityID
+    });
+
+
   //
 
 

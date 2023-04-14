@@ -65,8 +65,9 @@ CREATE TABLE Amenity (
     Spring INT NOT NULL REFERENCES Spring(springID) ON DELETE CASCADE,
     amenityType INT NOT NULL REFERENCES amenityChoices(amenityChoicesID) ON DELETE CASCADE,
     amenityDescription varchar(1000) NOT NULL,
-    Cost DECIMAL( 10, 2 ) NOT NULL,
-    amenityRating DECIMAL ( 2, 1 ) NOT NULL 
+    Cost varchar(300),
+    amenityRating DECIMAL ( 2, 1 ) NOT NULL,
+    amenityTitle varchar(300) NOT NULL
 );
 
 CREATE TABLE amenityMedia (

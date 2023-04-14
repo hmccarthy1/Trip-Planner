@@ -1,0 +1,14 @@
+.mainSection {
+    width: 90vw;
+
+}
+
+#infoColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 100%;
+    border-radius: 100;
+}
