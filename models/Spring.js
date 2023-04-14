@@ -16,7 +16,7 @@ Spring.init(
         springName: {
             type: DataTypes.STRING,
             unique: true,
-            allowNull: false
+            allowNull: false,
         },
         latitude: {
             type: DataTypes.DECIMAL,
@@ -35,6 +35,10 @@ Spring.init(
             type: DataTypes.STRING,
             allowNull: false
 
+        },
+        springDescription: {
+            type: DataTypes.TEXT,
+            allowNull: false
         }
     },
     {
