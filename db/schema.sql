@@ -57,7 +57,8 @@ CREATE TABLE springMedia (
 
 CREATE TABLE amenityChoice (
     amenityChoiceID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    amenityType varchar(100) NOT NULL
+    amenityType varchar(100) NOT NULL,
+    amenityIcon varchar(1000)
 );
 
 CREATE TABLE Amenity (

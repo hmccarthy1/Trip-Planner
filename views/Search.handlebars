@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/static/css/search.css">
+
+<section class="searchSection row col-lg-10 align-items-center">
+
+
+<section class="card" id="searchBox">
+
+
+    <section id="accordion1" class="mt-5">
+        <div class="card">
+    <section class="card-header">
+        <h5>
+        <a href="#collapse-1" data-parent="#accordion1" data-toggle="collapse">Search by Spring Name</a>
+        </h5>
+    </section>
+    <section class="card-body collapse" id="collapse-1" >
+        <input type="text" name="" id="">
+    </section>
+        </div>
+    </section>
+
+
+
+
+
+<section id="accordion2" class="mt-5">
+        <div class="card">
+    <section class="card-header">
+        <h5>
+        <a href="#collapse-2" data-parent="#accordion2" data-toggle="collapse">Filter by amenities</a>
+        </h5>
+    </section>
+    <section class="card-body collapse" id="collapse-2" >
+        {{#each amenityOptions}}
+
+        <div class="row mt-4 align-items-center">
+            <input class="iconCheckbox align-self-stretch" type="checkbox" name="" id="">
+            <h2 class="ml-2">
+                {{this.amenityType}}
+            </h2>
+            <img class="icon" src="{{this.amenityIcon}}" alt="">
+
+        </div>
+
+        {{/each}}
+    </section>
+        </div>
+    </section>
+
+
+</section>
+
+
+</section>
