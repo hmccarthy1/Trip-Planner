@@ -19,9 +19,15 @@ var testAmenity;
 var testAmenityMedia;
 
 
-const runTests = async function() {
-  testUser = await User.create({
-    firstName: "Hunter",
+const runTests = async function () {
+  // await User.destroy({ truncate: true });
+  // await Spring.destroy({ truncate: true });
+  // await springMedia.destroy({ truncate: true });
+  // await Amenity.destroy({ truncate: true });
+  // await amenityMedia.destroy({ truncate: true });
+
+  userHunter = await User.create({
+    firstName: "Hunters",
     lastName: "McCarthy",
     DOB: 1996/03/30,
     emailAddress: "hunterMcCarthy56@hotmail.com",
