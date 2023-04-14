@@ -3,7 +3,7 @@
     height: 40vh;
 
 }
-#mainImage {
+#mainImage, #mainCaption {
     max-width: 60%;
 }
 
