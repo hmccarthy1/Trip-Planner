@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="/static/css/amenity.css">
+
+<section class="mainWrapper">
+
 <section class="row mainSection justify-content-center">
+    
+
     
     <section class="col-lg-3" id="infoColumn">
         <h1 class = "h1">{{displayAmenity.amenityTitle}}</h1>
@@ -8,6 +13,22 @@
 
     <section class="imageSection col-lg-6 ">
         <img src={{mainImage.mediaURL}} alt="">
+        <h6 class="h6">{{mainImage.Caption}}</h6>
     </section>
+
+</section>
+
+<section class="row cardSection justify-content-center">
+
+    {{#each displayMedia}}
+    <section class="card">
+    <img src={{this.mediaURL}} alt="">
+    <h4 class="h6">{{this.Caption}}</h4>
+</section>
+    {{/each}}
+    
+</section>
+
+
 
 </section>

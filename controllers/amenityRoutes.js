@@ -13,10 +13,16 @@ router.get('/:amenityID', async (req, res) => {
     const mainImage = await amenityMedia.findOne({
         where: {
             Amenity: req.params.amenityID,
-            mainImage: true
+            mainImage: true}}, {raw: true});
+    const displayMedia = await amenityMedia.findAll({
+        where: {
+            Amenity: req.params.amenityID
         }
-    }, {raw: true})
-    res.render('Amenity', {displayAmenity, mainImage})
+    })
+
+
+
+    res.render('Amenity', {displayAmenity, mainImage, displayMedia})
 
 
     

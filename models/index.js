@@ -350,6 +350,13 @@ const runTests = async function () {
     Amenity: ginnieSnorkeling.amenityID
   });
 
+  var secondGinnieSnorkeling = await amenityMedia.create({
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681494943/showcase_big_33_azcujr.jpg",
+    Caption: "A freediver snorkeling near Devil's Ear, a jagged crevass that's great for swimming",
+    mainImage: false,
+    Amenity: ginnieSnorkeling.amenityID
+  });
+
   var ginnieTubing = await Amenity.create({
     Spring: ginnieSprings.springID,
     amenityType: Tubing.amenityChoiceID,
@@ -398,6 +405,13 @@ const runTests = async function () {
       Amenity: ginnieCamping.amenityID
     });
 
+    console.log(
+      secondGinnieSnorkeling.mediaURL + '\n' + 
+      secondGinnieSnorkeling.Amenity + '\n' +
+      secondGinnieSnorkeling.amenityMediaID + '\n' 
+      
+      
+      )
 
   //
 
