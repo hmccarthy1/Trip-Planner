@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS floridaSpringsDB;ON DELETE CASCADE
+DROP DATABASE IF EXISTS floridaSpringsDB;
 CREATE DATABASE floridaSpringsDB;
 
 USE floridaSpringsDB;
@@ -22,7 +22,8 @@ Create Table Spring (
     springState varchar(30) NOT NULL,
     County varchar(30) NOT NULL,
     Latitude decimal(20, 10) NOT NULL,
-    Longitude decimal(20, 10) NOT NULL
+    Longitude decimal(20, 10) NOT NULL,
+    springDescription TEXT NOT NULL
 );
 
 CREATE TABLE springReview (
@@ -36,7 +37,7 @@ CREATE TABLE springReview (
 CREATE TABLE reviewMedia(
     reviewMediaID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     Review INT NOT NULL REFERENCES springReview(springReviewID),
-    mediaURL  nvarchar(max) NOT NULL,
+    mediaURL  TEXT(1000) NOT NULL,
     Caption varchar(300)
 );
 
