@@ -1,3 +1,6 @@
+
+const Handlebars = require('handlebars')
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -15,7 +18,11 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers,
+  defaultLayout: 'main',
+  extname: 'handlebars',
+  handlebars: allowInsecurePrototypeAccess(Handlebars)
+});
 
 const sess = {
   secret: process.env.DB_SECRET,
@@ -39,10 +46,10 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars' );
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 
