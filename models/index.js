@@ -25,6 +25,7 @@ const runTests = async function () {
   await springMedia.destroy({ truncate: true });
   await Amenity.destroy({ truncate: true });
   await amenityMedia.destroy({ truncate: true });
+  await amenityChoice.destroy({truncate: true})
 
   userHunter = await User.create({
     firstName: "Hunters",
@@ -289,11 +290,13 @@ const runTests = async function () {
   });
 
   var kayaking = await amenityChoice.create({
-    amenityType: "Kayaking"
+    amenityType: "Kayaking",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681509572/download_syb6k2.png"
   });
   
   var Snorkeling = await amenityChoice.create({
-    amenityType: "Snorkeling"
+    amenityType: "Snorkeling",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681511155/Picture1_yjxwy8.png"
   })
 
   var birdWatching = await amenityChoice.create({

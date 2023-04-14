@@ -1,0 +1,34 @@
+.searchSection {
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+}
+
+#searchAccordion {
+    height: 50vh;
+    
+}
+
+#searchBox {
+    height: 60vh;
+    width: 40vw;
+    padding-left: 2.5%;
+    padding-top: 2.5%;
+}
+
+input {
+    
+}
+
+img {
+    width: 100%;
+}
+
+.iconCheckbox {
+    width: 5%;
+}
+
+.icon {
+    width: 50pt;
+}
