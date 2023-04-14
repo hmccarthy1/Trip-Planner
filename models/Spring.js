@@ -35,6 +35,10 @@ Spring.init(
             type: DataTypes.STRING,
             allowNull: false
 
+        },
+        springDescription: {
+            type: DataTypes.TEXT,
+            allowNull: false
         }
     },
     {

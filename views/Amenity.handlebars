@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/static/css/amenity.css">
+
+<section class="mainWrapper">
+
+<section class="row mainSection justify-content-center">
+    
+
+    
+    <section class="col-lg-3" id="infoColumn">
+        <h1 class = "h1">{{displayAmenity.amenityTitle}}</h1>
+        <h2 class="h5">{{displayAmenity.amenityDescription}}</h2>
+        <a href="#">Check out the spring!</a>
+    </section>
+
+    <section class="imageSection col-lg-6 ">
+        <img src={{mainImage.mediaURL}} id="mainImage" alt="">
+        <h6 class="h6" id="mainCaption">{{mainImage.Caption}}</h6>
+    </section>
+
+</section>
+
+<section class="row cardSection justify-content-center">
+
+    {{#each displayMedia}}
+    <section class="card">
+    <img src={{this.mediaURL}} alt="{{this.Caption}}">
+    <h4 class="h6">{{this.Caption}}</h4>
+</section>
+    {{/each}}
+    
+</section>
+
+
+
+</section>
+
+
+<script src="/static/js/Amenity.js"></script>
