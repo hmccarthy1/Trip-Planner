@@ -1,7 +1,6 @@
 .mainSection {
     width: 90vw;
     height: 40vh;
-    margin-top: 10vh;
 
 }
 #mainImage, #mainCaption {
@@ -30,7 +29,7 @@ img {
 }
 
 .cardSection {
-    margin-top: 2%;
+    margin-top: 10%;
   
     display: flex;
     align-items: center;

@@ -1,10 +1,82 @@
-<h1>OVERVIEW</h1>
+<link rel="stylesheet" href="/css/spring.css">
 
-<section class="overview">
-    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
-        tabindex="0">
-        <h4 id="scrollspyHeading1">First heading</h4>
-        <p>...</p>
-    </div>
+<section class="individualSpring">
+
+    {{!-- Overview section --}}
+    <section class="overview text-center">
+        <p class="text1">OVERVIEW</p>
+
+        <section class="box1 d-flex flex-row">
+            <div>
+                <textarea name="overviewText" id="overviewText" cols="30"
+                    rows="10">Silver springs, located in Marion County, FL, is the famous for being the scene of several scenes from popular movies, being home to an island of rhesus monkeys, and glass-bottom tours</textarea>
+
+                {{!-- Amenities --}}
+                <section class="amenities">
+                    <p class="text-center">Amenities</p>
+                    <div class="icons d-flex flex-row justify-content-around">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                    </div>
+
+                </section>
+            </div>
+
+            <p class="text1">Spring intro video</p>
+            <div id="player"></div>
+
+        </section>
+
+    </section>
+
+
+
+    {{!-- Gallery --}}
+    <section class="gallery">
+        <p class="text-center">Media Gallery</p>
+        <div class="photos d-flex justify-content-around">
+            <div class="card" style="width: 18rem; height:200px">
+                <img src="..." class="card-img-top" alt="...">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+            </div>
+        </div>
+
+    </section>
+
+    {{!-- Reviews --}}
+    <section class="reviews">
+        <p class="text-center">Reviews</p>
+        <div class="review d-flex justify-content-around">
+            <div class="card" style="width: 5rem; height:40px">
+                <a href="http:/">Review 1</a>
+            </div>
+            <div class="card" style="width: 5rem;">
+                <a href="http:/">Review 2</a>
+            </div>
+            <div class="card" style="width: 5rem;">
+                <a href="http:/">Review 3</a>
+            </div>
+        </div>
+    </section>
 
 </section>
+
+{{!-- Footer --}}
+<footer class="bg-dark d-flex flex-row justify-content-around">
+    <p class="pFooter1">Liked this spring? Favorite it! <a href="http://">&#9733;</a></p>
+    <div class="bg-dark d-flex flex-row justify-content-right">
+        <p class="me-3">Want to leave some feedback?</p>
+        <button class="btn btn-warning">Add a review</button>
+
+    </div>
+</footer>
+
+<script src="/js/spring.js"></script>
