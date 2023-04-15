@@ -54,10 +54,6 @@ p {
     border: black solid 2px;
 }
 
-.gallery {
-    border: black solid 2px;
-}
-
 .reviews {
     border: black solid 2px;
 } */
@@ -71,13 +67,3 @@ footer {
     left: 200px;
     color: white;
 }
-
-.pFooter1 {
-    /* margin-left: 10px; */
-    /* align-items: start; */
-}
-
-/* .pFooter1 {
-    margin-left: 10px;
-    justify-content: end;
-} */
