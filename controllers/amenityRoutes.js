@@ -4,6 +4,8 @@ const Amenity = require('../models/Amenity');
 const amenityMedia = require('../models/amenityMedia');
 const amenityChoice = require('../models/amenityChoice');
 const Spring = require('../models/Spring');
+const sequelize = require('../config/connection');
+const springMedia = require('../models/springMedia');
 
 
 router.get('/:amenityID', async (req, res) => {
@@ -13,15 +15,19 @@ router.get('/:amenityID', async (req, res) => {
     const mainImage = await amenityMedia.findOne({
         where: {
             Amenity: req.params.amenityID,
+            
             mainImage: true}}, {raw: true});
-    const displayMedia = await amenityMedia.findAll({
+    const displayMedia =  amenityMedia.findAll({
         where: {
-            Amenity: req.params.amenityID
-        }
+            Amenity: req.params.amenityID,
+            
+        },
+    
     })
 
 
 
+    
     res.render('Amenity', {displayAmenity, mainImage, displayMedia})
 
 

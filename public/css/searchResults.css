@@ -1,0 +1,13 @@
+#cardGallery {
+    display: flex;
+    flex-wrap: wrap;
+   z-index: 999;
+
+}
+
+#test {
+    z-index: 400;
+    position: fixed;
+    margin-top: 50vh;
+    margin-left: 50vw;
+}
