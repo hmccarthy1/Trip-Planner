@@ -1,0 +1,24 @@
+<form action="/spring/reviews" method="post" id="reviewForm">
+    <div class="form-group">
+        <label for="reviewingUser">Reviewing User</label>
+        <input type="text" class="form-control" id="reviewingUser" name="reviewingUser"
+            placeholder="Enter your username here" required>
+    </div>
+    <div class="form-group">
+        <label for="userSpringRating">User Spring Rating</label>
+        <input type="number" class="form-control" id="userSpringRating" name="userSpringRating"
+            placeholder="Please rate this spring from 1-5, higher is better" min="1" max="5" required>
+    </div>
+    <div class="form-group">
+        <label for="reviewText">Review Text</label>
+        <textarea class="form-control" id="reviewText" name="reviewText" rows="3" placeholder="Enter your review here"
+            required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="springID">Spring ID</label>
+        <input type="text" class="form-control" id="springID" name="springID" placeholder="Enter spring ID here"<a href="#">(How do I find this)</a>" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Review</button>
+</form>
+
+<script src="/js/reviewSpring.js"></script>
