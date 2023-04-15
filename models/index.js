@@ -8,6 +8,7 @@ const amenityChoice = require('./amenityChoice');
 const Amenity = require('./Amenity');
 const amenityMedia = require('./amenityMedia')
 
+
 var testUser;
 var testSpring;
 var testSpringReview;
@@ -300,27 +301,33 @@ const runTests = async function () {
   })
 
   var birdWatching = await amenityChoice.create({
-    amenityType: "Bird Watching"
+    amenityType: "Bird Watching",
+    amenityIcon: 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521171/download_1_cdtsyj.png'
   })
 
   var Hiking = await amenityChoice.create({
-    amenityType: "Hiking"
+    amenityType: "Hiking",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521496/hiking-illustration-on-a-background-premium-quality-symbols-icons-for-concept-and-graphic-design-vector_1_obv8uu.jpg"
   })
 
   var Grilling  = await amenityChoice.create({
-    amenityType: "Grilling"
+    amenityType: "Grilling",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521562/161512_o1qvku.png"
   })
 
   var Diving  = await amenityChoice.create({
-    amenityType: "Diving"
+    amenityType: "Diving",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521645/886250-200_h0khaf.png"
   });
 
   var Tubing  = await amenityChoice.create({
-    amenityType: "Tubing"
+    amenityType: "Tubing",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521704/istockphoto-489138584-612x612_cevi3w.jpg"
   });
 
   var Camping = await amenityChoice.create({
-    amenityType: "Camping"
+    amenityType: "Camping",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521820/orange-tent-icon-free-vector_ggj3k2.jpg"
   });
 
 
@@ -331,7 +338,16 @@ const runTests = async function () {
   Cost: "How much this endeavor will cost depends on what you want to do, and if you're bringing your own gear. Cave diver admission is 24 USD, normal divers get in for 32 USD, and an annual diving pass will cost you 399.99 USD. Rentals will vary but will not be cheap",
   amenityRating: 9.3,
   amenityTitle: "Ginnie Springs Diving"
-  })
+  });
+
+  var testDiving = await Amenity.create({
+    Spring: 3,
+    amenityType: Diving.amenityChoiceID,
+    amenityDescription: "Ftest",
+    Cost: "How much this endeavor will cost depends on what you want to do, and if you're bringing your own gear. Cave diver admission is 24 USD, normal divers get in for 32 USD, and an annual diving pass will cost you 399.99 USD. Rentals will vary but will not be cheap",
+    amenityRating: 9.3,
+    amenityTitle: "test"
+    });
 
   var ginnieDivingMain = await amenityMedia.create({
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681474222/ginnie11_twmyca.jpg",

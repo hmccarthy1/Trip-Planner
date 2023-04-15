@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="/css/amenity.css">
+ <video autoplay muted loop id="myVideo">
+    <source src="https://res.cloudinary.com/dsvmviwkc/video/upload/v1681526703/waters-moving_xnpabe.mp4" type="video/mp4">
+  </video>
+  
+  <link rel="stylesheet" href="/css/amenity.css">
 
 <section class="mainWrapper">
 
@@ -7,14 +11,14 @@
 
     
     <section class="col-lg-3" id="infoColumn">
-        <h1 class = "h1">{{displayAmenity.amenityTitle}}</h1>
-        <h2 class="h5">{{displayAmenity.amenityDescription}}</h2>
-        <a href="#">Check out the spring!</a>
+        <h1 class = "h1 text-white">{{displayAmenity.amenityTitle}}</h1>
+        <h2 class="h5 text-white">{{displayAmenity.amenityDescription}}</h2>
+        <strong><a class="h3 text-white " href="#">Check out the spring!</a></strong>
     </section>
 
     <section class="imageSection col-lg-6 ">
         <img src={{mainImage.mediaURL}} id="mainImage" alt="">
-        <h6 class="h6" id="mainCaption">{{mainImage.Caption}}</h6>
+        <h6 class="h6 text-white" id="mainCaption">{{mainImage.Caption}}</h6>
     </section>
 
 </section>
@@ -24,7 +28,7 @@
     {{#each displayMedia}}
     <section class="card">
     <img src={{this.mediaURL}} alt="{{this.Caption}}">
-    <h4 class="h6">{{this.Caption}}</h4>
+    <h4 class="h6 card-content" >{{this.Caption}}</h4>
 </section>
     {{/each}}
     
