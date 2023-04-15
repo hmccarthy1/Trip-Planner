@@ -6,6 +6,10 @@ li {
 
 }
 
+.titlePage{
+    font-family: 'Shadows Into Light', cursive;
+}
+
 main {
     display: flex;
     width: 100vw;

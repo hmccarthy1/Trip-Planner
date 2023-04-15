@@ -116,4 +116,23 @@ router.get('/spring',/*withAuth ,*/ async(req, res) => {
 
 });
 
+router.get('/contactUs',/*withAuth ,*/ async(req, res) => {
+  // find a single spring by its `id`
+  try{
+    // const springId = await Spring.findByPk(req.params.id,{
+    //   include: [{
+    //        model: Spring
+    //     }]
+    // });
+
+    // res.status(200).json(springId);
+
+    res.render('contactUs');
+
+  }catch(err){
+    res.status(400).json(err);
+  }
+
+});
+
 module.exports = router;
