@@ -112,6 +112,7 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
   try {
     const springData = await Spring.findByPk(req.params.id);
 
+    //Added photos
     const displayMedia = await springMedia.findAll({
       where: {
         Spring: req.params.id,
