@@ -11,14 +11,14 @@
 }
 
 #searchBox {
-    height: 60vh;
+    
     width: 40vw;
-    padding-left: 2.5%;
-    padding-top: 2.5%;
+    padding: 2.5%
 }
 
 input {
-    
+    width: 80%;
+    height: 4vh;
 }
 
 img {
@@ -26,9 +26,14 @@ img {
 }
 
 .iconCheckbox {
-    width: 5%;
+    width: 1.5vw;
 }
 
 .icon {
     width: 50pt;
+}
+
+#searchButton {
+    min-height: 75px;
+    border-radius: 10px;
 }

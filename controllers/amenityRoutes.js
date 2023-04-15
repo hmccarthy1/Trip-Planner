@@ -25,7 +25,7 @@ router.get('/:amenityID', async (req, res) => {
     res.render('Amenity', {displayAmenity, mainImage, displayMedia})
 
 
-    
+    return
 
 })
 

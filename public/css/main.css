@@ -22,6 +22,7 @@ main {
 #mainSidebar {
     position: fixed;
     top: 10vh;
+    width: 10vw;
 }
 
 
