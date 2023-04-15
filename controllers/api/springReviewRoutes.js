@@ -1,9 +1,21 @@
 const router = require("express").Router();
 const springReview = require("../models/springReview");
+const withAuth = require("../utils/auth");
 
 router.use(express.json());
 
-router.post("/spring/reviews", async (req, res) => {
+// router.get("/spring/reviews", async (req, res) => {
+//   springReview.findAll({
+//     attributes: ["Spring", "reviewingUser", "userSpringRating", "reviewText"],
+//   })
+//     .then((reviewData) => {
+//       const reviews = reviewData.map((post) => post.get({ plain: true }));
+
+//       res.render("springReviewForm")
+//     })
+// });
+
+router.post("/:springID/reviews", withAuth, async (req, res) => {
   try {
     const { reviewingUser, userSpringRating, reviewText, springID } = req.body;
 
@@ -19,6 +31,7 @@ router.post("/spring/reviews", async (req, res) => {
     });
 
     res.status(201).json(createdReview);
+    alert("Review successfully submitted.");
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to create review" });
