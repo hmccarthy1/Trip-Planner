@@ -1,14 +1,16 @@
 const router = require('express').Router();
-const User = require('../models/User')
+const User = require('../models/User');
 const test = "true";
 const withAuth = require('../utils/auth');
+const Spring = require('../models/Spring');
+const springMedia = require('../models/springMedia');
 
 router.get('/', async (req, res) => {
   try {
     // We will show the Springs here
 
     const user = {};
-    
+
 
     if (req.session.logged_in) {
       console.log("it's logged");
@@ -23,18 +25,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-//Created this route to show the username at the top of the navbar
-// router.get('/homepage', (req, res) => {
-//   try{
-//     if (req.session.logged_in) {
-//       const username = req.session.firstName + ' ' + req.session.lastName;
-//       res.render('homepage', {username});
-//     }
-//   }catch(err){
-//     res.status(500).json(err);
-//   }
-// });
-
 router.get('/login', async (req, res) => {
 
   try {
@@ -44,7 +34,7 @@ router.get('/login', async (req, res) => {
       return;
     }
 
-    res.render('login', {logged_in: req.session.logged_in})
+    res.render('login', { logged_in: req.session.logged_in })
 
   } catch (err) {
     res.status(500).json(err);
@@ -97,9 +87,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-router.get('/spring',/*withAuth ,*/ async(req, res) => {
+//Temporary route for testing
+router.get('/spring',/*withAuth ,*/ async (req, res) => {
   // find a single spring by its `id`
-  try{
+  try {
     // const springId = await Spring.findByPk(req.params.id,{
     //   include: [{
     //        model: Spring
@@ -110,29 +101,45 @@ router.get('/spring',/*withAuth ,*/ async(req, res) => {
 
     res.render('spring');
 
-  }catch(err){
+  } catch (err) {
     res.status(400).json(err);
   }
-
 });
 
-router.get('/contactUs',/*withAuth ,*/ async(req, res) => {
+//Spring with ID - Commenting middleware withAuth for testing
+router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
   // find a single spring by its `id`
-  try{
-    // const springId = await Spring.findByPk(req.params.id,{
-    //   include: [{
-    //        model: Spring
-    //     }]
-    // });
+  try {
+    const springData = await Spring.findByPk(req.params.id);
 
-    // res.status(200).json(springId);
+    //Added photos
+    const displayMedia = await springMedia.findAll({
+      where: {
+        Spring: req.params.id,
+      },      
+    })
 
-    res.render('contactUs');
+    const spring = springData.get({ plain: true });
 
-  }catch(err){
+    res.render('spring', {
+      ...spring,
+      displayMedia,
+      logged_in: req.session.logged_in
+    });
+
+  } catch (err) {
     res.status(400).json(err);
   }
+});
 
+// Contact Us route
+router.get('/contactUs', async (req, res) => {
+  try {
+    res.render('contactUs');
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
