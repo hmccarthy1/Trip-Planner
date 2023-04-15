@@ -1,4 +1,3 @@
-// reviewForm.js
 document.addEventListener("DOMContentLoaded", () => {
   const reviewForm = document.getElementById("reviewForm");
 
