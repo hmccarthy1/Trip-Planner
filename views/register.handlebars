@@ -1,10 +1,7 @@
 <link rel="stylesheet" href="/css/register.css">
 <div class="loginSection">
-    {{!-- <h1>
-        Signup a new user
-    </h1> --}}
 
-    <div class="card card-background" style="width: 30rem;">
+    <div class="card card-background" style="width: 30rem; margin-top:50px">
         <h5 class="card-title text-center">Signup a new user</h5>
         <div class="card-body">
             <form class="form signup-form">
@@ -58,27 +55,21 @@
 
                 {{!-- Already a user --}}
                 <div class="form-group text-center">
-                    <a href="/login">Already a user? Click here to log in</a>
+                    <a class="registerText" href="/login">Already a user? Click here to log in</a>
                 </div>
             </form>
-            
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <p>This is a modal message!</p>
-                </div>
-            </div>
+
         </div>
     </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>This is a modal message!</p>
+        </div>
+    </div>
+
 </div>
 
-
-{{!-- <form class="form signup-form">
-
-
-</form> --}}
-
-
-</div>
 
 <script src="/js/register.js"></script>
