@@ -12,11 +12,8 @@ require('dotenv').config();
 
 
 
-router.get('/a/:body', async (req, res) => {
-    res.redirect(`/search/b/${req.params.body}`)
-})
 
-router.get('/b/:body', async (req, res) => {
+router.get('/a/:body', async (req, res) => {
 
 
             console.log(req.params.body);
