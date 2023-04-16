@@ -20,7 +20,7 @@ var request = {
 }
 
  
-    var searchResults = await fetch(`/search/a/${JSON.stringify(request)}` , {
+   fetch(`/search/a/${JSON.stringify(request)}` , {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
 
