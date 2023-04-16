@@ -42,10 +42,12 @@
           <li><a href="/">Home</a></li>
           <li><a href="/contactUs">Contact Us</a></li>
           {{#if logged_in}}
-          <a href="/dashboard">profile</a>
-          <button class="btn btn-primary" type="submit" id="logout">logout</button>
+          <li class="userName">{{username}}</li>
+          {{!-- We don't have time to set this up, this would be a future improvement --}}
+          {{!-- <a href="/dashboard">profile</a> --}}
+          <button class="btn btn-primary" hidden type="submit" id="logout">Logout</button>
           {{else}}
-          <a href="/login">login</a>
+          <a class="loginLink" href="/login">Login</a>
           {{/if}}
         </ul>
       </nav>
@@ -73,14 +75,15 @@
           Search
         </a>
       </li>
-      <li class="nav-item border border-primary mt-2 rounded">
+      {{!-- The individual spring is going to be accessed through the search bar --}}
+      {{!-- <li class="nav-item border border-primary mt-2 rounded">
         <a href="/spring" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16">
             <use xlink:href="#table" />
           </svg>
           Individual Springs
         </a>
-      </li>
+      </li> --}}
       <li class="nav-item border border-primary mt-2 rounded">
         <a href="#" class="nav-link text-white">
           <svg class="bi me-2" width="16" height="16">
@@ -89,6 +92,16 @@
           My Favorites
         </a>
       </li>
+      {{#if logged_in}}
+      <li class="nav-item border border-primary mt-2 rounded">
+        <a href="/logout" class="nav-link text-white" id="logoutLink">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#table" />
+          </svg>
+          Logout
+        </a>
+      </li>
+      {{/if}}
     </ul>
     <hr>
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">

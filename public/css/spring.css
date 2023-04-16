@@ -6,7 +6,7 @@ p {
     width: 70%;
     height: 100%;
     position: fixed;
-    top: 33vw;
+    top: 30.5vw;
     /* right: calc((100vw - 280px) / 2); */
     right: 70px;
     transform: translateY(-50%);
@@ -47,6 +47,10 @@ p {
 .text1 {
     margin-right: 10px;
     margin-top: 15px;
+}
+
+#player {
+    left:5px;
 }
 
 /* .amenities {
