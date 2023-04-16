@@ -1,11 +1,9 @@
+
 let player;
 function onYouTubeIframeAPIReady() {
-  // Call your player initialization function here
-  initializePlayer();
 
-  // Set the cookie after the player is initialized
-  document.cookie = "cookie_name=cookie_value; SameSite=None; Secure";
-}
+    // Call your player initialization function here
+    initializePlayer();
 
 // Get the current URL
 const currentUrl = window.location.href;
@@ -26,6 +24,72 @@ function initializePlayer() {
   iframe.allowFullscreen = true;
   playerDiv.appendChild(iframe);
 }
+
+    // Set the cookie after the player is initialized
+    document.cookie = "cookie_name=cookie_value; SameSite=None; Secure";
+  }
+
+
+
+  const addButton = $('#addReview');
+
+  
+
+addButton.click(async function(event) {
+
+  var reviewID;
+  const fileUpload = document.getElementById('fileUpload')
+const userSpringRating = $('#Rating').val();
+const reviewText = $('#Comments').val();
+const springID = $('#springID').text()
+var fileArray = fileUpload.files;
+console.log('springID', springID)
+
+  console.log(fileUpload.files);
+  var newReview =  await fetch('/review', {
+    method: 'POST', 
+    body: JSON.stringify({
+      userSpringRating,
+      reviewText,
+      springID
+
+    }),
+    
+    headers: { 'Content-Type': 'application/json' },
+
+}).then(res => res.json()).then(data => {
+  reviewID = data.springReviewID
+})
+
+console.log('reviewID', reviewID);
+
+async function getBase64(file)  {
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onloadend = function () {
+    console.log(reader.result);
+    mediaURL = reader.result;
+    fetch('/api/reviewMedia', {
+        method: 'POST', 
+        body: JSON.stringify({
+            mediaURL: mediaURL,
+         
+            Review: reviewID
+        }),
+  headers: { 'Content-Type': 'application/json' },
+
+        
+    })
+  };
+  reader.onerror = function (error) {
+    console.log('Error: ', error);
+  };
+};
+
+for (var i =0; i < fileArray.length; i++ )
+getBase64(fileArray[i])
+
+})
 
 // Get references to the HTML elements
 const mediaImage = document.querySelector('#mediaImage');

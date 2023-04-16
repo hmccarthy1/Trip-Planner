@@ -29,11 +29,11 @@ const runTests = async function () {
   await amenityChoice.destroy({truncate: true})
 
   userHunter = await User.create({
-    firstName: "Hunters",
+    firstName: "Hunter",
     lastName: "McCarthy",
     DOB: 1996 / 03 / 30,
     emailAddress: "hunterMcCarthy56@hotmail.com",
-    userPassword: "testpwadfadsfasf",
+    userPassword: "123456789",
     phoneNumber: '321-210-9676'
   });
 
