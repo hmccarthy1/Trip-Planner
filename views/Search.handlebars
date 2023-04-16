@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/css/search.css">
+
+<section class="searchSection row col-lg-10 align-items-center">
+
+
+<section class="card" id="searchBox">
+
+
+    <section id="accordion1" class="">
+        <div class="card">
+    <section class="card-header">
+        <h5>
+        <a href="#collapse-1" data-parent="#accordion1" data-toggle="collapse">Search by Spring Name</a>
+        </h5>
+    </section>
+    <section class="card-body collapse" id="collapse-1" >
+        <input type="text" name="" id="nameSearch">
+    </section>
+        </div>
+    </section>
+
+
+
+
+
+<section id="accordion2" class="mt-5">
+        <div class="card">
+    <section class="card-header">
+        <h5>
+        <a href="#collapse-2" data-parent="#accordion2" data-toggle="collapse">Filter by amenities</a>
+        </h5>
+    </section>
+    <section class="card-body collapse" id="collapse-2" >
+        {{#each amenityOptions}}
+
+        <div class="row  align-items-center">
+            <input class="iconCheckbox align-self-stretch" type="checkbox" name="" id="{{this.amenityType}}">
+            <h2 class="ml-2">
+                {{this.amenityType}}
+            </h2>
+            <img class="icon" src="{{this.amenityIcon}}" alt="a">
+
+        </div>
+
+        {{/each}}
+    </section>
+        </div>
+    <button class="btn btn-primary mt-5 col-lg-2 " id="searchButton">Search</button>
+    </section>
+
+
+</section>
+
+
+</section>
+
+
+<script src="/js/search.js"></script>

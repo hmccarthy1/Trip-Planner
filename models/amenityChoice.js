@@ -16,6 +16,10 @@ amenityChoice.init(
         amenityType: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        amenityIcon: {
+            type: DataTypes.TEXT,
+            
         }
     },
     {

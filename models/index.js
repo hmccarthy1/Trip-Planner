@@ -8,6 +8,7 @@ const amenityChoice = require('./amenityChoice');
 const Amenity = require('./Amenity');
 const amenityMedia = require('./amenityMedia')
 
+
 var testUser;
 var testSpring;
 var testSpringReview;
@@ -25,13 +26,16 @@ const runTests = async function () {
   await springMedia.destroy({ truncate: true });
   await Amenity.destroy({ truncate: true });
   await amenityMedia.destroy({ truncate: true });
+  await amenityChoice.destroy({truncate: true});
+  springReview.destroy({truncate: true});
+  reviewMedia.destroy({truncate: true})
 
   userHunter = await User.create({
-    firstName: "Hunters",
+    firstName: "Hunter",
     lastName: "McCarthy",
     DOB: 1996 / 03 / 30,
     emailAddress: "hunterMcCarthy56@hotmail.com",
-    userPassword: "testpwadfadsfasf",
+    userPassword: "123456789",
     phoneNumber: '321-210-9676'
   });
 
@@ -206,6 +210,20 @@ const runTests = async function () {
 
   });
 
+const ginnieReview1 = await springReview.create({
+  Spring: 1,
+  reviewingUser: 1,
+  userSpringRating: 9.5,
+  reviewText: "We had a great time at Ginnie! The water was crystal clear & super refreshing on a hot florida day!"
+
+});
+
+const reviewMedia1 = await reviewMedia.create({
+  Review: ginnieReview1.springReviewID,
+  mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681615902/itr2uhq2yefgks63bdpb.jpg",
+  Caption: "Swimming through the crystal clear waters of ginnie springs"
+
+})
 
   var blueMain = await springMedia.create({
     Spring: blueSprings.springID,
@@ -289,35 +307,43 @@ const runTests = async function () {
   });
 
   var kayaking = await amenityChoice.create({
-    amenityType: "Kayaking"
+    amenityType: "Kayaking",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681509572/download_syb6k2.png"
   });
   
   var Snorkeling = await amenityChoice.create({
-    amenityType: "Snorkeling"
+    amenityType: "Snorkeling",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681511155/Picture1_yjxwy8.png"
   })
 
   var birdWatching = await amenityChoice.create({
-    amenityType: "Bird Watching"
+    amenityType: "Bird Watching",
+    amenityIcon: 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521171/download_1_cdtsyj.png'
   })
 
   var Hiking = await amenityChoice.create({
-    amenityType: "Hiking"
+    amenityType: "Hiking",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521496/hiking-illustration-on-a-background-premium-quality-symbols-icons-for-concept-and-graphic-design-vector_1_obv8uu.jpg"
   })
 
   var Grilling  = await amenityChoice.create({
-    amenityType: "Grilling"
+    amenityType: "Grilling",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521562/161512_o1qvku.png"
   })
 
   var Diving  = await amenityChoice.create({
-    amenityType: "Diving"
+    amenityType: "Diving",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521645/886250-200_h0khaf.png"
   });
 
   var Tubing  = await amenityChoice.create({
-    amenityType: "Tubing"
+    amenityType: "Tubing",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521704/istockphoto-489138584-612x612_cevi3w.jpg"
   });
 
   var Camping = await amenityChoice.create({
-    amenityType: "Camping"
+    amenityType: "Camping",
+    amenityIcon: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681521820/orange-tent-icon-free-vector_ggj3k2.jpg"
   });
 
 
@@ -328,7 +354,16 @@ const runTests = async function () {
   Cost: "How much this endeavor will cost depends on what you want to do, and if you're bringing your own gear. Cave diver admission is 24 USD, normal divers get in for 32 USD, and an annual diving pass will cost you 399.99 USD. Rentals will vary but will not be cheap",
   amenityRating: 9.3,
   amenityTitle: "Ginnie Springs Diving"
-  })
+  });
+
+  var testDiving = await Amenity.create({
+    Spring: 3,
+    amenityType: Diving.amenityChoiceID,
+    amenityDescription: "Ftest",
+    Cost: "How much this endeavor will cost depends on what you want to do, and if you're bringing your own gear. Cave diver admission is 24 USD, normal divers get in for 32 USD, and an annual diving pass will cost you 399.99 USD. Rentals will vary but will not be cheap",
+    amenityRating: 9.3,
+    amenityTitle: "test"
+    });
 
   var ginnieDivingMain = await amenityMedia.create({
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681474222/ginnie11_twmyca.jpg",
@@ -425,22 +460,6 @@ const runTests = async function () {
       )
 
   //
-
-
- 
- 
-  
-
-  // console.log( testUser );
-  // console.log( testSpring );
-  // console.log( testSpringReview );
-  // console.log( testReviewMedia )
-  // console.log( testFavoritedSpring );
-  // console.log( testSpringMedia );
-  // console.log( testAmenityChoice );
-  // console.log( testAmenity );
-  // console.log( testAmenityMedia );
-
 
 }
 

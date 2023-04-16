@@ -1,0 +1,144 @@
+p {
+    font-family: 'Times New Roman', 'Georgia', 'Garamond'
+}
+.individualSpring {
+    margin-left: 40vw;
+    width: 70%;
+    height: 100%;
+    position: fixed;
+    top: 30.5vw;
+    /* right: calc((100vw - 280px) / 2); */
+    right: 70px;
+    transform: translateY(-50%);
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.overview {
+    /* height: 60px; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* width: 100px; */
+    /* z-index: 1; */
+    /* border: solid black 1px; */
+
+    /* height: 90vh; */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-weight: bold;
+    color: black;
+}
+
+#overviewText {
+    margin: 10px;
+    margin-left: 20px;
+    overflow: auto;
+    width: 80%;
+    height: 150px;
+    background-color: rgb(255, 255, 255, 0.9);
+    text-align: center;
+
+}
+
+.icons {
+    margin-left: 40px;
+}
+
+.text1 {
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+#player {
+    left:5px;
+}
+
+/* .amenities {
+    background-color: #f00;
+    border: black solid 2px;
+}
+
+.reviews {
+    border: black solid 2px;
+} */
+
+footer {
+    /* background-color: purple; */
+    /* border: black solid 2px; */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 200px;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.reviews  {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+
+}
+
+
+
+#springID {
+    display: none
+}
+
+#reviewGallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center !important;
+    gap: 5%;
+    
+}
+
+#reviewGallery img {
+    width: 100%;
+}
+
+#reviewGallery .card {
+
+    flex: 0 0 24%;
+    max-height: 10%;
+    
+}
+
+footer {
+    height: 5vh;
+}
+
+

@@ -21,5 +21,9 @@ label {
 }
 
 .card-background {
-    background-color: #B2EBF2;
+    background-color: rgba(0, 183, 255, 0.8);
+  }
+
+  .loginText {
+    color: white;
   }

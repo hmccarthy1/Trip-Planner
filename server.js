@@ -2,7 +2,7 @@
 const Handlebars = require('handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 const path = require('path');
-const express = require('express');
+
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
@@ -15,7 +15,11 @@ const { userInfo } = require('os');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const bodyParser = require("body-parser");
 
-const app = express();
+var express = require('express')
+
+var app = express()
+
+
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers,
@@ -30,7 +34,7 @@ const sess = {
     maxAge: 300000,
     httpOnly: true,
     secure: false,
-    sameSite: 'strict',
+    sameSite: 'strict'
   },
   resave: false,
   saveUninitialized: true,
@@ -49,10 +53,8 @@ app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
-
-
 
 
 sequelize.sync({ force: false }).then(() => {
