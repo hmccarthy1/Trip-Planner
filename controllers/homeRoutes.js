@@ -33,7 +33,7 @@ router.get('/login', async (req, res) => {
   try {
     // If the user is already logged in, redirect the request to the user dashboard
     if (req.session.logged_in) {
-      res.redirect('/dashboard');
+      res.redirect('/homepage');
       return;
     }
 
@@ -54,7 +54,7 @@ router.post('/register', async (req, res) => {
 
     // If the user is already logged in, redirect the request to the dashboard
     if (req.session.logged_in) {
-      res.redirect('/dashboard');
+      res.redirect('/homepage');
       return;
     }
     const userData = await User.create(req.body);
@@ -71,7 +71,7 @@ router.post('/register', async (req, res) => {
 }
 )
 
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/homepage', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -81,7 +81,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('dashboard', {
+    res.render('homepage', {
       ...user,
       logged_in: true
     });

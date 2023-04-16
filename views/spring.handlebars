@@ -84,17 +84,21 @@
     {{!-- Gallery --}}
     <section class="gallery">
         <p class="text-center">Media Gallery</p>
-        <div class="photos d-flex justify-content-around">
-            <button class="prev-btn btn btn-info align-items-center" style="height:40%"><</button>
-                    <div class="card-container">
-                        <div class="card" style="width: 18rem; height:200px">
-                            {{!-- The URL for the images are stored in displayMedia that comes as a template literal
-                            from the homeRoutes--}}
-                            <img id="mediaImage" src={{displayMedia.[0].mediaURL}} class="card-img-top"
-                                style="width: 100%; height: 100%;" alt="...">
-                        </div>
-                    </div>
-                    <button class="next-btn btn btn-info align-items-center" style="height:40%">></button>
+        <div class="photos d-flex justify-content-around align-items-center">
+            {{!-- Button forward --}}
+            <button class="prev-btn btn btn-info" style="height:40%"><</button>
+
+            <div class="card-container">
+                <div class="card" style="width: 18rem; height:200px">
+                    {{!-- The URL for the images are stored in displayMedia that comes as a template literal
+                    from the homeRoutes--}}
+                    <img id="mediaImage" src={{displayMedia.[0].mediaURL}} class="card-img-top"
+                        style="width: 100%; height: 100%;" alt="...">
+                </div>
+            </div>
+
+            {{!-- Button Backward --}}
+            <button class="next-btn btn btn-info" style="height:40%">></button>
         </div>
     </section>
 
