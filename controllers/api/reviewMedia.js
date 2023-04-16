@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
    try {
 
+    console.log(req.body, 'BODY----')
     
     const uploadedImage = await cloudinary.uploader.upload_large(req.body.mediaURL);
     const uploadedImageURL = uploadedImage.secure_url;
@@ -23,7 +24,7 @@ router.post('/', async (req, res) => {
     mediaURL: uploadedImageURL, 
     Caption: req.body.Caption
    });
-   console.log(newMedia)
+   console.log('created------------------------------------------------------------------------------------------', newMedia)
    ;
    res.end();
 } catch (err) {
