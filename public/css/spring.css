@@ -1,5 +1,5 @@
 p {
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Times New Roman', 'Georgia', 'Garamond'
 }
 .individualSpring {
     margin-left: 40vw;
@@ -136,3 +136,9 @@ footer {
     max-height: 10%;
     
 }
+
+footer {
+    height: 5vh;
+}
+
+

@@ -130,3 +130,8 @@ fetch(`/spring/${id}/media`)
     console.error(error);
   });
 
+var callFavorite = $('#favoriteSpring');
+
+callFavorite.click(function(event) {
+  
+})
