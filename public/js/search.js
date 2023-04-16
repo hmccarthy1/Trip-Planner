@@ -1,9 +1,9 @@
-
+console.log('test')
 var searchButton = $('#searchButton');
 var searchText = $('#nameSearch')
 
 searchButton.click(async function(event)  {
-    event.preventDefault()
+ 
     
     var filters = [];
     const checkedArray = $('.iconCheckbox:checkbox:checked');

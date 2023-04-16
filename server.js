@@ -16,10 +16,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const bodyParser = require("body-parser");
 
 var express = require('express')
-var cors = require('cors')
-var app = express()
 
-app.use(cors())
+var app = express()
 
 
 const PORT = process.env.PORT || 3001;
@@ -36,7 +34,7 @@ const sess = {
     maxAge: 300000,
     httpOnly: true,
     secure: false,
-    sameSite: 'lax'
+    sameSite: 'strict'
   },
   resave: false,
   saveUninitialized: true,
