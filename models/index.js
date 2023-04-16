@@ -50,15 +50,14 @@ const runTests = async function () {
     springDescription: "The best spring system in the state - period. This site hosts it's own head spring, which feeds into the Santa Fe (and the rope swing taking you into it), as well as the Devil Spring System. Made up of Devli's Ear,  Devil's Eye, and Little Devil, this system is a true wonder of nature. Renowned worldwide for it's one-of-a-kind cave diving, beautiful above-water scenery, and diverse wildlife, this spring sytem is a must-see for everyone."
 
   });
+  var ichetuckneeSprings = await Spring.create({
 
-  var blueSprings = await Spring.create({
-
-    springName: "Blue Springs (Volusia)",
-    latitude: 28.9514,
-    longitude: 81.3337,
+    springName: "Ichetucknee Springs",
+    latitude: 29.9838,
+    longitude: 82.7618,
     springState: "FL",
-    County: "Volusia",
-    springDescription: "Famous for the manatees that inhabit it during the winter months and the exceptional freediving opportunities it offers, this oasis is located about 45 minutes north of Orlando. This spring boasts about a half mile of crystal clear stream, leading to the 40' deep head spring that attracts freedivers from all over the state"
+    County: "Suwanee",
+    springDescription: "Whether you want to take a leisurely tube down a natural lazy river, or be awed by the size the underwater cavern at Blue Hole, this site has you covered. Right in the heartland of Florida spring territory, this site is only a half hour north of Ginnie Springs, just outside Alachua"
 
   });
 
@@ -72,6 +71,30 @@ const runTests = async function () {
     springDescription: "This spring plays hosts to swirling schools of silver striped bass and swaying seagrass. The 72 degree waters of this spring are located about an hour and fifteen minutes north from Orlando, nestled in the Ocala national forest."
 
   });
+
+  var devilsDenSpring = await Spring.create({
+
+    springName: "Devil's Den Prehistoric Spring",
+    latitude: 29.4070,
+    longitude: 82.4761,
+    springState: "FL",
+    County: "Levy",
+    springDescription: "Truly one of Florida's natural wonders, this spring in nested inside a rock canyon with strands of sunlight streaming through the natural formation, creating a mid-day halo effect. This spring is a bucket-list item for many cave divers hoping to explore the pre-historic underwater cave system. Right next door is one of the most diverse gardens in the state of florida"
+
+  });
+
+  var blueSprings = await Spring.create({
+
+    springName: "Blue Springs (Volusia)",
+    latitude: 28.9514,
+    longitude: 81.3337,
+    springState: "FL",
+    County: "Volusia",
+    springDescription: "Famous for the manatees that inhabit it during the winter months and the exceptional freediving opportunities it offers, this oasis is located about 45 minutes north of Orlando. This spring boasts about a half mile of crystal clear stream, leading to the 40' deep head spring that attracts freedivers from all over the state"
+
+  });
+
+  
 
   var silverSprings = await Spring.create({
 
@@ -95,28 +118,9 @@ const runTests = async function () {
 
   });
 
-  var devilsDenSpring = await Spring.create({
 
-    springName: "Devil's Den Prehistoric Spring",
-    latitude: 29.4070,
-    longitude: 82.4761,
-    springState: "FL",
-    County: "Levy",
-    springDescription: "Truly one of Florida's natural wonders, this spring in nested inside a rock canyon with strands of sunlight streaming through the natural formation, creating a mid-day halo effect. This spring is a bucket-list item for many cave divers hoping to explore the pre-historic underwater cave system. Right next door is one of the most diverse gardens in the state of florida"
 
-  });
-
-  var ichetuckneeSprings = await Spring.create({
-
-    springName: "Ichetucknee Springs",
-    latitude: 29.9838,
-    longitude: 82.7618,
-    springState: "FL",
-    County: "Suwanee",
-    springDescription: "Whether you want to take a leisurely tube down a natural lazy river, or be awed by the size the underwater cavern at Blue Hole, this site has you covered. Right in the heartland of Florida spring territory, this site is only a half hour north of Ginnie Springs, just outside Alachua"
-
-  });
-
+ 
   var royalSprings = await Spring.create({
 
     springName: "Royal Springs",
@@ -225,6 +229,12 @@ const reviewMedia1 = await reviewMedia.create({
 
 })
 
+var ichetuckneeMain = await springMedia.create({
+  Spring: ichetuckneeSprings.springID,
+  mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg", 
+  Caption: "The entrance to the Ichetucknee head spring, next to a path leading to Blue Hole", 
+  mainImage: true
+});
   var blueMain = await springMedia.create({
     Spring: blueSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442901/Blue-Springs-State-Park_084e5789-a552-d6e7-6866fc9f12ece6b1_fwc7qw.jpg", 
@@ -233,6 +243,8 @@ const reviewMedia1 = await reviewMedia.create({
 
   });
   
+
+
   var silverGlenMain = await springMedia.create({
     Spring: silverGlenSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443092/8696137743_530350a358_b_xtdprv.jpg", 
@@ -241,14 +253,7 @@ const reviewMedia1 = await reviewMedia.create({
 
   });
 
-  var silverMain = await springMedia.create({
-    Spring: silverSprings.springID,
-    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681357788/asvw2lazqjheytajiyuq.jpg", 
-    Caption: "A relaxing view from a viewing deck alongside the river hosting Silver Springs", 
-    mainImage: true
-
-  });
-
+ 
   var alexanderMain = await springMedia.create({
     Spring: alexanderSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443378/diving-down-into-alexander-springs-1024x577_x5uwvo.jpg", 
@@ -264,11 +269,15 @@ const reviewMedia1 = await reviewMedia.create({
     mainImage: true
 
   });
-  var ichetuckneeMain = await springMedia.create({
-    Spring: ichetuckneeSprings.springID,
-    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443785/ichetucknee-blue_hole_springs-16_rvxlww.jpg", 
-    Caption: "The entrance to the Ichetucknee head spring, next to a path leading to Blue Hole", 
+
+
+
+  var silverMain = await springMedia.create({
+    Spring: silverSprings.springID,
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681357788/asvw2lazqjheytajiyuq.jpg", 
+    Caption: "A relaxing view from a viewing deck alongside the river hosting Silver Springs", 
     mainImage: true
+
   });
 
   var royalMain = await springMedia.create({
