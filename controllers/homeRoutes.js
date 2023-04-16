@@ -88,7 +88,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 //Temporary route for testing
-router.get('/spring',/*withAuth ,*/ async (req, res) => {
+router.get('/spring',  async (req, res) => {
   // find a single spring by its `id`
   try {
     // const springId = await Spring.findByPk(req.params.id,{
@@ -98,7 +98,7 @@ router.get('/spring',/*withAuth ,*/ async (req, res) => {
     // });
 
     // res.status(200).json(springId);
-
+console.log(req.session.user_id)
     res.render('spring');
 
   } catch (err) {
@@ -120,6 +120,8 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
     })
 
     const spring = springData.get({ plain: true });
+    const springID = req.params.id
+    console.log('SPING ID--------------', springID)
 
     res.render('spring', {
       ...spring,

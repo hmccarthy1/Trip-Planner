@@ -1,5 +1,40 @@
 <link rel="stylesheet" href="/css/spring.css">
 
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1 class="h4">Rating (0-10)</h1>
+        <input type="text" id="Rating">
+        <h1 class="h4">Add any of your comments here</h1>
+        <input type="text" id="Comments">
+        <h1 class="h4">Upload images</h1>
+        <input id="fileUpload" multiple="multiple" type="file" name="files"  >
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="addReview" type="button" class="btn btn-primary">Add Review</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
+    Modal Login Form</a>
+</div>
+
 <section class="individualSpring">
 
     {{!-- Overview section --}}
@@ -67,9 +102,12 @@
     <p class="pFooter1">Liked this spring? Favorite it! <a href="http://">&#9733;</a></p>
     <div class="bg-dark d-flex flex-row justify-content-right">
         <p class="me-3">Want to leave some feedback?</p>
-        <button class="btn btn-warning">Add a review</button>
+        <button id="addAReviewButton" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal">Add a review</button>
 
     </div>
 </footer>
+
+
+    <h1 id="springID">{{springID}}</h1>
 
 <script src="/js/spring.js"></script>

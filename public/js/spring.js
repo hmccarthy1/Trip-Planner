@@ -1,3 +1,4 @@
+
 let player;
 function onYouTubeIframeAPIReady() {
     // Call your player initialization function here
@@ -18,3 +19,64 @@ function onYouTubeIframeAPIReady() {
     iframe.allowFullscreen = true;
     playerDiv.appendChild(iframe);
   }
+
+
+  const addButton = $('#addReview');
+
+  
+
+addButton.click(async function(event) {
+
+  var reviewID;
+  const fileUpload = document.getElementById('fileUpload')
+const userSpringRating = $('#Rating').val();
+const reviewText = $('#Comments').val();
+const springID = $('#springID').text()
+var fileArray = fileUpload.files;
+console.log('springID', springID)
+
+  console.log(fileUpload.files);
+  var newReview =  await fetch('/review', {
+    method: 'POST', 
+    body: JSON.stringify({
+      userSpringRating,
+      reviewText,
+      springID
+
+    }),
+    
+    headers: { 'Content-Type': 'application/json' },
+
+}).then(res => res.json()).then(data => {
+  reviewID = data.springReviewID
+})
+
+console.log('reviewID', reviewID);
+
+async function getBase64(file)  {
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onloadend = function () {
+    console.log(reader.result);
+    mediaURL = reader.result;
+    fetch('/api/reviewMedia', {
+        method: 'POST', 
+        body: JSON.stringify({
+            mediaURL: mediaURL,
+         
+            Review: reviewID
+        }),
+  headers: { 'Content-Type': 'application/json' },
+
+        
+    })
+  };
+  reader.onerror = function (error) {
+    console.log('Error: ', error);
+  };
+};
+
+for (var i =0; i < fileArray.length; i++ )
+getBase64(fileArray[i])
+
+})
