@@ -30,10 +30,7 @@
     </div>
   </div>
 </div>
-<div class="text-center">
-  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
-    Modal Login Form</a>
-</div>
+
 
 <section class="individualSpring">
 
@@ -105,18 +102,20 @@
 
     {{!-- Reviews --}}
     <section class="reviews">
-        <p class="text-center">Reviews</p>
-        <div class="review d-flex justify-content-around">
-            <div class="card" style="width: 5rem; height:40px">
-                <a href="http:/">Review 1</a>
-            </div>
-            <div class="card" style="width: 5rem;">
-                <a href="http:/">Review 2</a>
-            </div>
-            <div class="card" style="width: 5rem;">
-                <a href="http:/">Review 3</a>
-            </div>
-        </div>
+        <h1 class="h1 text-center">Reviews</h1>
+        <div class="review d-flex mt-5" id="reviewGallery">
+            {{#each allReviews}}
+
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <img class="card-img-top" src="https://res.cloudinary.com/dsvmviwkc/image/upload/v1681646450/vpccfifvivyikxov5xsb.png" alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text">{{this.reviewText}}</p>
+    <button class="btn btn-primary" >See Review</button>
+  </div>
+</div>
+
+
+            {{/each}}
     </section>
 
 </section>

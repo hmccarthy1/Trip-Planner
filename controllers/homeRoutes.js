@@ -4,6 +4,8 @@ const test = "true";
 const withAuth = require('../utils/auth');
 const Spring = require('../models/Spring');
 const springMedia = require('../models/springMedia');
+const reviewMedia = require('../models/reviewMedia');
+const springReview = require('../models/springReview')
 const amenityMedia = require('../models/amenityMedia');
 const Amenity = require('../models/Amenity');
 const amenityChoice = require('../models/amenityChoice');
@@ -120,12 +122,37 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
       where: {
         Spring: req.params.id,
       },      
-    })
-    const amenities = await Amenity.findAll({
-      where: {
-        Spring: req.params.id,
-      },
     });
+    const allReviews = await springReview.findAll({
+      where: {
+        Spring: req.params.id
+      },
+      raw: true
+    });
+
+    var handleMedia = [];
+
+    for (var i = 0; i < allReviews.length; i++) {
+      var firstMedia; 
+      var mediaCheck;
+      mediaCheck = await reviewMedia.findOne({
+          where: {
+            Review: allReviews[i].springReviewID
+          }
+        });
+
+        if (mediaCheck) {
+          firstMedia = mediaCheck.mediaURL
+        } else {
+          firstMedia = 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681646450/vpccfifvivyikxov5xsb.png'
+        };
+
+        handleMedia.push(firstMedia)
+       
+    }
+    
+
+
 
     //Get amenities for the spring
     let media = [];
@@ -148,8 +175,10 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
     res.render('spring', {
       ...spring,
       displayMedia,
+      logged_in: req.session.logged_in,
+      allReviews,
+      handleMedia,
       media,
-      logged_in: req.session.logged_in
     });
 
   } catch (err) {

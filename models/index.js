@@ -26,7 +26,8 @@ const runTests = async function () {
   await springMedia.destroy({ truncate: true });
   await Amenity.destroy({ truncate: true });
   await amenityMedia.destroy({ truncate: true });
-  await amenityChoice.destroy({truncate: true})
+  await amenityChoice.destroy({truncate: true});
+  springReview.destroy({truncate: true})
 
   userHunter = await User.create({
     firstName: "Hunter",
