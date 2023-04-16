@@ -20,8 +20,6 @@
         <h1 class="h4">Upload images</h1>
         <input id="fileUpload" multiple="multiple" type="file" name="files"  >
 
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -30,8 +28,6 @@
     </div>
   </div>
 </div>
-
-
 
 <div class="modal fade" id="favoriteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -45,8 +41,6 @@
       <div class="modal-body">
         <h1>Are you sure you want to favorite this spring?</h1>
         
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button>
@@ -56,16 +50,15 @@
   </div>
 </div>
 
+<section class="individualSpring d-flex flex-colum">
 
-<section class="individualSpring">
-
-    {{!-- Overview section --}}
+    {{!-- Overview section contains information about the Spring, video, and amenities--}}
     <section class="overview text-center">
         <p class="text1">OVERVIEW</p>
 
         <section class="box1 d-flex flex-row">
             <div>
-                <textarea name="overviewText" id="overviewText" cols="30" rows="10">{{springDescription}}</textarea>
+                <textarea readonly name="overviewText" id="overviewText" cols="30" rows="10">{{springDescription}}</textarea>
 
                 {{!-- Amenities --}}
                 <section class="amenities">
