@@ -1,14 +1,16 @@
+var favoriteModal = $('#favoriteModal');
+
 
 let player;
 function onYouTubeIframeAPIReady() {
 
     // Call your player initialization function here
+    const currentUrl = window.location.href;
+const id = currentUrl.split('/').pop();
     
     // Get the current URL
-    const currentUrl = window.location.href;
     
     // Extract the ID from the URL
-    const id = currentUrl.split('/').pop();
     
     const videoIndex = ['5V8cM9h4Hv4', '572Wde50ivs', '5J01oZPN_oA', 'DZywLrtbPlU', 'xNn_kek59j4', 'B-mtiykfHao', 'LaADC6I4Ofw', 'k57uK6aNNfg', 'tPzZ5JCfjs0', 'ibULOoGaA', 'Viytwxg0QRc', 'b9PXOXQzs-4'];
     initializePlayer();
@@ -117,7 +119,9 @@ nextButton.addEventListener('click', function onNextClick() {
   updateImage();
 });
 
+const currentUrl = window.location.href;
 
+const id = currentUrl.split('/').pop();
 
 // Fetch the media data for the current ID
 fetch(`/spring/${id}/media`)
@@ -135,6 +139,19 @@ fetch(`/spring/${id}/media`)
 
 var callFavorite = $('#favoriteSpring');
 
-callFavorite.click(function(event) {
+callFavorite.click(async function(event) {
+  fetch('/review/favorite', {
+    method: 'POST', 
+    body: JSON.stringify({id: id}),
+    headers: { 'Content-Type': 'application/json' },
+  }).then(res => res.json()).then(data => {
+    console.log(data);
+
+    if (data.message == "Created successfully") {
+      document.location.reload()
+    }
   
+  
+  
+  })
 })
