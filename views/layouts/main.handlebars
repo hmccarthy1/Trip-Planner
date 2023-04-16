@@ -34,7 +34,7 @@
   </video>
 
   
-  <header id="mainHeader" class="display-flex justify-space-between align-center p-2">
+  <header id="mainHeader" class="display-flex justify-space-between align-center p-2 bg-dark text-light">
     <h1>
       <h1 class="titlePage m5">Springs and Things</h1>
       <nav>
@@ -42,7 +42,7 @@
           <li><a href="/floridasprings">Home</a></li>
           <li><a href="/contactUs">Contact Us</a></li>
           {{#if logged_in}}
-          <li class="userName">{{username}}</li>
+          <li class="userName">{{this.firstName}}</li>
           {{!-- We don't have time to set this up, this would be a future improvement --}}
           {{!-- <a href="/dashboard">profile</a> --}}
           <button class="btn btn-primary" hidden type="submit" id="logout">Logout</button>
@@ -94,7 +94,7 @@
       </li>
       {{#if logged_in}}
       <li class="nav-item border border-primary mt-2 rounded">
-        <a href="/logout" class="nav-link text-white" id="logoutLink">
+        <a href="" class="nav-link text-white" id="logoutLink">
           <svg class="bi me-2" width="16" height="16">
             <use xlink:href="#table" />
           </svg>

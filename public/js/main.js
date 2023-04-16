@@ -13,3 +13,13 @@ function myFunction() {
     btn.innerHTML = "Play";
   }
 }
+
+var logoutBtn = $('#logoutLink');
+
+logoutBtn.click(function(event)  {
+  fetch('/api/logout', {
+    method: 'POST',
+    body: "", 
+    headers: { 'Content-Type': 'application/json' },
+  })
+})
