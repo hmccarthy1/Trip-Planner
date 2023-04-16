@@ -12,7 +12,8 @@ router.post("/", withAuth, async (req, res) => {
     console.log(req.session.logged_in, '------logged in?')
 
     if(!req.session.logged_in) {
-      
+      res.redirect('/floridasprings/login');
+      return;
     }
     
     const {userSpringRating, reviewText, springID } = req.body;
@@ -39,7 +40,7 @@ router.post("/", withAuth, async (req, res) => {
 
 router.post('/favorite', withAuth,  async (req, res) => {
     if (!req.session.user_id) {
-      res.redirect('/login')
+      res.redirect('/floridasprings/login')
     }
 })
 
