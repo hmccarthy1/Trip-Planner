@@ -2,7 +2,7 @@ p {
     font-family: 'Shadows Into Light', cursive;
 }
 .individualSpring {
-    left: 100vw - 300px;
+    margin-left: 40vw;
     width: 70%;
     height: 100%;
     position: fixed;
@@ -100,9 +100,35 @@ footer {
 
 
 
+.reviews  {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+
+}
 
 
 
 #springID {
     display: none
+}
+
+#reviewGallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center !important;
+    gap: 5%;
+    
+}
+
+#reviewGallery img {
+    width: 100%;
+}
+
+#reviewGallery .card {
+
+    flex: 0 0 24%;
+    max-height: 10%;
+    
 }
