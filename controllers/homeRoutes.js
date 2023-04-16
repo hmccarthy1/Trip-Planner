@@ -4,14 +4,11 @@ const test = "true";
 const withAuth = require('../utils/auth');
 const Spring = require('../models/Spring');
 const springMedia = require('../models/springMedia');
-<<<<<<< HEAD
 const reviewMedia = require('../models/reviewMedia');
 const springReview = require('../models/springReview')
-=======
 const amenityMedia = require('../models/amenityMedia');
 const Amenity = require('../models/Amenity');
 const amenityChoice = require('../models/amenityChoice');
->>>>>>> b410e4c87effc62145ae6922a7b0fbb01e2dd855
 
 router.get('/', async (req, res) => {
   try {
@@ -125,7 +122,6 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
       where: {
         Spring: req.params.id,
       },      
-<<<<<<< HEAD
     });
     const allReviews = await springReview.findAll({
       where: {
@@ -157,14 +153,6 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
     
 
 
-=======
-    })
-    const amenities = await Amenity.findAll({
-      where: {
-        Spring: req.params.id,
-      },
-    });
->>>>>>> b410e4c87effc62145ae6922a7b0fbb01e2dd855
 
     //Get amenities for the spring
     let media = [];
@@ -187,14 +175,10 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
     res.render('spring', {
       ...spring,
       displayMedia,
-<<<<<<< HEAD
       logged_in: req.session.logged_in,
       allReviews,
-      handleMedia
-=======
+      handleMedia,
       media,
-      logged_in: req.session.logged_in
->>>>>>> b410e4c87effc62145ae6922a7b0fbb01e2dd855
     });
 
   } catch (err) {
