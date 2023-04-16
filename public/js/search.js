@@ -1,6 +1,9 @@
+
 var searchButton = $('#searchButton');
+var searchText = $('#nameSearch')
 
 searchButton.click(async function(event)  {
+    event.preventDefault()
     
     var filters = [];
     const checkedArray = $('.iconCheckbox:checkbox:checked');
@@ -9,16 +12,18 @@ searchButton.click(async function(event)  {
         filters.push(this.id) 
     });
     console.log(filters);
+    var nameFilter = searchText.val()
 
+var request = {
+    filters, 
+    nameFilter
+}
 
-    await fetch('/search', {
-        method: 'POST',
-        body: JSON.stringify({
-            filters: filters
-        }),
+ 
+    var searchResults = await fetch(`/search/a/${JSON.stringify(request)}` , {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
 
     });
 
-   
 })
