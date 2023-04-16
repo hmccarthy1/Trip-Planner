@@ -23,8 +23,36 @@ router.get('/', async (req, res) => {
       console.log("username: " + username);
       user.username = username;
       user.logged_in = true;
+    };
+
+    var  top5 = await Spring.findAll({
+      limit: 5,
+      raw: true
+    });
+
+
+    for (var i = 0; i < top5.length; i++ ) {
+      var lookupMedia;
+
+      lookupMedia = await springMedia.findOne({
+        where: {
+          Spring: top5[i].springID,
+          mainImage: true
+        }, 
+        raw: true
+      });
+
+
+      top5[i].URL = lookupMedia.mediaURL
+
     }
-    res.render('homepage', user);
+
+
+    console.log( '----- limit 5 ----- ', top5)
+
+
+    res.render('homepage', 
+    {user, top5});
   } catch (err) {
     res.status(500).json(err);
   }

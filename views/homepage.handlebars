@@ -1,5 +1,38 @@
-<section class="cards d-flex flex-column p-3 justify-content-center ">
+<link rel="stylesheet" href="/css/homepage.css">
 
+
+<section class="body-wrapper row">
+ 
+ <section class="cardGallery  col-lg-12 bg-transparent justify-content-center row">
+
+
+{{#each top5}}
+
+<div class=" card mt-3 m-md-3 col-xl-4 col-lg-6 col-md-8 col-sm-10 homeCard ">
+  <img src= {{this.URL}} class="card-img-top" alt="Fissure in Sandstone"/>
+  <div class="card-body">
+    <h5 class="card-title">{{this.springName}}</h5>
+    <p class="card-text overflow.auto ">{{this.springDescription}}</p>
+    <a href="/floridasprings/spring/{{this.springID}}" class="btn btn-primary">Check out the spring!</a>
+  </div>
+</div>
+
+
+{{/each}}
+
+
+
+
+
+
+ </section>
+<!-- Carousel wrapper -->
+</section>
+
+
+
+
+{{!-- 
  <div class="card w-50 mx-auto">
     <div class="card-body">
       <h5 class="card-title text-center">Ichetucknee Spring</h5>
@@ -32,9 +65,4 @@
     <a href="floridasprings/spring/1">
       <img src="/assets/images/ginnie-springs.jpg" class="card-img-bottom" alt="...">
     </a>
-  </div>
- 
-</section>
-
-
-
+  </div> --}}

@@ -172,4 +172,10 @@ header {
 
 .loginLink {
     color:white;
+};
+
+
+
+#carouselBasicExample {
+    z-index: 100000;
 }
