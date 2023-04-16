@@ -55,7 +55,7 @@ const signupFormHandler = async (event) => {
         openModal('Welcome aboard! You have successfully signed up.');
         
         setTimeout(function() {
-          document.location.replace('/dashboard');
+          document.location.replace('/floridasprings');
         }, 5000);
       } else {
         alert(response.statusText);

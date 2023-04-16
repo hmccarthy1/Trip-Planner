@@ -87,7 +87,8 @@ async function getBase64(file)  {
 };
 
 for (var i =0; i < fileArray.length; i++ )
-getBase64(fileArray[i])
+getBase64(fileArray[i]);
+window.location.reload()
 
 })
 
