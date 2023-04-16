@@ -97,4 +97,27 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+/*
+router.get('/indSprings', async (req, res) => {
+  try {
+
+    // If the user is already logged in, redirect the request to the dashboard
+    if (req.session.logged_in) {
+      res.redirect('/dashboard');
+      return;
+    }
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      res.status(200).json(userData);
+
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+*/
+
 module.exports = router;
