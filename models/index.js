@@ -27,7 +27,8 @@ const runTests = async function () {
   await Amenity.destroy({ truncate: true });
   await amenityMedia.destroy({ truncate: true });
   await amenityChoice.destroy({truncate: true});
-  springReview.destroy({truncate: true})
+  springReview.destroy({truncate: true});
+  reviewMedia.destroy({truncate: true})
 
   userHunter = await User.create({
     firstName: "Hunter",
@@ -209,6 +210,20 @@ const runTests = async function () {
 
   });
 
+const ginnieReview1 = await springReview.create({
+  Spring: 1,
+  reviewingUser: 1,
+  userSpringRating: 9.5,
+  reviewText: "We had a great time at Ginnie! The water was crystal clear & super refreshing on a hot florida day!"
+
+});
+
+const reviewMedia1 = await reviewMedia.create({
+  Review: ginnieReview1.springReviewID,
+  mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681615902/itr2uhq2yefgks63bdpb.jpg",
+  Caption: "Swimming through the crystal clear waters of ginnie springs"
+
+})
 
   var blueMain = await springMedia.create({
     Spring: blueSprings.springID,
@@ -445,22 +460,6 @@ const runTests = async function () {
       )
 
   //
-
-
- 
- 
-  
-
-  // console.log( testUser );
-  // console.log( testSpring );
-  // console.log( testSpringReview );
-  // console.log( testReviewMedia )
-  // console.log( testFavoritedSpring );
-  // console.log( testSpringMedia );
-  // console.log( testAmenityChoice );
-  // console.log( testAmenity );
-  // console.log( testAmenityMedia );
-
 
 }
 

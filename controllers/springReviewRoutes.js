@@ -9,6 +9,11 @@ router.post("/", withAuth, async (req, res) => {
   try {
     var reviewingUser = req.session.user_id;
     console.log(req.body, '-------------------')
+    console.log(req.session.logged_in, '------logged in?')
+
+    if(!req.session.logged_in) {
+      
+    }
     
     const {userSpringRating, reviewText, springID } = req.body;
 
@@ -30,5 +35,12 @@ router.post("/", withAuth, async (req, res) => {
     {err: err});
   }
 });
+
+
+router.post('/favorite', withAuth,  async (req, res) => {
+    if (!req.session.user_id) {
+      res.redirect('/login')
+    }
+})
 
 module.exports = router;

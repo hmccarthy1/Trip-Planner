@@ -115,20 +115,26 @@ console.log(req.session.user_id)
 router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
   // find a single spring by its `id`
   try {
+    console.log('hitting')
     const springData = await Spring.findByPk(req.params.id);
-
+    console.log('found spring ------', springData)
     //Added photos
     const displayMedia = await springMedia.findAll({
       where: {
         Spring: req.params.id,
       },      
+      raw: true
     });
+
+    console.log('springMedia ------', displayMedia)
     const allReviews = await springReview.findAll({
       where: {
         Spring: req.params.id
       },
       raw: true
     });
+
+    console.log('---- all reviews -----', allReviews)
 
     var handleMedia = [];
 
@@ -138,7 +144,8 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
       mediaCheck = await reviewMedia.findOne({
           where: {
             Review: allReviews[i].springReviewID
-          }
+          },
+          raw: true
         });
 
         if (mediaCheck) {
@@ -151,33 +158,45 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
        
     }
     
+    for (var i = 0; i < handleMedia.length; i ++ ) {
+      allReviews[i].URL = handleMedia[i]
+    }
 
-
+    console.log( '------- handle media ------', handleMedia)
 
     //Get amenities for the spring
+
+    const amenities = Amenity.findAll({
+      where: {
+        Spring: req.params.id
+      }, raw: true
+    })
+
+
+
     let media = [];
     for (let i = 0; i < amenities.length; i++){
       
       let mediaToAdd = await amenityChoice.findOne({
         where: {
           amenityChoiceID: amenities[i].amenityType,
-        }
+        }, raw: true
       });
-
+      console.log('mediaToAdd', i," ", mediaToAdd)
       media.push(mediaToAdd.amenityIcon);
     }
 
-    console.log(media);
+    console.log('----- media icons -----', media);
     const spring = springData.get({ plain: true });
     const springID = req.params.id
     console.log('SPING ID--------------', springID)
-
+console.log('req.session.logged_in ------ ', req.session.logged_in)
     res.render('spring', {
       ...spring,
       displayMedia,
       logged_in: req.session.logged_in,
       allReviews,
-      handleMedia,
+     
       media,
     });
 
