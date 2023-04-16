@@ -66,10 +66,10 @@ console.log('reviewID', reviewID);
 async function getBase64(file)  {
   var reader = new FileReader();
   reader.readAsDataURL(file);
-  reader.onloadend = function () {
+  reader.onloadend = async function () {
     console.log(reader.result);
     mediaURL = reader.result;
-    fetch('/api/reviewMedia', {
+   var results = await fetch('/api/reviewMedia', {
         method: 'POST', 
         body: JSON.stringify({
             mediaURL: mediaURL,
@@ -84,10 +84,12 @@ async function getBase64(file)  {
   reader.onerror = function (error) {
     console.log('Error: ', error);
   };
-};
+}
 
-for (var i =0; i < fileArray.length; i++ )
-getBase64(fileArray[i]);
+for (var i =0; i < fileArray.length; i++ ) {
+  getBase64(fileArray[i]);
+
+}
 window.location.reload()
 
 })
