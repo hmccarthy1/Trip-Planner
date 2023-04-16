@@ -6,7 +6,7 @@ p {
     width: 70%;
     height: 100%;
     position: fixed;
-    top: 33vw;
+    top: 30vw;
     /* right: calc((100vw - 280px) / 2); */
     right: 70px;
     transform: translateY(-50%);
