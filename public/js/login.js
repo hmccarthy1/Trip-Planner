@@ -25,7 +25,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         //openModal('You are logged in!');
         // If successful, redirect the browser to the profile page
-        document.location.replace('/dashboard');
+        document.location.replace('/homepage');
       } else {
         alert(response.statusText);
       }
