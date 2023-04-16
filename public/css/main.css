@@ -35,7 +35,7 @@ body {
 }
 
 header {
-    background-color: rgb(11, 51, 231);
+    background-color: rgb(115, 135, 223);
     height: 70px;
     display: flex;
     justify-content: space-evenly;
@@ -61,6 +61,7 @@ header ul li {
 
 ul li a {
     margin-right: 3px;
+    color: white;
 }
 
 .pageTitle {

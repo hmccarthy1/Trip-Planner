@@ -4,6 +4,9 @@ const test = "true";
 const withAuth = require('../utils/auth');
 const Spring = require('../models/Spring');
 const springMedia = require('../models/springMedia');
+const amenityMedia = require('../models/amenityMedia');
+const Amenity = require('../models/Amenity');
+const amenityChoice = require('../models/amenityChoice');
 
 router.get('/', async (req, res) => {
   try {
@@ -118,7 +121,26 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
         Spring: req.params.id,
       },      
     })
+    const amenities = await Amenity.findAll({
+      where: {
+        Spring: req.params.id,
+      },
+    });
 
+    //Get amenities for the spring
+    let media = [];
+    for (let i = 0; i < amenities.length; i++){
+      
+      let mediaToAdd = await amenityChoice.findOne({
+        where: {
+          amenityChoiceID: amenities[i].amenityType,
+        }
+      });
+
+      media.push(mediaToAdd.amenityIcon);
+    }
+
+    console.log(media);
     const spring = springData.get({ plain: true });
     const springID = req.params.id
     console.log('SPING ID--------------', springID)
@@ -126,9 +148,24 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
     res.render('spring', {
       ...spring,
       displayMedia,
+      media,
       logged_in: req.session.logged_in
     });
 
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// This route was created to fetch the spring.js that will save this data to an array
+router.get('/spring/:id/media', async (req, res) => {
+  try {
+    const displayMedia = await springMedia.findAll({
+      where: {
+        Spring: req.params.id,
+      },
+    });
+    res.json(displayMedia);
   } catch (err) {
     res.status(400).json(err);
   }
