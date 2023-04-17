@@ -44,7 +44,7 @@ reviewMedia.belongsTo(springReview);
 
 Amenity.belongsTo(Spring)
 
-amenityChoice.destroy({truncate: true})
+
 
 
 var testUser;
