@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   try {
     // We will show the Springs here
 
-  
+  console.log('HiTTING=======================================')
 
 
     var  top5 = await Spring.findAll({

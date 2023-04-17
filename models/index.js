@@ -34,10 +34,10 @@ springReview.hasMany(reviewMedia, {
   onDelete:'CASCADE'
 });
 
-reviewMedia.belongsTo(springReview);
-
 Spring.hasMany(Amenity,
   {onDelete: 'CASCADE'})
+reviewMedia.belongsTo(springReview);
+
 
 Amenity.belongsTo(Spring)
 
@@ -208,7 +208,7 @@ const runTests = async function () {
 
   });
 
-  
+
   console.log('--------------------------------- end springs ------------------------ \n')
 
   var ginnieMain = await springMedia.create({
