@@ -43,7 +43,8 @@ router.get('/a/:body', async (req, res) => {
             
             },
             attributes: [['amenityChoiceID', "amenityType"]],
-            raw: true
+            raw: true,
+            limit: 7
           
     },
         );
@@ -58,7 +59,7 @@ router.get('/a/:body', async (req, res) => {
             },
             attributes: ['Spring'],
             raw: true,
-            limit: 7
+         
         });
 
 
