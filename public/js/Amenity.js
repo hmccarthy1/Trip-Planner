@@ -8,5 +8,5 @@ cards.click(function(event) {
     mainImage.attr('src', event.target.src);
     console.log(event.target);
     mainCaption.text(event.target.alt)
-    
+    console.log('.')
 })
