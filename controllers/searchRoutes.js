@@ -16,6 +16,18 @@ require('dotenv').config();
 router.get('/a/:body', async (req, res) => {
 
 
+    var loggedIn;
+    if (req.session.logged_in != true) {
+       loggedIn = false;
+       userName = ""
+    } else {
+      loggedIn = true;
+      console.log(
+        '================================== logged IN ====================='
+      )
+      userName = req.session.firstName
+    }
+
             console.log(req.params.body);
             console.log('request JSON', JSON.parse(req.params.body))
             jsonBody = JSON.parse(req.params.body);
@@ -51,7 +63,7 @@ router.get('/a/:body', async (req, res) => {
 
 
 
-        console.log(amenities)
+        console.log(amenities, amenities)
 
         console.log(amenities.length)
         var unique = []
@@ -116,9 +128,9 @@ var finalResults = await Spring.findAll({
 
 
 
-console.log(finalResults);
+console.log('----------------------------------------final--------------------------------------', finalResults );
 
-res.render('results', {finalResults})
+res.render('results', {finalResults, loggedIn, userName})
 return
 
         

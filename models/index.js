@@ -297,13 +297,13 @@ const ichetuckneeReviewMeda = await reviewMedia.create({
 })
 
 var ichetuckneeMain = await springMedia.create({
-  Spring: 2,
+  Spring: ichetuckneeSprings.springID,
   mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg", 
   Caption: "The entrance to the Ichetucknee head spring, next to a path leading to Blue Hole", 
   mainImage: true
 });
   var blueMain = await springMedia.create({
-    Spring: 3,
+    Spring: blueSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442901/Blue-Springs-State-Park_084e5789-a552-d6e7-6866fc9f12ece6b1_fwc7qw.jpg", 
     Caption: "A group of manatees swimming through blue springs", 
     mainImage: true
