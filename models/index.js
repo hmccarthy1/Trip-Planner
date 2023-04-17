@@ -9,7 +9,8 @@ const Amenity = require('./Amenity');
 const amenityMedia = require('./amenityMedia');
 const sequelize = require('../config/connection');
 
-await sequelize.drop()
+const dropAll = async function(){await sequelize.drop()}
+
 
 Spring.hasMany(springMedia,
   {
@@ -56,14 +57,14 @@ var testAmenityMedia;
 const runTests = async function () {
 
 
-  await User.sync({force: true})
-  await Spring.sync({force: true})
-  await springMedia.sync({force: true})
-  await Amenity.sync({force: true})
-  await amenityMedia.sync({force: true})
-  await amenityChoice.sync({force: true})
-  springReview.sync({force: true})
-  reviewMedia.sync({force: true})
+  // await User.sync({force: true})
+  // await Spring.sync({force: true})
+  // await springMedia.sync({force: true})
+  // await Amenity.sync({force: true})
+  // await amenityMedia.sync({force: true})
+  // await amenityChoice.sync({force: true})
+  // springReview.sync({force: true})
+  // reviewMedia.sync({force: true})
 
   userHunter = await User.create({
     firstName: "Hunter",
@@ -503,7 +504,7 @@ var ichetuckneeMain = await springMedia.create({
   //
 
 }
-
+dropAll();
 runTests();
 
 module.exports = { User };
