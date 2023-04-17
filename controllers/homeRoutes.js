@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
           mainImage: true
         }, 
         order: [
-          ['Spring', 'DESC']
+          ['Spring', 'ASC']
         ],
         raw: true
       });

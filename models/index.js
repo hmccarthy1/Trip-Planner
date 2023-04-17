@@ -35,7 +35,7 @@ const runTests = async function () {
     lastName: "McCarthy",
     DOB: 1996 / 03 / 30,
     emailAddress: "hunterMcCarthy56@hotmail.com",
-    userPassword: "123456789",
+    userPassword: "12345678910",
     phoneNumber: '321-210-9676'
    });
 
@@ -94,8 +94,6 @@ const runTests = async function () {
 
   });
 
-  
-
   var silverSprings = await Spring.create({
 
     springName: "Silver Springs",
@@ -117,9 +115,6 @@ const runTests = async function () {
     springDescription: "Home to some of the most gorgeous freediving and snorkeling in the state, this spring is often used by novice divers to practice their buoyancy control. With a nice spacious head spring side-by-side shallow waters, this is a great spot for a family weekend getaway."
 
   });
-
-
-
  
   var royalSprings = await Spring.create({
 
@@ -177,9 +172,9 @@ const runTests = async function () {
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg", 
     Caption: `A stunning picture of one of ginnie's famous cave  systems`, 
-    mainImage: true
+    mainImage: true});
 
-  });
+    console.log('Ginnie main --- ', ginnieMain)
 
   await springMedia.create({
     Spring: ginnieSprings.springID,
