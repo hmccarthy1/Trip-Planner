@@ -52,8 +52,8 @@ var testAmenityMedia;
 
 
 const runTests = async function () {
-  // await User.destroy({ truncate: true });
-  // await Spring.destroy({ truncate: true });
+  await User.destroy({ truncate: true });
+  await Spring.destroy({ truncate: true });
   // await springMedia.destroy({ truncate: true });
   // await Amenity.destroy({ truncate: true });
   // await amenityMedia.destroy({ truncate: true });
