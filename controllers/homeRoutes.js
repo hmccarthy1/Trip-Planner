@@ -19,8 +19,12 @@ router.get('/', async (req, res) => {
 
     var  top5 = await Spring.findAll({
       limit: 5,
-      raw: true
-    });
+      raw: true,
+      order: [
+        [springID, 'DESC']
+      ]
+    },
+    );
 
 
     
@@ -31,7 +35,10 @@ router.get('/', async (req, res) => {
       var allMedia = await springMedia.findAll({
         where: {
           Spring: top5[i].springID
-        }
+        },
+        order: [
+          [springMediaID, 'DESC']
+        ]
       });
 
       console.log( ' ================================================= length ================================', allMedia.length)
