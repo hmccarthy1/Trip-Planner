@@ -277,11 +277,23 @@ const ginnieReview1 = await springReview.create({
 
 });
 
+const ichetuckneeReview1 = await springReview.create({
+  Spring: ichetuckneeSprings.springID,
+  reviewingUser: 1,
+  userSpringRating: 9.2,
+  reviewText: "we had a great time"
+})
+
 const reviewMedia1 = await reviewMedia.create({
   Review: ginnieReview1.springReviewID,
   mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681615902/itr2uhq2yefgks63bdpb.jpg",
   Caption: "Swimming through the crystal clear waters of ginnie springs"
 
+});
+
+const ichetuckneeReviewMeda = await reviewMedia.create({
+  Review: ichetuckneeReview1.springReviewID,
+  mediaURL:  'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681755351/the-blue-hole-at-ichetucknee_tf2tbk.jpg'
 })
 
 var ichetuckneeMain = await springMedia.create({
@@ -420,8 +432,8 @@ var ichetuckneeMain = await springMedia.create({
   amenityTitle: "Ginnie Springs Diving"
   });
 
-  var testDiving = await Amenity.create({
-    Spring: 3,
+  var blueHole = await Amenity.create({
+    Spring: ichetuckneeSprings.springID,
     amenityType: Diving.amenityChoiceID,
     amenityDescription: "Ftest",
     Cost: "How much this endeavor will cost depends on what you want to do, and if you're bringing your own gear. Cave diver admission is 24 USD, normal divers get in for 32 USD, and an annual diving pass will cost you 399.99 USD. Rentals will vary but will not be cheap",
@@ -429,11 +441,18 @@ var ichetuckneeMain = await springMedia.create({
     amenityTitle: "test"
     });
 
+  var blueHoleDiving = await amenityMedia.create({
+    mediaURL: 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681755263/zihz7enronfafiuypthy.webp',
+    Caption: 'Diving at blue hole is a truly rewarding experience!',
+    mainImage: true,
+    Amenity: blueHole.amenityID
+  })
+
   var ginnieDivingMain = await amenityMedia.create({
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681474222/ginnie11_twmyca.jpg",
     Caption: `Two cave divers coming through one of the entrances to one of Ginnie Spring's cave systems. Worth the training!`,
     mainImage: true,
-    Amenity: ginnieDiving.amenityID
+    Amenity: ginnieDiving.amenityID,
   });
 
   var ginnieSnorkeling = await Amenity.create({
