@@ -1,0 +1,10 @@
+label, p, h1, h2 {
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    padding: .5em;
+    margin-left: .5em;
+}
+
+ul {
+    margin-right: 5px;
+}
