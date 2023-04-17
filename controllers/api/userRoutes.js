@@ -30,21 +30,21 @@ console.log('----------------------- user data', userData)
     const validPassword =  userData.checkPassword(req.body.password);
     console.log('valid password ---------------', validPassword)
 
-    if (!validPassword) {
+    if (validPassword != true ) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     } else {
 
-    await req.session.save(() => {
+      req.session.save(() => {
       req.session.user_id = userData.userID;
       req.session.logged_in = true;
       req.session.firstName = userData.firstName;
       req.session.lastName = userData.lastName;
+      res.redirect('/')
 
     })
-    res.redirect('/homepage')
   
   };
     
@@ -58,7 +58,10 @@ router.post('/logout', async  (req, res) => {
   console.log('logged in? ', req.session.logged_in)
   if (req.session.logged_in) {
    await  req.session.destroy();
-   res.redirect('/')
-}});
+   
+}
+res.redirect('/')
+
+});
 
 module.exports = router;

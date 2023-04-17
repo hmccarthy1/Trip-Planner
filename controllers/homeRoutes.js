@@ -102,15 +102,15 @@ router.post('/register', async (req, res) => {
 }
 )
 
-router.get('/homepage', withAuth, async (req, res) => {
+router.get('/homepage', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] },
+      raw: true
       // include: [{ model: Blog }],
     });
 
-    const user = userData.get({ plain: true });
 
     res.render('homepage', {
       ...user,
@@ -288,5 +288,17 @@ router.get('/dashboard', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
