@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const springReview = require('../models/springReview')
+const springReview = require('../models/springReview');
+const favoritedSpring = require("../models/favoritedSpring");
 
 
 
@@ -39,9 +40,31 @@ router.post("/", withAuth, async (req, res) => {
 
 
 router.post('/favorite', withAuth,  async (req, res) => {
-    if (!req.session.user_id) {
-      res.redirect('/floridasprings/login')
-    }
+  
+  try {
+  var newFavorite = await favoritedSpring.create({
+    User: req.session.user_id,
+    Spring: req.body.id
+  })
+
+
+  console.log("------ new favorite ------", newFavorite)
+
+
+
+  
+  
+  
+  
+  
+  console.log('route successful');
+  res.status(200).send({message: "Created successfully"})
+
+} catch (err) {
+  res.status(400).send({message: "an error occured"})
+}
+
+
 })
 
 module.exports = router;

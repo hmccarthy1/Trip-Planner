@@ -14,19 +14,34 @@ router.get('/', async (req, res) => {
   try {
     // We will show the Springs here
 
-    const user = {};
+  console.log('HiTTING=======================================')
 
 
-    if (req.session.logged_in) {
-      console.log("it's logged");
-      const username = req.session.firstName + ' ' + req.session.lastName;
-      console.log("username: " + username);
-      user.username = username;
-      user.logged_in = true;
-    }
-    res.render('homepage', user);
+    var  top5 = await Spring.findAll({
+      limit: 5,
+      raw: true,
+      order: [
+        [springID, 'ASC']
+      ]
+    
+    },
+    );
+
+console.log('top 5', top5, "length: ", top5.length)
+    
+
+top5[4].URL = 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg';
+top5[3].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg";
+top5[2].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443092/8696137743_530350a358_b_xtdprv.jpg";
+top5[1].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443580/7e17e2e44eb5c913e2c585bc05ad0145_ba4i5k.jpg";
+top5[0].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442901/Blue-Springs-State-Park_084e5789-a552-d6e7-6866fc9f12ece6b1_fwc7qw.jpg";
+
+
+
+    res.render('homepage', 
+    { top5});
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500);
   }
 });
 
@@ -35,7 +50,7 @@ router.get('/login', async (req, res) => {
   try {
     // If the user is already logged in, redirect the request to the user dashboard
     if (req.session.logged_in) {
-      res.redirect('/homepage');
+      res.redirect('/');
       return;
     }
 
@@ -56,7 +71,7 @@ router.post('/register', async (req, res) => {
 
     // If the user is already logged in, redirect the request to the dashboard
     if (req.session.logged_in) {
-      res.redirect('/homepage');
+      res.redirect('/');
       return;
     }
     const userData = await User.create(req.body);

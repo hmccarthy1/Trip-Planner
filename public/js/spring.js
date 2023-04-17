@@ -1,6 +1,33 @@
+
+var favoriteModal = $('#favoriteModal');
+
+
 let player;
-// Get the current URL
-const currentUrl = window.location.href;
+function onYouTubeIframeAPIReady() {
+
+    // Call your player initialization function here
+    const currentUrl = window.location.href;
+const id = currentUrl.split('/').pop();
+    
+    // Get the current URL
+    
+    // Extract the ID from the URL
+    
+    const videoIndex = ['5V8cM9h4Hv4', '572Wde50ivs', '5J01oZPN_oA', 'DZywLrtbPlU', 'xNn_kek59j4', 'B-mtiykfHao', 'LaADC6I4Ofw', 'k57uK6aNNfg', 'tPzZ5JCfjs0', 'ibULOoGaA', 'Viytwxg0QRc', 'b9PXOXQzs-4'];
+    initializePlayer();
+    
+function initializePlayer() {
+  // Create and configure your player here
+  var playerDiv = document.getElementById('player');
+  var iframe = document.createElement('iframe');
+  iframe.width = '470';
+  iframe.height = '260';
+  iframe.src = 'https://www.youtube.com/embed/'+ videoIndex[id-1];
+  iframe.frameBorder = '0';
+  iframe.allowFullscreen = true;
+  playerDiv.appendChild(iframe);
+}
+
 
 // Extract the ID from the URL
 const id = currentUrl.split('/').pop();
@@ -57,14 +84,16 @@ addButton.click(async function (event) {
 
   console.log('reviewID', reviewID);
 
-  async function getBase64(file) {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = function () {
-      console.log(reader.result);
-      mediaURL = reader.result;
-      fetch('/api/reviewMedia', {
-        method: 'POST',
+
+async function getBase64(file)  {
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onloadend = async function () {
+    console.log(reader.result);
+    mediaURL = reader.result;
+   var results = await fetch('/api/reviewMedia', {
+        method: 'POST', 
+
         body: JSON.stringify({
           mediaURL: mediaURL,
 
@@ -80,9 +109,14 @@ addButton.click(async function (event) {
     };
   };
 
-  for (var i = 0; i < fileArray.length; i++)
-    getBase64(fileArray[i]);
-  window.location.reload()
+}
+
+for (var i =0; i < fileArray.length; i++ ) {
+  getBase64(fileArray[i]);
+
+}
+window.location.reload()
+
 
 })
 
@@ -123,8 +157,41 @@ nextButton.addEventListener('click', function onNextClick() {
   updateImage();
 });
 
+
+const currentUrl = window.location.href;
+
+const id = currentUrl.split('/').pop();
+
+// Fetch the media data for the current ID
+fetch(`/spring/${id}/media`)
+  .then(response => response.json())
+  .then(data => {
+    // Set the displayMedia variable
+    displayMedia = data;
+
+    // Update the image
+    updateImage();
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
 var callFavorite = $('#favoriteSpring');
 
-callFavorite.click(function (event) {
+callFavorite.click(async function(event) {
+  fetch('/review/favorite', {
+    method: 'POST', 
+    body: JSON.stringify({id: id}),
+    headers: { 'Content-Type': 'application/json' },
+  }).then(res => res.json()).then(data => {
+    console.log(data);
+
+    if (data.message == "Created successfully") {
+      document.location.reload()
+    }
+  
+  
+  
+  })
 
 })

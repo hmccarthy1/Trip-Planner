@@ -118,6 +118,17 @@
       </div> 
      
 
+            {{#each allReviews as | review Index| }}
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <img class="card-img-top" src= {{this.URL}}    alt="{{@index}}">
+  
+  <div class="card-body">
+    <p class="card-text">{{this.reviewText}}</p>
+
+  </div>
+</div>
+
+
       {{!-- Third block --}}
 
       <p class="text2 ml-5 mt-4">Reviews</p>
