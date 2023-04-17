@@ -33,6 +33,9 @@ router.get('/', async (req, res) => {
           Spring: top5[i].springID,
           mainImage: true
         }, 
+        order: [
+          ['Spring', 'DESC']
+        ],
         raw: true
       });
 
