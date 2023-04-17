@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 
     for (var i = 0; i < top5.length; i++ ) {
     
-      var newMedia = springMedia.findOne({
+      var newMedia = await springMedia.findOne({
         where: {
           Spring: top5[i]
         },
