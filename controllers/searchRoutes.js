@@ -44,7 +44,6 @@ router.get('/a/:body', async (req, res) => {
             },
             attributes: [['amenityChoiceID', "amenityType"]],
             raw: true,
-            limit: 7
           
     },
         );
@@ -59,7 +58,6 @@ router.get('/a/:body', async (req, res) => {
             },
             attributes: ['Spring'],
             raw: true,
-            limit: 7
          
         });
 
@@ -179,7 +177,10 @@ return
     
         const amenityOptions = await amenityChoice.findAll(
             
-            {raw: true});
+            {raw: true,
+            limit: 6},
+            
+            );
             console.log(amenityOptions)
             res.render('Search', {amenityOptions})
         } )
