@@ -14,13 +14,15 @@ router.get('/', async (req, res) => {
   try {
     // We will show the Springs here
 
-  
+  var user = ""
 
 
     var  top5 = await Spring.findAll({
       limit: 5,
       raw: true
     });
+
+    console.log('top 5 -------------------------------------', top5)
 
 
     for (var i = 0; i < top5.length; i++ ) {
@@ -39,6 +41,7 @@ router.get('/', async (req, res) => {
 
     }
 
+    
 
     console.log( '----- limit 5 ----- ', top5)
 
@@ -46,7 +49,7 @@ router.get('/', async (req, res) => {
     res.render('homepage', 
     {user, top5});
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500);
   }
 });
 
