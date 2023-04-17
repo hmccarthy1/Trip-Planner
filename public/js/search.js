@@ -20,10 +20,7 @@ var request = {
 }
 
  
-   fetch(`/search/a/${JSON.stringify(request)}` , {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
+window.location.assign(`/search/a/${JSON.stringify(request)}`)
 
-    });
-
+  
 })

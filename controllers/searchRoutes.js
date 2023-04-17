@@ -9,7 +9,7 @@ const Sequelize = require('sequelize');
 const { sequelize } = require('../config/connection');
 const { route } = require('./api');
 require('dotenv').config();
-
+const springMedia = require('../models/springMedia')
 
 
 
@@ -123,7 +123,36 @@ var finalResults = await Spring.findAll({
    
         raw: true
       
-})
+});
+
+var handleMedia = [];
+for (var i = 0; i < finalResults.length; i++ ) {
+    var firstMedia; 
+      var mediaCheck;
+      mediaCheck = await springMedia.findOne({
+          where: {
+            Spring: finalResults[i].springID
+          },
+          attributes: [
+            'mediaURL'
+          ],
+          raw: true
+        });
+
+        if (mediaCheck) {
+          firstMedia = mediaCheck.mediaURL
+        } else {
+          firstMedia = 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681646450/vpccfifvivyikxov5xsb.png'
+        };
+
+        handleMedia.push(firstMedia)
+       
+    }
+    
+    for (var i = 0; i < handleMedia.length; i ++ ) {
+      finalResults[i].URL = handleMedia[i]
+    }
+
 
 
 

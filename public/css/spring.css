@@ -152,3 +152,8 @@ footer {
     margin: 0;
     
 }
+
+
+#descr {
+    background-color: rgb(169, 169, 169, 0.9) !important;
+}

@@ -65,7 +65,8 @@ header ul li {
 
 ul li a {
     margin-right: 3px;
-    color: white;
+    color: white;;
+    font-size: 16pt;
 }
 
 .pageTitle {
