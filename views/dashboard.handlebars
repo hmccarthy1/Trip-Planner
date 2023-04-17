@@ -1,1 +1,75 @@
-<h1>This is the dashboard</h1>
+<link rel="stylesheet" href="/css/profile.css">
+
+<body>
+    <header id="mainHeader" class="d-flex justify-content-between align-items-center py-2 bg-dark text-light">
+        <h1 class="brand-title mb-0">Springs and Things</h1>
+        <nav>
+            <ul class="nav nav-pills ml-auto">
+                <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link" href="/contactUs">Contact
+                        Us</a></li>
+                <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link loginLink"
+                        href="/login">Login/Register</a></li>
+                {{#if logged_in}}
+                {{!-- <li class="userName">{{this.firstName}}</li> --}}
+                {{!-- We don't have time to set this up, this would be a future improvement --}}
+                <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link"
+                        href="/dashboard">{{username}}</a></li>
+                <li class="nav-item border border-primary ml-2 rounded"><button class="btn btn-primary" hidden
+                        type="submit" id="logout">Logout</button></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container main-section">
+        <h1 class="mb-4">{{user.getFullName}}'s Profile</h1>
+
+        <div class="row user-information-section">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="mb-3">Account Information</h2>
+                        <form id="editUserInfoForm">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" value="{{user.username}}"
+                                    class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" value="{{user.password}}"
+                                    class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="profilePicture">Profile Picture</label>
+                                <img src="{{user.profilePictureURL}}" alt="Profile Picture" id="profilePicture"
+                                    class="img-fluid">
+                                <input type="file" id="profilePictureUpload" name="profilePictureUpload">
+                            </div>
+                            <button type="button" id="editUserInfoBtn" class="btn btn-primary">Edit/Update</button>
+                            <button type="submit" id="saveUserInfoBtn" style="display: none;"
+                                class="btn btn-success">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row user-stats-section">
+            <div class="col-md-6">
+                <h2 class="mb-3">{{user.username}}'s Statistics</h2>
+                <p>Total Reviews: {{user.totalReviews}}</p>
+                <p>Spring Favorites: {{user.springFavorites}}</p>
+                <p>Photos: {{user.photos}}</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="userProfile.js"></script>
+</body>
+
+</html>

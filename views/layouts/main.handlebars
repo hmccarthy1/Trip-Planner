@@ -34,18 +34,24 @@
   </video>
 
   
-  <header id="mainHeader" class="display-flex justify-space-between align-center p-2 bg-dark text-light">
-    <h1>
-      <h1 class="titlePage m5">Springs and Things</h1>
-      <nav>
-        <ul>
-          <li><a href="/floridasprings">Home</a></li>
-          <li><a href="/floridasprings/contactUs">Contact Us</a></li>
-          
+ <body>
+<header id="mainHeader" class="d-flex justify-content-between align-items-center py-2 bg-dark text-light">
+    <h1 class="brand-title mb-0">Springs and Things</h1>
+    <nav>
+        <ul class="nav nav-pills ml-auto">
+            <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link" href="/contactUs">Contact Us</a></li>
+            <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link loginLink" href="/login">Login/Register</a></li>
+            {{#if logged_in}}
+            {{!-- <li class="userName">{{this.firstName}}</li> --}}
+            {{!-- We don't have time to set this up, this would be a future improvement --}}
+            <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link" href="/dashboard">{{username}}</a></li>
+            <li class="nav-item border border-primary ml-2 rounded"><button class="btn btn-primary" hidden type="submit" id="logout">Logout</button></li>
+            {{/if}}
         </ul>
-      </nav>
-      
-  </header>
+    </nav>
+</header>
+
 
     <div id="mainSidebar" class="d-flex flex-column  p-3 text-white bg-dark" >
 
