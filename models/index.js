@@ -176,7 +176,7 @@ const runTests = async function () {
   var ginnieMain = await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg", 
-    Caption: `A stunning picture of one of ginnie's famous cave systems`, 
+    Caption: `A stunning picture of one of ginnie's famous cave  systems`, 
     mainImage: true
 
   });
