@@ -39,9 +39,9 @@
       <h1 class="titlePage m5">Springs and Things</h1>
       <nav>
         <ul>
-          <li><a href="/floridasprings">Home</a></li>
-          <li><a href="/floridasprings/contactUs">Contact Us</a></li>
-          
+          <li><a href="/">Home</a></li>
+          <li><a href="/contactUs">Contact Us</a></li>
+          <li>{{#if loggedIn}} <h1 class='h4'>{{userName}}</h1> {{else}} <a href="/login">Login</a>           {{/if}}        </li>
         </ul>
       </nav>
       
@@ -53,7 +53,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item border border-primary rounded ">
-        <a id="homeLink" href="/floridasprings" class="nav-link text-white" aria-current="page">
+        <a id="homeLink" href="/" class="nav-link text-white" aria-current="page">
           <svg class="bi me-2" width="16" height="16">
             <use xlink:href="#home" />
           </svg>

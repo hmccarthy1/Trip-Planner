@@ -11,6 +11,7 @@ const amenityChoice = require('./amenityChoice');
 const amenityMedia = require('./amenityMedia');
 const sequelize = require('../config/connection');
 
+//commetn
 
 
 Spring.hasMany(springMedia,
@@ -77,61 +78,6 @@ const runTests = async function () {
    });
 
   
-   var ginnieSprings = await Spring.create({
-
-    springName: "Ginnie Springs",
-    latitude: 29.8343,
-    longitude: 82.7024,
-    springState: "FL",
-    County: "Gilchrist",
-    springDescription: "The best spring system in the state - period. This site hosts it's own head spring, which feeds into the Santa Fe (and the rope swing taking you into it), as well as the Devil Spring System. Made up of Devli's Ear,  Devil's Eye, and Little Devil, this system is a true wonder of nature. Renowned worldwide for it's one-of-a-kind cave diving, beautiful above-water scenery, and diverse wildlife, this spring sytem is a must-see for everyone."
-
-  });
-
-
-  var ichetuckneeSprings = await Spring.create({
-
-    springName: "Ichetucknee Springs",
-    latitude: 29.9838,
-    longitude: 82.7618,
-    springState: "FL",
-    County: "Suwanee",
-    springDescription: "Whether you want to take a leisurely tube down a natural lazy river, or be awed by the size the underwater cavern at Blue Hole, this site has you covered. Right in the heartland of Florida spring territory, this site is only a half hour north of Ginnie Springs, just outside Alachua"
-
-  });
-
-  var silverGlenSprings = await Spring.create({
-
-    springName: "Silver Glen Springs",
-    latitude: 29.2464,
-    longitude: 81.6434,
-    springState: "Fl",
-    County: "Marion",
-    springDescription: "This spring plays hosts to swirling schools of silver striped bass and swaying seagrass. The 72 degree waters of this spring are located about an hour and fifteen minutes north from Orlando, nestled in the Ocala national forest."
-
-  });
-
-  var devilsDenSpring = await Spring.create({
-
-    springName: "Devil's Den Prehistoric Spring",
-    latitude: 29.4070,
-    longitude: 82.4761,
-    springState: "FL",
-    County: "Levy",
-    springDescription: "Truly one of Florida's natural wonders, this spring in nested inside a rock canyon with strands of sunlight streaming through the natural formation, creating a mid-day halo effect. This spring is a bucket-list item for many cave divers hoping to explore the pre-historic underwater cave system. Right next door is one of the most diverse gardens in the state of florida"
-
-  });
-
-  var blueSprings = await Spring.create({
-
-    springName: "Blue Springs (Volusia)",
-    latitude: 28.9514,
-    longitude: 81.3337,
-    springState: "FL",
-    County: "Volusia",
-    springDescription: "Famous for the manatees that inhabit it during the winter months and the exceptional freediving opportunities it offers, this oasis is located about 45 minutes north of Orlando. This spring boasts about a half mile of crystal clear stream, leading to the 40' deep head spring that attracts freedivers from all over the state"
-
-  });
 
 
 
@@ -211,6 +157,69 @@ const runTests = async function () {
 
 
 
+
+  var blueSprings = await Spring.create({
+
+    springName: "Blue Springs (Volusia)",
+    latitude: 28.9514,
+    longitude: 81.3337,
+    springState: "FL",
+    County: "Volusia",
+    springDescription: "Famous for the manatees that inhabit it during the winter months and the exceptional freediving opportunities it offers, this oasis is located about 45 minutes north of Orlando. This spring boasts about a half mile of crystal clear stream, leading to the 40' deep head spring that attracts freedivers from all over the state"
+
+  });
+
+
+  
+
+  var devilsDenSpring = await Spring.create({
+
+    springName: "Devil's Den Prehistoric Spring",
+    latitude: 29.4070,
+    longitude: 82.4761,
+    springState: "FL",
+    County: "Levy",
+    springDescription: "Truly one of Florida's natural wonders, this spring in nested inside a rock canyon with strands of sunlight streaming through the natural formation, creating a mid-day halo effect. This spring is a bucket-list item for many cave divers hoping to explore the pre-historic underwater cave system. Right next door is one of the most diverse gardens in the state of florida"
+
+  });
+
+
+  var silverGlenSprings = await Spring.create({
+
+    springName: "Silver Glen Springs",
+    latitude: 29.2464,
+    longitude: 81.6434,
+    springState: "Fl",
+    County: "Marion",
+    springDescription: "This spring plays hosts to swirling schools of silver striped bass and swaying seagrass. The 72 degree waters of this spring are located about an hour and fifteen minutes north from Orlando, nestled in the Ocala national forest."
+
+  });
+
+  var ichetuckneeSprings = await Spring.create({
+
+    springName: "Ichetucknee Springs",
+    latitude: 29.9838,
+    longitude: 82.7618,
+    springState: "FL",
+    County: "Suwanee",
+    springDescription: "Whether you want to take a leisurely tube down a natural lazy river, or be awed by the size the underwater cavern at Blue Hole, this site has you covered. Right in the heartland of Florida spring territory, this site is only a half hour north of Ginnie Springs, just outside Alachua"
+
+  });
+
+
+  var ginnieSprings = await Spring.create({
+
+    springName: "Ginnie Springs",
+    latitude: 29.8343,
+    longitude: 82.7024,
+    springState: "FL",
+    County: "Gilchrist",
+    springDescription: "The best spring system in the state - period. This site hosts it's own head spring, which feeds into the Santa Fe (and the rope swing taking you into it), as well as the Devil Spring System. Made up of Devli's Ear,  Devil's Eye, and Little Devil, this system is a true wonder of nature. Renowned worldwide for it's one-of-a-kind cave diving, beautiful above-water scenery, and diverse wildlife, this spring sytem is a must-see for everyone."
+
+  });
+
+
+
   console.log('--------------------------------- end springs ------------------------ \n')
 
   var ginnieMain = await springMedia.create({
@@ -219,9 +228,8 @@ const runTests = async function () {
     Caption: `A stunning picture of one of ginnie's famous cave  systems`, 
     mainImage: true});
 
-    console.log('Ginnie main --- ', ginnieMain)
-
-  await springMedia.create({
+    
+    await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442015/Devils-Ear-Backlight-3-1000x670_afrmpz.jpg", 
     Caption: "Two cave divers marveling at the underwater rock formations at Ginnie", 
@@ -236,8 +244,8 @@ const runTests = async function () {
     mainImage: false
 
   });
-
-
+  
+  
   await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442407/DevilsEyeNight-1_p0jvnq.jpg", 
@@ -246,6 +254,10 @@ const runTests = async function () {
 
   });
 
+
+  
+  
+  console.log('Ginnie main --- ', ginnieMain)
   await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442631/GOPR0011_ALTA-615917329403256048_vl3xjc.jpg", 
@@ -254,8 +266,11 @@ const runTests = async function () {
 
   });
 
+
+
+
 const ginnieReview1 = await springReview.create({
-  Spring: 1,
+  Spring: ginnieSprings.springID,
   reviewingUser: 1,
   userSpringRating: 9.5,
   reviewText: "We had a great time at Ginnie! The water was crystal clear & super refreshing on a hot florida day!"
