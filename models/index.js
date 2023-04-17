@@ -9,6 +9,37 @@ const Amenity = require('./Amenity');
 const amenityMedia = require('./amenityMedia')
 
 
+Spring.hasMany(springMedia,
+  {
+    onDelete: 'CASCADE'
+  })
+
+  springMedia.belongsTo(Spring)
+
+Spring.hasMany(springReview, {
+  onDelete: 'CASCADE'
+});
+
+springReview.belongsTo(Spring);
+
+User.hasMany(springReview, {
+  onDelete: 'CASCADE'
+})
+
+springReview.belongsTo(User);
+
+springReview.hasMany(reviewMedia, {
+  onDelete:'CASCADE'
+});
+
+reviewMedia.belongsTo(springReview);
+
+Spring.hasMany(Amenity,
+  {onDelete: 'CASCADE'})
+
+Amenity.belongsTo(Spring)
+
+
 var testUser;
 var testSpring;
 var testSpringReview;
@@ -50,13 +81,6 @@ const runTests = async function () {
     springDescription: "The best spring system in the state - period. This site hosts it's own head spring, which feeds into the Santa Fe (and the rope swing taking you into it), as well as the Devil Spring System. Made up of Devli's Ear,  Devil's Eye, and Little Devil, this system is a true wonder of nature. Renowned worldwide for it's one-of-a-kind cave diving, beautiful above-water scenery, and diverse wildlife, this spring sytem is a must-see for everyone."
 
   });
-
-Spring.hasMany(springMedia,
-  {
-    onDelete: 'CASCADE'
-  })
-
-  springMedia.belongsTo(Spring)
 
 
   var ichetuckneeSprings = await Spring.create({
@@ -469,9 +493,7 @@ var ichetuckneeMain = await springMedia.create({
     console.log(
       secondGinnieSnorkeling.mediaURL + '\n' + 
       secondGinnieSnorkeling.Amenity + '\n'
-      
-      
-      
+
       )
 
   //
