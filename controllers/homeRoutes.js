@@ -55,7 +55,7 @@ router.get('/login', async (req, res) => {
   try {
     // If the user is already logged in, redirect the request to the user dashboard
     if (req.session.logged_in) {
-      res.redirect('/floridasprings');
+      res.redirect('/');
       return;
     }
 
@@ -76,7 +76,7 @@ router.post('/register', async (req, res) => {
 
     // If the user is already logged in, redirect the request to the dashboard
     if (req.session.logged_in) {
-      res.redirect('/floridasprings');
+      res.redirect('/');
       return;
     }
     const userData = await User.create(req.body);
