@@ -40,7 +40,7 @@ springMedia.init (
     timestamps: false,
     freezeTableName: true,
     underscored: false,
-    modelName: 'springMedia',
+    modelName: 'springmedia',
     }
 )
 
