@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
     
       var newMedia = await springMedia.findOne({
         where: {
-          Spring: top5[i]
+          Spring: top5[i].springID
         },
         raw: true
       });
