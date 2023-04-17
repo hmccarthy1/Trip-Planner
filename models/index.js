@@ -168,6 +168,8 @@ const runTests = async function () {
     springDescription: "One of the hidden gems of Florida Springs, this spring is both one of the best and one of the hardest to get to. The spring is miles upriver, and you'll probably need to get out of your kayak once or twice to navigate, but those who make it all the way to the head spring are rewarded with one of the most secluded springs in florida. You won't see throngs of tourists with bluetooth speakers here. For those who love to freedive and snorkel, this spring is one of the best"
   })
 
+  console.log('--------------------------------- end springs ------------------------ \n')
+
   var ginnieMain = await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg", 
