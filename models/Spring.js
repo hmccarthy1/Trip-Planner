@@ -15,7 +15,6 @@ Spring.init(
         },
         springName: {
             type: DataTypes.STRING,
-            unique: true,
             allowNull: false,
         },
         latitude: {

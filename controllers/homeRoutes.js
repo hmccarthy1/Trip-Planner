@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const User = require('../models/User');
-const test = "true";
 const withAuth = require('../utils/auth');
 const Spring = require('../models/Spring');
 const springMedia = require('../models/springMedia');
@@ -13,20 +12,50 @@ const amenityChoice = require('../models/amenityChoice');
 router.get('/', async (req, res) => {
   try {
     // We will show the Springs here
+    console.log('session ------- ', req.session.logged_in);
 
-    const user = {};
-
-
-    if (req.session.logged_in) {
-      console.log("it's logged");
-      const username = req.session.firstName + ' ' + req.session.lastName;
-      console.log("username: " + username);
-      user.username = username;
-      user.logged_in = true;
+    var loggedIn;
+    if (req.session.logged_in != true) {
+       loggedIn = false;
+       userName = ""
+    } else {
+      loggedIn = true;
+      console.log(
+        '================================== logged IN ====================='
+      )
+      userName = req.session.firstName
     }
-    res.render('homepage', user);
+
+  console.log('HiTTING=======================================')
+
+
+    var  top5 = await Spring.findAll({
+      limit: 5,
+      raw: true,
+      order: [
+        ['springID', 'DESC']
+      ]
+    
+    },
+    
+    );
+
+console.log('top 5', top5, "length: ", top5.length)
+    
+
+top5[0].URL = 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg';
+top5[1].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg";
+top5[2].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443092/8696137743_530350a358_b_xtdprv.jpg";
+top5[3].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443580/7e17e2e44eb5c913e2c585bc05ad0145_ba4i5k.jpg";
+top5[4].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442901/Blue-Springs-State-Park_084e5789-a552-d6e7-6866fc9f12ece6b1_fwc7qw.jpg";
+
+
+console.log('   usernaem =====================', userName);
+console.log('================================ logged in', loggedIn)
+    res.render('homepage', 
+    { top5, loggedIn, userName});
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500);
   }
 });
 
@@ -35,7 +64,7 @@ router.get('/login', async (req, res) => {
   try {
     // If the user is already logged in, redirect the request to the user dashboard
     if (req.session.logged_in) {
-      res.redirect('/homepage');
+      res.redirect('/');
       return;
     }
 
@@ -56,32 +85,32 @@ router.post('/register', async (req, res) => {
 
     // If the user is already logged in, redirect the request to the dashboard
     if (req.session.logged_in) {
-      res.redirect('/homepage');
+      res.redirect('/');
       return;
-    }
+    } else {
     const userData = await User.create(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      res.status(200).json(userData);
+      res.redirect('/');
 
-    });
+    });}
   } catch (err) {
     res.status(400).json(err);
   }
 }
 )
 
-router.get('/homepage', withAuth, async (req, res) => {
+router.get('/homepage', async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] },
+      raw: true
       // include: [{ model: Blog }],
     });
 
-    const user = userData.get({ plain: true });
 
     res.render('homepage', {
       ...user,
@@ -92,49 +121,66 @@ router.get('/homepage', withAuth, async (req, res) => {
   }
 });
 
-//Temporary route for testing
-router.get('/spring',  async (req, res) => {
-  // find a single spring by its `id`
-  try {
-    // const springId = await Spring.findByPk(req.params.id,{
-    //   include: [{
-    //        model: Spring
-    //     }]
-    // });
 
-    // res.status(200).json(springId);
-console.log(req.session.user_id)
-    res.render('spring');
-
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 //Spring with ID - Commenting middleware withAuth for testing
 router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
   // find a single spring by its `id`
   try {
     console.log('hitting')
-    const springData = await Spring.findByPk(req.params.id);
-    console.log('found spring ------', springData)
-    //Added photos
-    const displayMedia = await springMedia.findAll({
+
+    var loggedIn;
+    if (req.session.logged_in != true) {
+       loggedIn = false;
+       userName = ""
+    } else {
+      loggedIn = true;
+      console.log(
+        '================================== logged IN ====================='
+      )
+      userName = req.session.firstName
+    }
+
+    const springData = await Spring.findAll({
       where: {
-        Spring: req.params.id,
-      },      
+        springID: req.params.id,
+      },
+      attributes: [
+        'springID', 
+        'springName',
+        'springDescription' 
+      ],
       raw: true
     });
+    console.log('found spring ------', springData)
+    //Added photos
+
+    console.log('----- test spring media find all ----- ')
+
+   const displayMedia = await springMedia.findOne({
+    where: {
+      Spring: req.params.id
+    },
+    attributes: ['mediaURL'],
+    raw:true
+   })
+   
+
+
+    console.log('------- passed spring media test ------')
 
     console.log('springMedia ------', displayMedia)
     const allReviews = await springReview.findAll({
       where: {
         Spring: req.params.id
       },
-      raw: true
+      raw: true,
+      attributes: ['springReviewID', 'reviewText']
     });
 
     console.log('---- all reviews -----', allReviews)
+
+    
 
     var handleMedia = [];
 
@@ -145,6 +191,9 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
           where: {
             Review: allReviews[i].springReviewID
           },
+          attributes: [
+            'mediaURL'
+          ],
           raw: true
         });
 
@@ -166,38 +215,40 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
 
     //Get amenities for the spring
 
-    const amenities = Amenity.findAll({
+    const amenities = await Amenity.findAll({
       where: {
         Spring: req.params.id
-      }, raw: true
+      }, raw: true,
+      attributes: [
+        'amenityID', 'Spring', 'amenityType', 'amenityDescription', 'amenityTitle'
+      ]
     })
 
 
+    console.log('passed amenities ---------------------', amenities)
 
     let media = [];
     for (let i = 0; i < amenities.length; i++){
       
-      let mediaToAdd = await amenityChoice.findOne({
+      let mediaToAdd = await amenityMedia.findOne({
         where: {
-          amenityChoiceID: amenities[i].amenityType,
+          Amenity: amenities[i].amenityID,
         }, raw: true
       });
       console.log('mediaToAdd', i," ", mediaToAdd)
-      media.push(mediaToAdd.amenityIcon);
+      amenities[i].mediaURL = mediaToAdd.mediaURL
     }
 
     console.log('----- media icons -----', media);
-    const spring = springData.get({ plain: true });
-    const springID = req.params.id
-    console.log('SPING ID--------------', springID)
-console.log('req.session.logged_in ------ ', req.session.logged_in)
+    console.log('amenities----------------' , amenities)
+
     res.render('spring', {
-      ...spring,
+      springData,
       displayMedia,
-      logged_in: req.session.logged_in,
       allReviews,
-     
-      media,
+    amenities,
+      loggedIn,
+      userName
     });
 
   } catch (err) {
@@ -228,5 +279,26 @@ router.get('/contactUs', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.get('/dashboard', async (req, res) => {
+  try {
+    res.render('dashboard');
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;

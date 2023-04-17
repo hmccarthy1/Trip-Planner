@@ -1,16 +1,23 @@
-p {
-    font-family: 'Times New Roman', 'Georgia', 'Garamond'
-}
 .individualSpring {
-    margin-left: 40vw;
+    /* margin-left: 40vw;
     width: 70%;
     height: 100%;
     position: fixed;
     top: 30.5vw;
-    /* right: calc((100vw - 280px) / 2); */
     right: 70px;
-    transform: translateY(-50%);
+    transform: translateY(-50%); */
+
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 110px);/* 50% + (280px / 2) */
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
     background-color: rgb(255, 255, 255, 0.8);
+}
+
+p {
+    font-family: 'Times New Roman', 'Georgia', 'Garamond'
 }
 
 .overview {
@@ -50,7 +57,7 @@ p {
 }
 
 #player {
-    left:5px;
+    left: 5px;
 }
 
 /* .amenities {
@@ -68,7 +75,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    left: 200px;
+    left: 50px;
     color: white;
 }
 
@@ -104,7 +111,7 @@ footer {
 
 
 
-.reviews  {
+.reviews {
     display: flex;
     flex-direction: column;
     margin-top: 5vh;
@@ -123,7 +130,7 @@ footer {
     align-items: center;
     justify-content: center !important;
     gap: 5%;
-    
+
 }
 
 #reviewGallery img {
@@ -134,11 +141,14 @@ footer {
 
     flex: 0 0 24%;
     max-height: 10%;
-    
+
 }
 
 footer {
     height: 5vh;
+    position: fixed;
+    z-index: 9999;
+    top: 95vh;
+    margin: 0;
+    
 }
-
-

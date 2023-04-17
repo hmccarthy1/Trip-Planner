@@ -1,8 +1,3 @@
-<link rel="stylesheet" href="/css/spring.css">
-
-<!-- Button trigger modal -->
-
-<!-- Modal for review -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -31,8 +26,6 @@
   </div>
 </div>
 
-
-
 <div class="modal fade" id="favoriteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -57,109 +50,81 @@
 </div>
 
 
-<section class="individualSpring">
 
-    {{!-- Overview section --}}
-    <section class="overview text-center">
-        <p class="text1">OVERVIEW</p>
+<section class="body-wrapper col-lg-10 offset-lg-2 h-100 p-0">
 
-        <section class="box1 d-flex flex-row">
-            <div>
-                <textarea name="overviewText" id="overviewText" cols="30" rows="10">{{springDescription}}</textarea>
-
-                {{!-- Amenities --}}
-                <section class="amenities">
-                    <p class="text-center">Amenities</p>
-                    <div class="icons d-flex flex-row justify-content-around">
-
-                        {{#each media}}
-                        <div class="amenityIcons d-flex justify-content-around">
-                            <div class="card" style="width: 4rem; height:50px">
-                                <img src={{this}} class="card-img-top" style="width: 100%; height: 100%;"
-                                    alt="...">
-                            </div>
-                            {{/each}}
-                        </div>
-
-                </section>
-            </div>
-
-            <p class="text1">{{springName}}</p>
-
-            {{!-- Video Player --}}
-            <div id="player"></div>
-        </section>
-    </section>
-
-    {{!-- Gallery --}}
-    {{!-- <section class="gallery">
-        <p class="text-center">Media Gallery</p>
-        {{#each displayMedia}}
-        <div class="photos d-flex justify-content-around">
-            <div class="card" style="width: 18rem; height:200px">
-                <img src={{this.mediaURL}} class="card-img-top" style="width: 100%; height: 100%;" alt="...">
-            </div>
-            {{/each}}
-        </div>
-    </section> --}}
-
-    {{!-- Gallery --}}
-    <section class="gallery">
-        <p class="text-center">Media Gallery</p>
-        <div class="photos d-flex justify-content-around align-items-center">
-            {{!-- Button forward --}}
-            <button class="prev-btn btn btn-info" style="height:40%"><</button>
-
-            <div class="card-container">
-                <div class="card" style="width: 18rem; height:200px">
-                    {{!-- The URL for the images are stored in displayMedia that comes as a template literal
-                    from the homeRoutes--}}
-                    <img id="mediaImage" src={{displayMedia.[0].mediaURL}} class="card-img-top"
-                        style="width: 100%; height: 100%;" alt="...">
-                </div>
-            </div>
-
-            {{!-- Button Backward --}}
-            <button class="next-btn btn btn-info" style="height:40%">></button>
-        </div>
-    </section>
-
-
-    {{!-- Reviews --}}
-    <section class="reviews">
-        <h1 class="h1 text-center">Reviews</h1>
-        <div class="review d-flex mt-5" id="reviewGallery">
-     
-            {{#each allReviews as | review Index| }}
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <img class="card-img-top" src= {{this.URL}}    alt="{{@index}}">
+<section class="row intro mt-5">
   
-  <div class="card-body">
-    <p class="card-text">{{this.reviewText}}</p>
-    <button class="btn btn-primary" >See Review</button>
-  </div>
-</div>
+  <section class="springDescriptionSection align-items-center col-lg-3 col-sm-12 col-med-6 mt-5 offset-2 text-white row">
+    <h1 class="h4">{{springData.0.springDescription}}</h1>
+  </section>
 
+  <section class="imageSection offset-1 mt-5 col-lg-6">
+    {{#each displayMedia}}  <img src={{this}} alt=""> {{/each}}
+  </section>
 
-            {{/each}}
-    </section>
 
 </section>
 
-{{!-- Footer --}}
-<footer class="bg-dark d-flex flex-row justify-content-around">
-    <p class="h4 text-center align-self-center">Liked this spring? Favorite it!  <button id="favoriteButton" class="btn btn-primary " data-toggle="modal" data-target="#favoriteModal">&#9733;</button></p>
-    <div class="bg-dark d-flex flex-row justify-content-right align-items-center">
-        <p class="me-3 h4 text-center">Want to leave some feedback?</p>
-        <button id="addAReviewButton" class="btn btn-primary ml-3" data-toggle="modal" data-target="#exampleModal">Add a review</button>
+<section class="row amenitiesSection col-12 mt-5">
+  <h1 class="col-12 text-center mt-5 text-white">Amenities</h1>
+</section>
 
-    </div>
+<section class="cardGallery col-12 row justify-content-around">
+  {{#each amenities}}
+
+<div class="card col-2 h-100" style="">
+  <img class="card-img-top" style="" src={{this.mediaURL}} alt="Card image cap">
+  <div class="card-body  " style="height: 300px">
+    <h5 class="card-title ">{{this.amenityTitle}}</h5>
+    <p class="card-text overflow-auto h-50">{{this.amenityDescription}}</p>
+    <a href="#" class="btn btn-primary">Check it out!</a>
+  </div>
+</div>
+
+  {{/each}}
+</section>
+
+
+
+
+<section class="row reviewsSection col-12 mt-5">
+  <h1 class="col-12 text-center mt-5 text-white">Reviews</h1>
+</section>
+
+<section class="cardGallery col-12 row justify-content-around mb-5">
+  {{#each allReviews}}
+
+<div class="card col-2 h-100" style="">
+  <img class="card-img-top" style="" src={{this.URL}} alt="Card image cap">
+  <div class="card-body  " style="height: 200px">
+    <h5 class="card-title ">Review</h5>
+    <p class="card-text overflow-auto h-50">{{this.reviewText}}</p>
+    <a href="#" class="btn btn-primary">Check it out!</a>
+  </div>
+</div>
+
+  {{/each}}
+</section>
+
+
+
+
+
+
+
+</section>
+
+<footer class="col-12 bg-dark  p-0 row align-items-center justify-content-end" style="height: 5vh; width: 100vw; position:fixed; top: 96vh">
+  <section class="favorite row col-3">
+  <h1 class="h2 text-white ml-3">Liked this spring?</h1> <button class=" ml-4 btn btn-primary h-75 align-self-center"  id="favoriteButton" data-toggle="modal" data-target="#favoriteModal"> Favorite it!</button>
+</section>
+<section class="addReview row col-3">
+  <h1 class="h4 text-white">Want to leave some feedback?</h1> <button id="addAreviewButton" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary ml-3">Add a review!</button>
+</section>
 </footer>
+</section>
 
-
-    <h1 id="springID">{{springID}}</h1>
+<h1 id="springID" style="display: none">{{springData.0.springID}}</h1>
 
 <script src="/js/spring.js"></script>
-
-
-

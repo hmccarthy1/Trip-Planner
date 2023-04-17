@@ -1,12 +1,48 @@
-const User = require('./User');
+
+
+const User = require('./User')
 const Spring = require('./Spring');
-const springReview = require('./springReview')
-const reviewMedia = require('./reviewMedia')
-const favoritedSpring = require('./favoritedSpring')
-const springMedia = require('./springMedia')
-const amenityChoice = require('./amenityChoice');
 const Amenity = require('./Amenity');
-const amenityMedia = require('./amenityMedia')
+const springMedia = require('./springMedia')
+const springReview = require('./springReview')
+const favoritedSpring = require('./favoritedSpring')
+const reviewMedia = require('./reviewMedia')
+const amenityChoice = require('./amenityChoice');
+const amenityMedia = require('./amenityMedia');
+const sequelize = require('../config/connection');
+
+//commetn
+
+
+Spring.hasMany(springMedia,
+  {
+    onDelete: 'CASCADE'
+  })
+
+  springMedia.belongsTo(Spring)
+
+Spring.hasMany(springReview, {
+  onDelete: 'CASCADE'
+});
+
+springReview.belongsTo(Spring);
+
+User.hasMany(springReview, {
+  onDelete: 'CASCADE'
+})
+
+springReview.belongsTo(User);
+
+springReview.hasMany(reviewMedia, {
+  onDelete:'CASCADE'
+});
+
+Spring.hasMany(Amenity,
+  {onDelete: 'CASCADE'})
+reviewMedia.belongsTo(springReview);
+
+
+Amenity.belongsTo(Spring)
 
 
 var testUser;
@@ -21,57 +57,29 @@ var testAmenityMedia;
 
 
 const runTests = async function () {
-  await User.destroy({ truncate: true });
-  await Spring.destroy({ truncate: true });
-  await springMedia.destroy({ truncate: true });
-  await Amenity.destroy({ truncate: true });
-  await amenityMedia.destroy({ truncate: true });
-  await amenityChoice.destroy({truncate: true});
-  springReview.destroy({truncate: true});
-  reviewMedia.destroy({truncate: true})
+
+
+  // await User.sync({force: true})
+  // await Spring.sync({force: true})
+  // await springMedia.sync({force: true})
+  // await Amenity.sync({force: true})
+  // await amenityMedia.sync({force: true})
+  // await amenityChoice.sync({force: true})
+  // springReview.sync({force: true})
+  // reviewMedia.sync({force: true})
 
   userHunter = await User.create({
     firstName: "Hunter",
     lastName: "McCarthy",
     DOB: 1996 / 03 / 30,
     emailAddress: "hunterMcCarthy56@hotmail.com",
-    userPassword: "123456789",
-    phoneNumber: '321-210-9676'
-  });
+    userPassword: "12345678910",
+    phoneNumber: '321-210-9675'
+   });
+
+  
 
 
-  var ginnieSprings = await Spring.create({
-
-    springName: "Ginnie Springs",
-    latitude: 29.8343,
-    longitude: 82.7024,
-    springState: "FL",
-    County: "Gilchrist",
-    springDescription: "The best spring system in the state - period. This site hosts it's own head spring, which feeds into the Santa Fe (and the rope swing taking you into it), as well as the Devil Spring System. Made up of Devli's Ear,  Devil's Eye, and Little Devil, this system is a true wonder of nature. Renowned worldwide for it's one-of-a-kind cave diving, beautiful above-water scenery, and diverse wildlife, this spring sytem is a must-see for everyone."
-
-  });
-
-  var blueSprings = await Spring.create({
-
-    springName: "Blue Springs (Volusia)",
-    latitude: 28.9514,
-    longitude: 81.3337,
-    springState: "FL",
-    County: "Volusia",
-    springDescription: "Famous for the manatees that inhabit it during the winter months and the exceptional freediving opportunities it offers, this oasis is located about 45 minutes north of Orlando. This spring boasts about a half mile of crystal clear stream, leading to the 40' deep head spring that attracts freedivers from all over the state"
-
-  });
-
-  var silverGlenSprings = await Spring.create({
-
-    springName: "Silver Glen Springs",
-    latitude: 29.2464,
-    longitude: 81.6434,
-    springState: "Fl",
-    County: "Marion",
-    springDescription: "This spring plays hosts to swirling schools of silver striped bass and swaying seagrass. The 72 degree waters of this spring are located about an hour and fifteen minutes north from Orlando, nestled in the Ocala national forest."
-
-  });
 
   var silverSprings = await Spring.create({
 
@@ -94,29 +102,7 @@ const runTests = async function () {
     springDescription: "Home to some of the most gorgeous freediving and snorkeling in the state, this spring is often used by novice divers to practice their buoyancy control. With a nice spacious head spring side-by-side shallow waters, this is a great spot for a family weekend getaway."
 
   });
-
-  var devilsDenSpring = await Spring.create({
-
-    springName: "Devil's Den Prehistoric Spring",
-    latitude: 29.4070,
-    longitude: 82.4761,
-    springState: "FL",
-    County: "Levy",
-    springDescription: "Truly one of Florida's natural wonders, this spring in nested inside a rock canyon with strands of sunlight streaming through the natural formation, creating a mid-day halo effect. This spring is a bucket-list item for many cave divers hoping to explore the pre-historic underwater cave system. Right next door is one of the most diverse gardens in the state of florida"
-
-  });
-
-  var ichetuckneeSprings = await Spring.create({
-
-    springName: "Ichetucknee Springs",
-    latitude: 29.9838,
-    longitude: 82.7618,
-    springState: "FL",
-    County: "Suwanee",
-    springDescription: "Whether you want to take a leisurely tube down a natural lazy river, or be awed by the size the underwater cavern at Blue Hole, this site has you covered. Right in the heartland of Florida spring territory, this site is only a half hour north of Ginnie Springs, just outside Alachua"
-
-  });
-
+ 
   var royalSprings = await Spring.create({
 
     springName: "Royal Springs",
@@ -167,17 +153,83 @@ const runTests = async function () {
     springState: "FL",
     County: "Marion",
     springDescription: "One of the hidden gems of Florida Springs, this spring is both one of the best and one of the hardest to get to. The spring is miles upriver, and you'll probably need to get out of your kayak once or twice to navigate, but those who make it all the way to the head spring are rewarded with one of the most secluded springs in florida. You won't see throngs of tourists with bluetooth speakers here. For those who love to freedive and snorkel, this spring is one of the best"
-  })
+  });
 
-  var ginnieMain = await springMedia.create({
-    Spring: ginnieSprings.springID,
-    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg", 
-    Caption: `A stunning picture of one of ginnie's famous cave systems`, 
-    mainImage: true
+
+
+
+  var blueSprings = await Spring.create({
+
+    springName: "Blue Springs (Volusia)",
+    latitude: 28.9514,
+    longitude: 81.3337,
+    springState: "FL",
+    County: "Volusia",
+    springDescription: "Famous for the manatees that inhabit it during the winter months and the exceptional freediving opportunities it offers, this oasis is located about 45 minutes north of Orlando. This spring boasts about a half mile of crystal clear stream, leading to the 40' deep head spring that attracts freedivers from all over the state"
 
   });
 
-  await springMedia.create({
+
+  
+
+  var devilsDenSpring = await Spring.create({
+
+    springName: "Devil's Den Prehistoric Spring",
+    latitude: 29.4070,
+    longitude: 82.4761,
+    springState: "FL",
+    County: "Levy",
+    springDescription: "Truly one of Florida's natural wonders, this spring in nested inside a rock canyon with strands of sunlight streaming through the natural formation, creating a mid-day halo effect. This spring is a bucket-list item for many cave divers hoping to explore the pre-historic underwater cave system. Right next door is one of the most diverse gardens in the state of florida"
+
+  });
+
+
+  var silverGlenSprings = await Spring.create({
+
+    springName: "Silver Glen Springs",
+    latitude: 29.2464,
+    longitude: 81.6434,
+    springState: "Fl",
+    County: "Marion",
+    springDescription: "This spring plays hosts to swirling schools of silver striped bass and swaying seagrass. The 72 degree waters of this spring are located about an hour and fifteen minutes north from Orlando, nestled in the Ocala national forest."
+
+  });
+
+  var ichetuckneeSprings = await Spring.create({
+
+    springName: "Ichetucknee Springs",
+    latitude: 29.9838,
+    longitude: 82.7618,
+    springState: "FL",
+    County: "Suwanee",
+    springDescription: "Whether you want to take a leisurely tube down a natural lazy river, or be awed by the size the underwater cavern at Blue Hole, this site has you covered. Right in the heartland of Florida spring territory, this site is only a half hour north of Ginnie Springs, just outside Alachua"
+
+  });
+
+
+  var ginnieSprings = await Spring.create({
+
+    springName: "Ginnie Springs",
+    latitude: 29.8343,
+    longitude: 82.7024,
+    springState: "FL",
+    County: "Gilchrist",
+    springDescription: "The best spring system in the state - period. This site hosts it's own head spring, which feeds into the Santa Fe (and the rope swing taking you into it), as well as the Devil Spring System. Made up of Devli's Ear,  Devil's Eye, and Little Devil, this system is a true wonder of nature. Renowned worldwide for it's one-of-a-kind cave diving, beautiful above-water scenery, and diverse wildlife, this spring sytem is a must-see for everyone."
+
+  });
+
+
+
+  console.log('--------------------------------- end springs ------------------------ \n')
+
+  var ginnieMain = await springMedia.create({
+    Spring: 1,
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg", 
+    Caption: `A stunning picture of one of ginnie's famous cave  systems`, 
+    mainImage: true});
+
+    
+    await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442015/Devils-Ear-Backlight-3-1000x670_afrmpz.jpg", 
     Caption: "Two cave divers marveling at the underwater rock formations at Ginnie", 
@@ -192,8 +244,8 @@ const runTests = async function () {
     mainImage: false
 
   });
-
-
+  
+  
   await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442407/DevilsEyeNight-1_p0jvnq.jpg", 
@@ -202,6 +254,10 @@ const runTests = async function () {
 
   });
 
+
+  
+  
+  console.log('Ginnie main --- ', ginnieMain)
   await springMedia.create({
     Spring: ginnieSprings.springID,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442631/GOPR0011_ALTA-615917329403256048_vl3xjc.jpg", 
@@ -210,47 +266,63 @@ const runTests = async function () {
 
   });
 
+
+
+
 const ginnieReview1 = await springReview.create({
-  Spring: 1,
+  Spring: ginnieSprings.springID,
   reviewingUser: 1,
   userSpringRating: 9.5,
   reviewText: "We had a great time at Ginnie! The water was crystal clear & super refreshing on a hot florida day!"
 
 });
 
+const ichetuckneeReview1 = await springReview.create({
+  Spring: ichetuckneeSprings.springID,
+  reviewingUser: 1,
+  userSpringRating: 9.2,
+  reviewText: "we had a great time"
+})
+
 const reviewMedia1 = await reviewMedia.create({
   Review: ginnieReview1.springReviewID,
   mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681615902/itr2uhq2yefgks63bdpb.jpg",
   Caption: "Swimming through the crystal clear waters of ginnie springs"
 
+});
+
+const ichetuckneeReviewMeda = await reviewMedia.create({
+  Review: ichetuckneeReview1.springReviewID,
+  mediaURL:  'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681755351/the-blue-hole-at-ichetucknee_tf2tbk.jpg'
 })
 
+var ichetuckneeMain = await springMedia.create({
+  Spring: 2,
+  mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg", 
+  Caption: "The entrance to the Ichetucknee head spring, next to a path leading to Blue Hole", 
+  mainImage: true
+});
   var blueMain = await springMedia.create({
-    Spring: blueSprings.springID,
+    Spring: 3,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442901/Blue-Springs-State-Park_084e5789-a552-d6e7-6866fc9f12ece6b1_fwc7qw.jpg", 
     Caption: "A group of manatees swimming through blue springs", 
     mainImage: true
 
   });
   
+
+
   var silverGlenMain = await springMedia.create({
-    Spring: silverGlenSprings.springID,
+    Spring: 4,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443092/8696137743_530350a358_b_xtdprv.jpg", 
     Caption: "A rare sight - a spiral swarm of striped bass at the restricted breeding grounds at Silver Glen Springs", 
     mainImage: true
 
   });
 
-  var silverMain = await springMedia.create({
-    Spring: silverSprings.springID,
-    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681357788/asvw2lazqjheytajiyuq.jpg", 
-    Caption: "A relaxing view from a viewing deck alongside the river hosting Silver Springs", 
-    mainImage: true
-
-  });
-
+ 
   var alexanderMain = await springMedia.create({
-    Spring: alexanderSprings.springID,
+    Spring: 5,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443378/diving-down-into-alexander-springs-1024x577_x5uwvo.jpg", 
     Caption: "Alexander is deceptively deep and spacious!", 
     mainImage: true
@@ -264,11 +336,15 @@ const reviewMedia1 = await reviewMedia.create({
     mainImage: true
 
   });
-  var ichetuckneeMain = await springMedia.create({
-    Spring: ichetuckneeSprings.springID,
-    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443785/ichetucknee-blue_hole_springs-16_rvxlww.jpg", 
-    Caption: "The entrance to the Ichetucknee head spring, next to a path leading to Blue Hole", 
+
+
+
+  var silverMain = await springMedia.create({
+    Spring: silverSprings.springID,
+    mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681357788/asvw2lazqjheytajiyuq.jpg", 
+    Caption: "A relaxing view from a viewing deck alongside the river hosting Silver Springs", 
     mainImage: true
+
   });
 
   var royalMain = await springMedia.create({
@@ -356,8 +432,8 @@ const reviewMedia1 = await reviewMedia.create({
   amenityTitle: "Ginnie Springs Diving"
   });
 
-  var testDiving = await Amenity.create({
-    Spring: 3,
+  var blueHole = await Amenity.create({
+    Spring: ichetuckneeSprings.springID,
     amenityType: Diving.amenityChoiceID,
     amenityDescription: "Ftest",
     Cost: "How much this endeavor will cost depends on what you want to do, and if you're bringing your own gear. Cave diver admission is 24 USD, normal divers get in for 32 USD, and an annual diving pass will cost you 399.99 USD. Rentals will vary but will not be cheap",
@@ -365,11 +441,18 @@ const reviewMedia1 = await reviewMedia.create({
     amenityTitle: "test"
     });
 
+  var blueHoleDiving = await amenityMedia.create({
+    mediaURL: 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681755263/zihz7enronfafiuypthy.webp',
+    Caption: 'Diving at blue hole is a truly rewarding experience!',
+    mainImage: true,
+    Amenity: blueHole.amenityID
+  })
+
   var ginnieDivingMain = await amenityMedia.create({
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681474222/ginnie11_twmyca.jpg",
     Caption: `Two cave divers coming through one of the entrances to one of Ginnie Spring's cave systems. Worth the training!`,
     mainImage: true,
-    Amenity: ginnieDiving.amenityID
+    Amenity: ginnieDiving.amenityID,
   });
 
   var ginnieSnorkeling = await Amenity.create({
@@ -453,10 +536,8 @@ const reviewMedia1 = await reviewMedia.create({
 
     console.log(
       secondGinnieSnorkeling.mediaURL + '\n' + 
-      secondGinnieSnorkeling.Amenity + '\n' +
-      secondGinnieSnorkeling.amenityMediaID + '\n' 
-      
-      
+      secondGinnieSnorkeling.Amenity + '\n'
+
       )
 
   //

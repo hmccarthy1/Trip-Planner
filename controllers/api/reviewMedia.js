@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
    });
    console.log('created------------------------------------------------------------------------------------------', newMedia)
    ;
-   res.end();
+   res.send(newMedia)
 } catch (err) {
     console.log(err);
     res.end()

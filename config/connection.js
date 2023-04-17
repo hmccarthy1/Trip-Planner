@@ -13,8 +13,19 @@ if (process.env.JAWSDB_URL) {
     {
       host: 'localhost',
       dialect: 'mysql',
-      port: 3306
-    }
+      port: 3306,
+      pool: {
+        max: 10,
+        min: 0,
+        idle: 10000
+      },
+      dialectOptions: {
+        options: {
+          requestTimeout: 3000
+        }
+      }
+    },
+    
   );
 }
 

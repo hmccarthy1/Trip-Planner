@@ -7,8 +7,12 @@ function closeModal() {
   document.getElementById("myModal").style.display = "none";
 }
 
-const loginFormHandler = async (event) => {
-    event.preventDefault();
+var addUser = $('#btnAddUser');
+
+addUser.click(async function(event) {
+
+
+
   
     // Collect values from the login form
     const email = document.querySelector('#email').value.trim();
@@ -25,13 +29,11 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         //openModal('You are logged in!');
         // If successful, redirect the browser to the profile page
-        document.location.replace('/floridasprings/homepage');
+        document.location.replace('/homepage');
       } else {
         alert(response.statusText);
       }
     }
-  };
+  })
   
-  document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+ 

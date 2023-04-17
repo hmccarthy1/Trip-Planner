@@ -52,10 +52,10 @@ const signupFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        openModal('Welcome aboard! You have successfully signed up.');
+       
         
         setTimeout(function() {
-          document.location.replace('/floridasprings');
+          document.location.replace('/');
         }, 5000);
       } else {
         alert(response.statusText);

@@ -1,0 +1,17 @@
+<section class="row body-wrapper col-12">
+    <h1 class="h1 col-12 text-center mt-5 text-white">My favorites</h1>
+    <section class="cardGallery col-12">
+        {{#each displaySprings}}
+
+<div class="card col-2 h-100" style="">
+  <img class="card-img-top" style="" src={{this.mediaURL}} alt="Card image cap">
+  <div class="card-body  " style="height: 200px">
+    <h5 class="card-title ">{{this.springName}}</h5>
+    <p class="card-text overflow-auto h-50">{{this.springDescription}}</p>
+    <a href="spring/{{this.springID}}" class="btn btn-primary">Check it out!</a>
+  </div>
+</div>
+
+  {{/each}}
+    </section>
+</section>
