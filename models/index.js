@@ -71,7 +71,7 @@ const runTests = async function () {
     DOB: 1996 / 03 / 30,
     emailAddress: "hunterMcCarthy56@hotmail.com",
     userPassword: "12345678910",
-    phoneNumber: '321-210-9676'
+    phoneNumber: '321-210-9675'
    });
 
 
