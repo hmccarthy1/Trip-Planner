@@ -23,24 +23,10 @@ router.get('/', async (req, res) => {
     });
 
 
-var allMedia = await springMedia.findAll();
-console.log(' ------------------------- media found ----------------------', allMedia.length)
+
 
     for (var i = 0; i < top5.length; i++ ) {
-      var lookupMedia;
-
-      lookupMedia = await springMedia.findOne({
-        where: {
-          Spring: top5[i].springID,
-          mainImage: true
-        }, 
-        order: [
-          ['Spring', 'ASC']
-        ],
-        raw: true
-      });
-
-      console.log('lookup media ---------------------------------------------', lookupMedia)
+      
 
       top5[i].URL = 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg'
 
