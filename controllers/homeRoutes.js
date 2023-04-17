@@ -23,12 +23,21 @@ router.get('/', async (req, res) => {
     });
 
 
+    
 
 
     for (var i = 0; i < top5.length; i++ ) {
-      
+    
+      var newMedia = springMedia.findOne({
+        where: {
+          Spring: top5[i]
+        },
+        raw: true
+      });
 
-      top5[i].URL = 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg'
+      console.log('========================================= NEW MEDIA ============================', newMedia)
+
+      top5[i].URL = newMedia.mediaURL
 
     }
 
