@@ -21,14 +21,14 @@ var testAmenityMedia;
 
 
 const runTests = async function () {
-  await User.destroy({ truncate: true });
-  await Spring.destroy({ truncate: true });
-  await springMedia.destroy({ truncate: true });
-  await Amenity.destroy({ truncate: true });
-  await amenityMedia.destroy({ truncate: true });
-  await amenityChoice.destroy({truncate: true});
-  springReview.destroy({truncate: true});
-  reviewMedia.destroy({truncate: true})
+  // await User.destroy({ truncate: true });
+  // await Spring.destroy({ truncate: true });
+  // await springMedia.destroy({ truncate: true });
+  // await Amenity.destroy({ truncate: true });
+  // await amenityMedia.destroy({ truncate: true });
+  // await amenityChoice.destroy({truncate: true});
+  // springReview.destroy({truncate: true});
+  // reviewMedia.destroy({truncate: true})
 
   userHunter = await User.create({
     firstName: "Hunter",
