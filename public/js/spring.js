@@ -5,7 +5,6 @@ const currentUrl = window.location.href;
 const id = currentUrl.split('/').pop();
 
 
-
 // Extract the ID from the URL
 
 
@@ -13,10 +12,11 @@ const id = currentUrl.split('/').pop();
   // Set the cookie after the player is initialized
 
 
+
 const addButton = $('#addReview');
-
+console.log(addButton)
 addButton.click(async function (event) {
-
+console.log('hitting')
   var reviewID;
   const fileUpload = document.getElementById('fileUpload')
   const userSpringRating = $('#Rating').val();
@@ -55,7 +55,7 @@ async function getBase64(file)  {
 
         body: JSON.stringify({
           mediaURL: mediaURL,
-
+          
           Review: reviewID
         }),
         headers: { 'Content-Type': 'application/json' },
@@ -71,7 +71,15 @@ async function getBase64(file)  {
     await getBase64(fileArray[i]);
   
   }
-  window.location.reload()
+
+  var delayInMilliseconds = 2000
+
+  setTimeout(function() {
+    window.location.reload()
+
+  }, delayInMilliseconds);
+
+  
 })
 
 
@@ -79,10 +87,7 @@ async function getBase64(file)  {
 
 
 
-// Get references to the HTML elements
-const mediaImage = document.querySelector('#mediaImage');
-const prevButton = document.querySelector('.prev-btn');
-const nextButton = document.querySelector('.next-btn');
+
 
 let currentIndex = 0;
 
@@ -102,19 +107,6 @@ let currentIndex = 0;
 
 // displayMedia is an array of objects that saves the data received in the fetch and
 //that is parsed as JSON.
-function updateImage() {
-  mediaImage.src = displayMedia[currentIndex].mediaURL;
-}
-
-prevButton.addEventListener('click', function onPrevClick() {
-  currentIndex = (currentIndex - 1 + displayMedia.length) % displayMedia.length;
-  updateImage();
-});
-
-nextButton.addEventListener('click', function onNextClick() {
-  currentIndex = (currentIndex + 1) % displayMedia.length;
-  updateImage();
-});
 
 
 
@@ -151,4 +143,6 @@ callFavorite.click(async function(event) {
   
   })
 
-})
+});
+
+

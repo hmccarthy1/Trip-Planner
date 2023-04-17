@@ -121,18 +121,7 @@ router.get('/homepage', withAuth, async (req, res) => {
   }
 });
 
-//Temporary route for testing
-router.get('/spring',  async (req, res) => {
-  // find a single spring by its `id`
-  try {
 
-console.log(req.session.user_id)
-    res.render('spring');
-
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 //Spring with ID - Commenting middleware withAuth for testing
 router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
@@ -191,6 +180,8 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
 
     console.log('---- all reviews -----', allReviews)
 
+    
+
     var handleMedia = [];
 
     for (var i = 0; i < allReviews.length; i++) {
@@ -239,21 +230,23 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
     let media = [];
     for (let i = 0; i < amenities.length; i++){
       
-      let mediaToAdd = await amenityChoice.findOne({
+      let mediaToAdd = await amenityMedia.findOne({
         where: {
-          amenityChoiceID: amenities[i].amenityType,
+          Amenity: amenities[i].amenityID,
         }, raw: true
       });
       console.log('mediaToAdd', i," ", mediaToAdd)
-      media.push(mediaToAdd.amenityIcon);
+      amenities[i].mediaURL = mediaToAdd.mediaURL
     }
 
     console.log('----- media icons -----', media);
+    console.log('amenities----------------' , amenities)
+
     res.render('spring', {
       springData,
       displayMedia,
       allReviews,
-      media,
+    amenities,
       loggedIn,
       userName
     });

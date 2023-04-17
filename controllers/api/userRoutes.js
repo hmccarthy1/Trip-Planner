@@ -19,48 +19,46 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+
+  console.log('hitting login ========================')
   try {
     const userData = await User.findOne({ where: { emailAddress: req.body.email } });
+console.log('----------------------- user data', userData)
+  
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
+    console.log(req.body.password, '----------password')
+    const validPassword =  userData.checkPassword(req.body.password);
+    console.log('valid password ---------------', validPassword)
 
     if (!validPassword) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
-    }
+    } else {
 
-    req.session.save(() => {
+    await req.session.save(() => {
       req.session.user_id = userData.userID;
       req.session.logged_in = true;
       req.session.firstName = userData.firstName;
       req.session.lastName = userData.lastName;
 
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
+    })
+    res.redirect('/homepage')
+  
+  };
+    
 
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post('/logout', (req, res) => {
-  console.log(req.session.logged_in);
+router.post('/logout', async  (req, res) => {
+  console.log('logged in? ', req.session.logged_in)
   if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.redirect('/floridasprings')
-  }
-});
+   await  req.session.destroy();
+   res.redirect('/')
+}});
 
 module.exports = router;
