@@ -77,8 +77,22 @@
           My Favorites
         </a>
       </li>
-
+{{#if loggedIn}}
+<li id="logoutLink"  class="nav-item border border-primary mt-2 rounded">
+        <a href=''  class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#grid">
+          </svg>
+       Log out
+        </a>
+      </li>
+    
+    {{/if}}
+    
     </ul>
+
+
+
     <hr>
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
       <li><a class="dropdown-item" href="#">New project...</a></li>

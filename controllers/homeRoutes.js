@@ -125,13 +125,7 @@ router.get('/homepage', withAuth, async (req, res) => {
 router.get('/spring',  async (req, res) => {
   // find a single spring by its `id`
   try {
-    // const springId = await Spring.findByPk(req.params.id,{
-    //   include: [{
-    //        model: Spring
-    //     }]
-    // });
 
-    // res.status(200).json(springId);
 console.log(req.session.user_id)
     res.render('spring');
 
@@ -145,6 +139,19 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
   // find a single spring by its `id`
   try {
     console.log('hitting')
+
+    var loggedIn;
+    if (req.session.logged_in != true) {
+       loggedIn = false;
+       userName = ""
+    } else {
+      loggedIn = true;
+      console.log(
+        '================================== logged IN ====================='
+      )
+      userName = req.session.firstName
+    }
+
     const springData = await Spring.findAll({
       where: {
         springID: req.params.id,
@@ -168,6 +175,7 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
     attributes: ['mediaURL'],
     raw:true
    })
+   
 
 
     console.log('------- passed spring media test ------')
@@ -241,13 +249,13 @@ router.get('/spring/:id',/*withAuth ,*/ async (req, res) => {
     }
 
     console.log('----- media icons -----', media);
-    const springID = req.params.id
-    console.log('SPING ID--------------', springID)
     res.render('spring', {
       springData,
       displayMedia,
       allReviews,
       media,
+      loggedIn,
+      userName
     });
 
   } catch (err) {
