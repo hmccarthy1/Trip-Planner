@@ -1,13 +1,13 @@
 
 
-
+const User = require('./User')
 const Spring = require('./Spring');
-const springReview = require('./springReview')
-const reviewMedia = require('./reviewMedia')
-const favoritedSpring = require('./favoritedSpring')
-const springMedia = require('./springMedia')
-const amenityChoice = require('./amenityChoice');
 const Amenity = require('./Amenity');
+const springMedia = require('./springMedia')
+const springReview = require('./springReview')
+const favoritedSpring = require('./favoritedSpring')
+const reviewMedia = require('./reviewMedia')
+const amenityChoice = require('./amenityChoice');
 const amenityMedia = require('./amenityMedia');
 const sequelize = require('../config/connection');
 
