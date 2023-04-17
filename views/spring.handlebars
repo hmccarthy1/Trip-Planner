@@ -51,11 +51,11 @@
 
 
 
-<section class="body-wrapper col-12 h-100 p-0">
+<section class="body-wrapper col-lg-10 offset-lg-2 h-100 p-0">
 
 <section class="row intro mt-5">
   
-  <section class="springDescriptionSection align-items-center col-lg-3 mt-5 offset-2 text-white row">
+  <section class="springDescriptionSection align-items-center col-lg-3 col-sm-12 col-med-6 mt-5 offset-2 text-white row">
     <h1 class="h4">{{springData.0.springDescription}}</h1>
   </section>
 
@@ -110,7 +110,12 @@
 
 
 
-<footer class="col-12 bg-dark ml-0 p-0 row align-items-center justify-content-start" style="height: 5vh; width: 100vw; position:fixed; top: 96vh">
+
+
+
+</section>
+
+<footer class="col-12 bg-dark  p-0 row align-items-center justify-content-end" style="height: 5vh; width: 100vw; position:fixed; top: 96vh">
   <section class="favorite row col-3">
   <h1 class="h2 text-white ml-3">Liked this spring?</h1> <button class=" ml-4 btn btn-primary h-75 align-self-center"  id="favoriteButton" data-toggle="modal" data-target="#favoriteModal"> Favorite it!</button>
 </section>
@@ -118,10 +123,6 @@
   <h1 class="h4 text-white">Want to leave some feedback?</h1> <button id="addAreviewButton" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary ml-3">Add a review!</button>
 </section>
 </footer>
-
-
-</section>
-
 </section>
 
 <h1 id="springID" style="display: none">{{springData.0.springID}}</h1>
