@@ -47,7 +47,7 @@ springReview.init(
         timestamps: false,
         freezeTableName: true,
         underscored: false,
-        modelName: 'springReview',
+        modelName: 'springreview',
         }
     
 )

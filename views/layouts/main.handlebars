@@ -34,20 +34,16 @@
   </video>
 
   
- <body>
-<header id="mainHeader" class="d-flex justify-content-between align-items-center py-2 bg-dark text-light">
-    <h1 class="brand-title mb-0">Springs and Things</h1>
-    <nav>
-        <ul class="nav nav-pills ml-auto">
-            <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link" href="/contactUs">Contact Us</a></li>
-            <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link loginLink" href="/login">Login/Register</a></li>
-            {{#if logged_in}}
-            {{!-- <li class="userName">{{this.firstName}}</li> --}}
-            {{!-- We don't have time to set this up, this would be a future improvement --}}
-            <li class="nav-item border border-primary ml-2 rounded"><a class="nav-link" href="/dashboard">{{username}}</a></li>
-            <li class="nav-item border border-primary ml-2 rounded"><button class="btn btn-primary" hidden type="submit" id="logout">Logout</button></li>
-            {{/if}}
+
+  <header id="mainHeader" class="display-flex justify-space-between align-center p-2 bg-dark text-light">
+    <h1>
+      <h1 class="titlePage m5">Springs and Things</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/contactUs">Contact Us</a></li>
+          <li>{{#if loggedIn}} <h1 class='h4'>{{userName}}</h1> {{else}} <a href="/login">Login</a>           {{/if}}        </li>
+
         </ul>
     </nav>
 </header>
@@ -59,7 +55,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item border border-primary rounded ">
-        <a id="homeLink" href="/floridasprings" class="nav-link text-white" aria-current="page">
+        <a id="homeLink" href="/" class="nav-link text-white" aria-current="page">
           <svg class="bi me-2" width="16" height="16">
             <use xlink:href="#home" />
           </svg>
@@ -83,8 +79,22 @@
           My Favorites
         </a>
       </li>
-
+{{#if loggedIn}}
+<li id="logoutLink"  class="nav-item border border-primary mt-2 rounded">
+        <a href=''  class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16">
+            <use xlink:href="#grid">
+          </svg>
+       Log out
+        </a>
+      </li>
+    
+    {{/if}}
+    
     </ul>
+
+
+
     <hr>
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
       <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -93,7 +103,7 @@
       <li>
         <hr class="dropdown-divider">
       </li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
+      <li><a class="dropdown-item" href="# ">Sign out</a></li>
     </ul>
   </div>
   <main>
