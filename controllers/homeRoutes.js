@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
       raw: true
     });
 
-    console.log('top 5 -------------------------------------', top5)
+
 
 
     for (var i = 0; i < top5.length; i++ ) {
@@ -46,8 +46,6 @@ router.get('/', async (req, res) => {
     }
 
     
-
-    console.log( '----- limit 5 ----- ', top5)
 
 
     res.render('homepage', 
