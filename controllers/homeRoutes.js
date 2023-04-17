@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
     },
     );
 
-
+console.log('top 5', top5, "length: ", top5.length)
     
 
 top5[4].URL = 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg';
