@@ -1,7 +1,6 @@
 
 
 
-const User = require('./User');
 const Spring = require('./Spring');
 const springReview = require('./springReview')
 const reviewMedia = require('./reviewMedia')
