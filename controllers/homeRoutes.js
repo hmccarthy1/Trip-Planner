@@ -28,6 +28,14 @@ router.get('/', async (req, res) => {
 
     for (var i = 0; i < top5.length; i++ ) {
     
+      var allMedia = await springMedia.findAll({
+        where: {
+          Spring: top5[i].springID
+        }
+      });
+
+      console.log( ' ================================================= length ================================', allMedia.length)
+
       var newMedia = await springMedia.findOne({
         where: {
           Spring: top5[i].springID
