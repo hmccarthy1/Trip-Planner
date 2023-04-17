@@ -23,7 +23,8 @@ router.get('/', async (req, res) => {
     });
 
 
-
+var allMedia = await springMedia.findAll();
+console.log(' ------------------------- media found ----------------------', allMedia.length)
 
     for (var i = 0; i < top5.length; i++ ) {
       var lookupMedia;
