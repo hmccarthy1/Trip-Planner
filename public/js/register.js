@@ -52,7 +52,7 @@ const signupFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        openModal('Welcome aboard! You have successfully signed up.');
+       
         
         setTimeout(function() {
           document.location.replace('/');
