@@ -59,6 +59,7 @@ router.get('/a/:body', async (req, res) => {
             },
             attributes: ['Spring'],
             raw: true,
+            limit: 7
          
         });
 
