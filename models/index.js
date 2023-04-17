@@ -74,6 +74,63 @@ const runTests = async function () {
     phoneNumber: '321-210-9675'
    });
 
+  
+   var ginnieSprings = await Spring.create({
+
+    springName: "Ginnie Springs",
+    latitude: 29.8343,
+    longitude: 82.7024,
+    springState: "FL",
+    County: "Gilchrist",
+    springDescription: "The best spring system in the state - period. This site hosts it's own head spring, which feeds into the Santa Fe (and the rope swing taking you into it), as well as the Devil Spring System. Made up of Devli's Ear,  Devil's Eye, and Little Devil, this system is a true wonder of nature. Renowned worldwide for it's one-of-a-kind cave diving, beautiful above-water scenery, and diverse wildlife, this spring sytem is a must-see for everyone."
+
+  });
+
+
+  var ichetuckneeSprings = await Spring.create({
+
+    springName: "Ichetucknee Springs",
+    latitude: 29.9838,
+    longitude: 82.7618,
+    springState: "FL",
+    County: "Suwanee",
+    springDescription: "Whether you want to take a leisurely tube down a natural lazy river, or be awed by the size the underwater cavern at Blue Hole, this site has you covered. Right in the heartland of Florida spring territory, this site is only a half hour north of Ginnie Springs, just outside Alachua"
+
+  });
+
+  var silverGlenSprings = await Spring.create({
+
+    springName: "Silver Glen Springs",
+    latitude: 29.2464,
+    longitude: 81.6434,
+    springState: "Fl",
+    County: "Marion",
+    springDescription: "This spring plays hosts to swirling schools of silver striped bass and swaying seagrass. The 72 degree waters of this spring are located about an hour and fifteen minutes north from Orlando, nestled in the Ocala national forest."
+
+  });
+
+  var devilsDenSpring = await Spring.create({
+
+    springName: "Devil's Den Prehistoric Spring",
+    latitude: 29.4070,
+    longitude: 82.4761,
+    springState: "FL",
+    County: "Levy",
+    springDescription: "Truly one of Florida's natural wonders, this spring in nested inside a rock canyon with strands of sunlight streaming through the natural formation, creating a mid-day halo effect. This spring is a bucket-list item for many cave divers hoping to explore the pre-historic underwater cave system. Right next door is one of the most diverse gardens in the state of florida"
+
+  });
+
+  var blueSprings = await Spring.create({
+
+    springName: "Blue Springs (Volusia)",
+    latitude: 28.9514,
+    longitude: 81.3337,
+    springState: "FL",
+    County: "Volusia",
+    springDescription: "Famous for the manatees that inhabit it during the winter months and the exceptional freediving opportunities it offers, this oasis is located about 45 minutes north of Orlando. This spring boasts about a half mile of crystal clear stream, leading to the 40' deep head spring that attracts freedivers from all over the state"
+
+  });
+
 
 
   var silverSprings = await Spring.create({
@@ -150,63 +207,6 @@ const runTests = async function () {
     springDescription: "One of the hidden gems of Florida Springs, this spring is both one of the best and one of the hardest to get to. The spring is miles upriver, and you'll probably need to get out of your kayak once or twice to navigate, but those who make it all the way to the head spring are rewarded with one of the most secluded springs in florida. You won't see throngs of tourists with bluetooth speakers here. For those who love to freedive and snorkel, this spring is one of the best"
   });
 
-
-  
-  var ginnieSprings = await Spring.create({
-
-    springName: "Ginnie Springs",
-    latitude: 29.8343,
-    longitude: 82.7024,
-    springState: "FL",
-    County: "Gilchrist",
-    springDescription: "The best spring system in the state - period. This site hosts it's own head spring, which feeds into the Santa Fe (and the rope swing taking you into it), as well as the Devil Spring System. Made up of Devli's Ear,  Devil's Eye, and Little Devil, this system is a true wonder of nature. Renowned worldwide for it's one-of-a-kind cave diving, beautiful above-water scenery, and diverse wildlife, this spring sytem is a must-see for everyone."
-
-  });
-
-
-  var ichetuckneeSprings = await Spring.create({
-
-    springName: "Ichetucknee Springs",
-    latitude: 29.9838,
-    longitude: 82.7618,
-    springState: "FL",
-    County: "Suwanee",
-    springDescription: "Whether you want to take a leisurely tube down a natural lazy river, or be awed by the size the underwater cavern at Blue Hole, this site has you covered. Right in the heartland of Florida spring territory, this site is only a half hour north of Ginnie Springs, just outside Alachua"
-
-  });
-
-  var silverGlenSprings = await Spring.create({
-
-    springName: "Silver Glen Springs",
-    latitude: 29.2464,
-    longitude: 81.6434,
-    springState: "Fl",
-    County: "Marion",
-    springDescription: "This spring plays hosts to swirling schools of silver striped bass and swaying seagrass. The 72 degree waters of this spring are located about an hour and fifteen minutes north from Orlando, nestled in the Ocala national forest."
-
-  });
-
-  var devilsDenSpring = await Spring.create({
-
-    springName: "Devil's Den Prehistoric Spring",
-    latitude: 29.4070,
-    longitude: 82.4761,
-    springState: "FL",
-    County: "Levy",
-    springDescription: "Truly one of Florida's natural wonders, this spring in nested inside a rock canyon with strands of sunlight streaming through the natural formation, creating a mid-day halo effect. This spring is a bucket-list item for many cave divers hoping to explore the pre-historic underwater cave system. Right next door is one of the most diverse gardens in the state of florida"
-
-  });
-
-  var blueSprings = await Spring.create({
-
-    springName: "Blue Springs (Volusia)",
-    latitude: 28.9514,
-    longitude: 81.3337,
-    springState: "FL",
-    County: "Volusia",
-    springDescription: "Famous for the manatees that inhabit it during the winter months and the exceptional freediving opportunities it offers, this oasis is located about 45 minutes north of Orlando. This spring boasts about a half mile of crystal clear stream, leading to the 40' deep head spring that attracts freedivers from all over the state"
-
-  });
 
 
   console.log('--------------------------------- end springs ------------------------ \n')
