@@ -468,7 +468,7 @@ var ichetuckneeMain = await springMedia.create({
 
     console.log(
       secondGinnieSnorkeling.mediaURL + '\n' + 
-      secondGinnieSnorkeling.Amenity + '\n' +
+      secondGinnieSnorkeling.Amenity + '\n'
       
       
       
