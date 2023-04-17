@@ -7,65 +7,118 @@
     right: 70px;
     transform: translateY(-50%); */
 
-    /* margin-top:50px; */
     position: absolute;
-    top: calc(50% + 70px); /* 50% + (header height / 2) */
-    left: calc(50% + 60px);/* 50% + (280px / 2) */
+    top: 50%;
+    left: calc(50% + 110px);/* 50% + (280px / 2) */
     transform: translate(-50%, -50%);
-    width: 80%;
-    height: 98%;
+    width: 90%;
+    height: 90%;
     background-color: rgb(255, 255, 255, 0.8);
-    line-height: 0.5;
 }
 
 p {
     font-family: 'Times New Roman', 'Georgia', 'Garamond'
 }
 
-/* .overview {
+.overview {
+    /* height: 60px; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* width: 100px; */
+    /* z-index: 1; */
+    /* border: solid black 1px; */
+
+    /* height: 90vh; */
     align-items: center;
     justify-content: center;
     width: 100%;
     font-weight: bold;
     color: black;
-} */
+}
 
-textarea {
-    /* margin: 10px;
+#overviewText {
+    margin: 10px;
     margin-left: 20px;
     overflow: auto;
     width: 80%;
     height: 150px;
-    text-align: center; */
-    line-height: 1.5;
+    background-color: rgb(255, 255, 255, 0.9);
+    text-align: center;
 
 }
 
-/*.icons {
+.icons {
     margin-left: 40px;
-}*/
+}
 
-.text2{
-    font-family: 'Cormorant Garamond', serif;
-    color: black;
-    font-weight: bold;
-    font-size: x-large;
+.text1 {
+    margin-right: 10px;
+    margin-top: 15px;
 }
 
 #player {
     left: 5px;
 }
 
-.amenities {
+/* .amenities {
     background-color: #f00;
     border: black solid 2px;
 }
 
-/* .reviews {
+.reviews {
     border: black solid 2px;
+} */
+
+footer {
+    /* background-color: purple; */
+    /* border: black solid 2px; */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 50px;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.reviews {
     display: flex;
     flex-direction: column;
-} */
+    margin-top: 5vh;
+
+}
+
+
 
 #springID {
     display: none
@@ -88,26 +141,9 @@ textarea {
 
     flex: 0 0 24%;
     max-height: 10%;
-    line-height: 1.5;
+
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 50px;
-    color: white;
     height: 5vh;
-}
-
-@media screen and (max-width: 768px) {
-    .firstBlock,
-    .secondBlock {
-        flex-direction: column;
-    }
-    .card-img-top {
-        width: 50%;
-        height: 50%;
-    }
-
 }

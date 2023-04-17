@@ -209,10 +209,10 @@ console.log('req.session.logged_in ------ ', req.session.logged_in)
     res.render('spring', {
       ...spring,
       displayMedia,
-      media,
       logged_in: req.session.logged_in,
       allReviews,
      
+      media,
     });
 
   } catch (err) {
