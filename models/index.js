@@ -9,7 +9,6 @@ const Amenity = require('./Amenity');
 const amenityMedia = require('./amenityMedia');
 const sequelize = require('../config/connection');
 
-const dropAll = async function(){await sequelize.drop()}
 
 
 Spring.hasMany(springMedia,
@@ -504,7 +503,7 @@ var ichetuckneeMain = await springMedia.create({
   //
 
 }
-dropAll();
+
 runTests();
 
 module.exports = { User };
