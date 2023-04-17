@@ -20,9 +20,7 @@ router.get('/', async (req, res) => {
     var  top5 = await Spring.findAll({
       limit: 5,
       raw: true,
-      order: [
-        [springID, 'DESC']
-      ]
+    
     },
     );
 

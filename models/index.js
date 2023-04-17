@@ -212,7 +212,7 @@ const runTests = async function () {
   console.log('--------------------------------- end springs ------------------------ \n')
 
   var ginnieMain = await springMedia.create({
-    Spring: ginnieSprings.springID,
+    Spring: 1,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg", 
     Caption: `A stunning picture of one of ginnie's famous cave  systems`, 
     mainImage: true});
@@ -268,13 +268,13 @@ const reviewMedia1 = await reviewMedia.create({
 })
 
 var ichetuckneeMain = await springMedia.create({
-  Spring: ichetuckneeSprings.springID,
+  Spring: 2,
   mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg", 
   Caption: "The entrance to the Ichetucknee head spring, next to a path leading to Blue Hole", 
   mainImage: true
 });
   var blueMain = await springMedia.create({
-    Spring: blueSprings.springID,
+    Spring: 3,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442901/Blue-Springs-State-Park_084e5789-a552-d6e7-6866fc9f12ece6b1_fwc7qw.jpg", 
     Caption: "A group of manatees swimming through blue springs", 
     mainImage: true
@@ -284,7 +284,7 @@ var ichetuckneeMain = await springMedia.create({
 
 
   var silverGlenMain = await springMedia.create({
-    Spring: silverGlenSprings.springID,
+    Spring: 4,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443092/8696137743_530350a358_b_xtdprv.jpg", 
     Caption: "A rare sight - a spiral swarm of striped bass at the restricted breeding grounds at Silver Glen Springs", 
     mainImage: true
@@ -293,7 +293,7 @@ var ichetuckneeMain = await springMedia.create({
 
  
   var alexanderMain = await springMedia.create({
-    Spring: alexanderSprings.springID,
+    Spring: 5,
     mediaURL: "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443378/diving-down-into-alexander-springs-1024x577_x5uwvo.jpg", 
     Caption: "Alexander is deceptively deep and spacious!", 
     mainImage: true
