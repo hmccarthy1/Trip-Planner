@@ -117,12 +117,14 @@ console.log('------------------------------------ mathcing records \n' + matchin
 var finalResults = await Spring.findAll({
     where: {
         springID: {[Op.or]: matchingRecords},
-        springName: {[Op.startsWith]: nameFilter}
-       
-    
+        springName: {[Op.startsWith]: nameFilter},
     },
+    order: [
+        ['springID', 'DESC']
+    ],
    
-        raw: true
+        raw: true,
+        limit: 1
       
 });
 
