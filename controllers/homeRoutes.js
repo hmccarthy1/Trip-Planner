@@ -29,34 +29,12 @@ router.get('/', async (req, res) => {
 
     
 
+top5[4].URL = 'https://res.cloudinary.com/dsvmviwkc/image/upload/v1681441564/ginnieMain_vsq9ht.jpg';
+top5[3].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681680355/hu9ow4bb4kpsbrhp9rtf.jpg";
+top5[2].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443092/8696137743_530350a358_b_xtdprv.jpg";
+top5[1].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681443580/7e17e2e44eb5c913e2c585bc05ad0145_ba4i5k.jpg";
+top5[0].URL = "https://res.cloudinary.com/dsvmviwkc/image/upload/v1681442901/Blue-Springs-State-Park_084e5789-a552-d6e7-6866fc9f12ece6b1_fwc7qw.jpg";
 
-    for (var i = 0; i < top5.length; i++ ) {
-    
-      var allMedia = await springMedia.findAll({
-        where: {
-          Spring: top5[i].springID
-        },
-        order: [
-          [springMediaID, 'DESC']
-        ]
-      });
-
-      console.log( ' ================================================= length ================================', allMedia.length)
-
-      var newMedia = await springMedia.findOne({
-        where: {
-          Spring: top5[i].springID
-        },
-        raw: true
-      });
-
-      console.log('========================================= NEW MEDIA ============================', newMedia)
-
-      top5[i].URL = newMedia.mediaURL
-
-    }
-
-    
 
 
     res.render('homepage', 
