@@ -6,8 +6,10 @@ const favoritedSpring = require('./favoritedSpring')
 const springMedia = require('./springMedia')
 const amenityChoice = require('./amenityChoice');
 const Amenity = require('./Amenity');
-const amenityMedia = require('./amenityMedia')
+const amenityMedia = require('./amenityMedia');
+const sequelize = require('../config/connection');
 
+await sequelize.drop()
 
 Spring.hasMany(springMedia,
   {
@@ -52,6 +54,8 @@ var testAmenityMedia;
 
 
 const runTests = async function () {
+
+
   await User.sync({force: true})
   await Spring.sync({force: true})
   await springMedia.sync({force: true})
