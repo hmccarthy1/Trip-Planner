@@ -9,7 +9,7 @@ const Amenity = require('./Amenity');
 const amenityMedia = require('./amenityMedia');
 const sequelize = require('../config/connection');
 
-springMedia.destroy({ truncate: true})
+
 
 Spring.hasMany(springMedia,
   {
