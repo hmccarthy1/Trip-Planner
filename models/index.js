@@ -30,14 +30,14 @@ const runTests = async function () {
   // springReview.destroy({truncate: true});
   // reviewMedia.destroy({truncate: true})
 
-  userHunter = await User.create({
-    firstName: "Hunter",
-    lastName: "McCarthy",
-    DOB: 1996 / 03 / 30,
-    emailAddress: "hunterMcCarthy56@hotmail.com",
-    userPassword: "123456789",
-    phoneNumber: '321-210-9676'
-  });
+  // userHunter = await User.create({
+  //   firstName: "Hunter",
+  //   lastName: "McCarthy",
+  //   DOB: 1996 / 03 / 30,
+  //   emailAddress: "hunterMcCarthy56@hotmail.com",
+  //   userPassword: "123456789",
+  //   phoneNumber: '321-210-9676'
+  //  });
 
 
   var ginnieSprings = await Spring.create({
