@@ -14,16 +14,8 @@ router.get('/', async (req, res) => {
   try {
     // We will show the Springs here
 
-    const user = {};
+  
 
-
-    if (req.session.logged_in) {
-      console.log("it's logged");
-      const username = req.session.firstName + ' ' + req.session.lastName;
-      console.log("username: " + username);
-      user.username = username;
-      user.logged_in = true;
-    };
 
     var  top5 = await Spring.findAll({
       limit: 5,
