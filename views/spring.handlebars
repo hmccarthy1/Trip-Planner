@@ -3,7 +3,8 @@
 <!-- Button trigger modal -->
 
 <!-- Modal for review -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -18,7 +19,7 @@
         <h1 class="h4">Add any of your comments here</h1>
         <input type="text" id="Comments">
         <h1 class="h4">Upload images</h1>
-        <input id="fileUpload" multiple="multiple" type="file" name="files"  >
+        <input id="fileUpload" multiple="multiple" type="file" name="files">
 
       </div>
       <div class="modal-footer">
@@ -29,7 +30,8 @@
   </div>
 </div>
 
-<div class="modal fade" id="favoriteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="favoriteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -40,7 +42,7 @@
       </div>
       <div class="modal-body">
         <h1>Are you sure you want to favorite this spring?</h1>
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Nope</button>
@@ -50,109 +52,111 @@
   </div>
 </div>
 
-<section class="individualSpring d-flex flex-colum">
+{{!-- Invidual Spring page --}}
+<div class="individualSpring d-flex flex-column mt-50">
 
-    {{!-- Overview section contains information about the Spring, video, and amenities--}}
-    <section class="overview text-center">
-        <p class="text1">OVERVIEW</p>
+      <p class="text2 ml-5 mt-5">{{springName}} Overview</p>
 
-        <section class="box1 d-flex flex-row">
-            <div>
-                <textarea readonly name="overviewText" id="overviewText" cols="30" rows="10">{{springDescription}}</textarea>
+      {{!-- First block --}}
+      <div class="firstBlock d-flex flex-row">
 
-                {{!-- Amenities --}}
-                <section class="amenities">
-                    <p class="text-center">Amenities</p>
-                    <div class="icons d-flex flex-row justify-content-around">
+          <div class="textAmenity" style="width: 50%;">
 
-                        {{#each media}}
-                        <div class="amenityIcons d-flex justify-content-around">
-                            <div class="card" style="width: 4rem; height:50px">
-                                <img src={{this}} class="card-img-top" style="width: 100%; height: 100%;"
-                                    alt="...">
-                            </div>
-                            {{/each}}
-                        </div>
+            {{!-- Text area --}}
+              <textarea readonly class="overviewText ml-5" style="width: 80%; height:50%;" name="overviewText" id="overviewText" cols="30" rows="10">{{springDescription}}</textarea>
+            
+            {{!-- Amenities --}}
+              
+              {{!-- 
+              <div class="amenityClass"> --}}
 
-                </section>
-            </div>
+                  <p class="text2 ml-5 mt-4">Amenities</p>
+                  {{!-- <div class="icons d-flex flex-row justify-content-around">
 
-            <p class="text1">{{springName}}</p>
+                    {{#each media}}
+                    <div class="iconsClass d-flex justify-content-around">
+                      <div class="card" style="width: 4rem; height:50px">
+                        <img src={{this}} class="card-img-top" style="width: 100%; height: 100%;" alt="...">
+                      </div>
+                      {{/each}}
+                    </div>
 
-            {{!-- Video Player --}}
-            <div id="player"></div>
-        </section>
-    </section>
+                  </div>
 
-    {{!-- Gallery --}}
-    {{!-- <section class="gallery">
-        <p class="text-center">Media Gallery</p>
-        {{#each displayMedia}}
-        <div class="photos d-flex justify-content-around">
-            <div class="card" style="width: 18rem; height:200px">
-                <img src={{this.mediaURL}} class="card-img-top" style="width: 100%; height: 100%;" alt="...">
-            </div>
-            {{/each}}
-        </div>
-    </section> --}}
+              </div> --}}
+          </div>
 
-    {{!-- Gallery --}}
-    <section class="gallery">
-        <p class="text-center">Media Gallery</p>
+          {{!-- Video Player --}}
+          <div id="player" class="youTube" style="width: 50%;"></div>
+
+      </div>
+
+      <p class="text2 ml-5 mt-4">Media Gallery</p>
+
+      {{!-- Second block --}}
+      
+      <div class="secondBlock">
+
         <div class="photos d-flex justify-content-around align-items-center">
-            {{!-- Button forward --}}
-            <button class="prev-btn btn btn-info" style="height:40%"><</button>
+          {{!-- Button forward --}}
+          <button class="prev-btn btn btn-info" style="height:40%"> Prev </button>
 
-            <div class="card-container">
-                <div class="card" style="width: 18rem; height:200px">
-                    {{!-- The URL for the images are stored in displayMedia that comes as a template literal
-                    from the homeRoutes--}}
-                    <img id="mediaImage" src={{displayMedia.[0].mediaURL}} class="card-img-top"
-                        style="width: 100%; height: 100%;" alt="...">
+              <div class="card-box">
+                <div class="cardImage" style="width: 30rem; height:300px">
+                  {{!-- The URL for the images are stored in displayMedia that comes as a template literal
+                  from the homeRoutes--}}
+                  <img id="mediaImage" src={{displayMedia.[0].mediaURL}} class="card-img-top"
+                    style="width: 100%; height: 100%;" alt="...">
                 </div>
-            </div>
+              </div>
 
-            {{!-- Button Backward --}}
-            <button class="next-btn btn btn-info" style="height:40%">></button>
+          {{!-- Button Backward --}}
+          <button class="next-btn btn btn-info" style="height:40%"> Next </button>
+
         </div>
-    </section>
 
-
-    {{!-- Reviews --}}
-    <section class="reviews">
-        <h1 class="h1 text-center">Reviews</h1>
-        <div class="review d-flex mt-5" id="reviewGallery">
+      </div> 
      
-            {{#each allReviews as | review Index| }}
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <img class="card-img-top" src= {{this.URL}}    alt="{{@index}}">
-  
-  <div class="card-body">
-    <p class="card-text">{{this.reviewText}}</p>
-    <button class="btn btn-primary" >See Review</button>
-  </div>
+
+      {{!-- Third block --}}
+
+      <p class="text2 ml-5 mt-4">Reviews</p>
+
+      <div class="reviews">
+
+        <div class="review d-flex" id="reviewGallery">
+
+          {{#each allReviews as | review Index| }}
+          <div class="card text-white bg-dark">
+            <img class="card-img-top" src={{this.URL}} alt="{{@index}}">
+
+            <div class="card-body">
+              <p class="card-text">{{this.reviewText}}</p>
+              <button class="btn btn-primary">See Review</button>
+            </div>
+          </div>
+
+
+          {{/each}}
+        </div>
+
+      </div>
+
 </div>
-
-
-            {{/each}}
-    </section>
-
-</section>
 
 {{!-- Footer --}}
 <footer class="bg-dark d-flex flex-row justify-content-around">
-    <p class="h4 text-center align-self-center">Liked this spring? Favorite it!  <button id="favoriteButton" class="btn btn-primary " data-toggle="modal" data-target="#favoriteModal">&#9733;</button></p>
-    <div class="bg-dark d-flex flex-row justify-content-right align-items-center">
-        <p class="me-3 h4 text-center">Want to leave some feedback?</p>
-        <button id="addAReviewButton" class="btn btn-primary ml-3" data-toggle="modal" data-target="#exampleModal">Add a review</button>
+  <p class="h4 text-center align-self-center">Liked this spring? Favorite it! <button id="favoriteButton"
+      class="btn btn-primary " data-toggle="modal" data-target="#favoriteModal">&#9733;</button></p>
+  <div class="bg-dark d-flex flex-row justify-content-right align-items-center">
+    <p class="me-3 h4 text-center">Want to leave some feedback?</p>
+    <button id="addAReviewButton" class="btn btn-primary ml-3" data-toggle="modal" data-target="#exampleModal">Add a
+      review</button>
 
-    </div>
+  </div>
 </footer>
 
 
-    <h1 id="springID">{{springID}}</h1>
+<h1 id="springID">{{springID}}</h1>
 
 <script src="/js/spring.js"></script>
-
-
-

@@ -15,8 +15,8 @@ function onYouTubeIframeAPIReady() {
     // Create and configure your player here
     var playerDiv = document.getElementById('player');
     var iframe = document.createElement('iframe');
-    iframe.width = '470';
-    iframe.height = '260';
+    iframe.width = '500';
+    iframe.height = '300';
     iframe.src = 'https://www.youtube.com/embed/' + videoIndex[id - 1];
     iframe.frameBorder = '0';
     iframe.allowFullscreen = true;
