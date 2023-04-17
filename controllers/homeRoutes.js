@@ -36,6 +36,7 @@ router.get('/', async (req, res) => {
         raw: true
       });
 
+      console.log('lookup media ---------------------------------------------', lookupMedia)
 
       top5[i].URL = lookupMedia.mediaURL
 
