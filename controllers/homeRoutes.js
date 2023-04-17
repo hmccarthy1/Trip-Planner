@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   try {
     // We will show the Springs here
 
-  var user = ""
+  
 
 
     var  top5 = await Spring.findAll({
@@ -47,7 +47,7 @@ router.get('/', async (req, res) => {
 
 
     res.render('homepage', 
-    {user, top5});
+    { top5});
   } catch (err) {
     res.status(500);
   }
