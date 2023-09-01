@@ -1,6 +1,6 @@
 # Florida Springs Deep Dive
 # Description
-This project has the best Springs in Florida.
+This project has the intent of sharing information about the best freshwater springs in Florida with the general public. It includes many photos of different springs throughout the state, as well as information such as location and amenities.
 # Table of Contents
 - [Installation](#installation)
 - [Credits](#credits)
