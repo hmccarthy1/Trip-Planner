@@ -1,6 +1,6 @@
 # Florida Springs Deep Dive
 # Description
-This project has the best Springs in Florida. The user can create an account to save his favorite springs, create reviews, and see other people's reviews. We created our own server, and we have routes to different screens like the homepage, the favorites, the login, register, and the individual spring.
+This project is intended to offer up information on the best Florida Springs to the general public. It includes many photos of dozens of different springs, as well as information on things such as locations and amenities.
 # Table of Contents
 - [Installation](#installation)
 - [Credits](#credits)
