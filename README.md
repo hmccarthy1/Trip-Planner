@@ -1,6 +1,11 @@
 # Florida Springs Deep Dive
 # Description
 This project has the intent of sharing information about the best freshwater springs in Florida with the general public. It includes many photos of different springs throughout the state, as well as information such as location and amenities.
+# Screenshots
+<img width="1855" alt="image" src="https://github.com/hmccarthy1/Trip-Planner/assets/120263945/3d90ad99-d0c0-46de-b9f9-de75c1860a83">
+<img width="1859" alt="image" src="https://github.com/hmccarthy1/Trip-Planner/assets/120263945/63fd1823-9388-45b4-a969-a9e1da8c894e">
+
+
 # Table of Contents
 - [Installation](#installation)
 - [Credits](#credits)
